@@ -1,0 +1,484 @@
+[
+  {
+    "id": 1,
+    "name": "Version Control Operations Using Git",
+    "problemStatement": "Create a Git repository for a project named Student Management System and perform basic version control operations.",
+    "language": "Git · Bash / PowerShell",
+    "tasks": [
+      "Initialize a local Git repository.",
+      "Create a file named student.txt and add sample student information.",
+      "Stage and commit the file with the message \"Initial commit\".",
+      "Create a remote repository on GitHub and link it with the local repository.",
+      "Push the commit to the remote repository.",
+      "Create a new branch named feature-update.",
+      "Modify the student.txt file by adding additional student records.",
+      "Commit the changes in the feature-update branch.",
+      "Merge feature-update into the main branch.",
+      "Display the commit history using Git commands.",
+      "Write a brief conclusion."
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Initialize a Local Git Repository",
+        "type": "command",
+        "description": "Create a project directory named StudentManagementSystem and initialize a new local Git repository.",
+        "commands": "mkdir StudentManagementSystem\ncd StudentManagementSystem\ngit init",
+        "output": "Initialized empty Git repository in C:/.../StudentManagementSystem/.git/"
+      },
+      {
+        "step": 2,
+        "title": "Create student.txt with Sample Student Records",
+        "type": "file",
+        "description": "Create a new text file named student.txt in the root of the repository and add sample student information.",
+        "file": {
+          "name": "student.txt",
+          "language": "text",
+          "content": "=========================================\n       STUDENT MANAGEMENT SYSTEM         \n=========================================\nRoll No | Name           | Branch | Year\n--------|----------------|--------|-----\n101     | Alice Johnson  | CSE    | 3rd \n102     | Bob Smith      | CSE    | 3rd \n103     | Charlie Brown  | IT     | 3rd \n========================================="
+        },
+        "commandTip": "On Windows PowerShell, run: Set-Content -Path student.txt -Value @'\n(paste content above)\n'@"
+      },
+      {
+        "step": 3,
+        "title": "Stage and Commit with Message \"Initial commit\"",
+        "type": "command",
+        "description": "Add student.txt to the Git staging index and create the first commit.",
+        "commands": "git add student.txt\ngit commit -m \"Initial commit\"",
+        "output": "[main (root-commit) 3f2b1a0] Initial commit\n 1 file changed, 8 insertions(+)\n create mode 100644 student.txt"
+      },
+      {
+        "step": 4,
+        "title": "Link Local Repository with Remote GitHub Repository",
+        "type": "command",
+        "description": "Create an empty repository named StudentManagementSystem on GitHub, then add it as remote origin.",
+        "commands": "# Replace <your-username> with your actual GitHub username:\ngit remote add origin https://github.com/<your-username>/StudentManagementSystem.git\ngit branch -M main\ngit remote -v",
+        "output": "origin  https://github.com/<your-username>/StudentManagementSystem.git (fetch)\norigin  https://github.com/<your-username>/StudentManagementSystem.git (push)"
+      },
+      {
+        "step": 5,
+        "title": "Push the Commit to Remote GitHub Repository",
+        "type": "command",
+        "description": "Push the main branch commit to the remote GitHub repository.",
+        "commands": "git push -u origin main",
+        "output": "Enumerating objects: 3, done.\nWriting objects: 100% (3/3), 280 bytes | 280.00 KiB/s, done.\nTo https://github.com/<your-username>/StudentManagementSystem.git\n * [new branch]      main -> main\nbranch 'main' set up to track 'origin/main'."
+      },
+      {
+        "step": 6,
+        "title": "Create and Switch to Branch feature-update",
+        "type": "command",
+        "description": "Create an isolated feature branch named feature-update to work on new records without affecting main.",
+        "commands": "git checkout -b feature-update\ngit branch",
+        "output": "* feature-update\n  main"
+      },
+      {
+        "step": 7,
+        "title": "Modify student.txt by Adding Additional Student Records",
+        "type": "file",
+        "description": "Append additional student records (Roll 104 and 105) to student.txt.",
+        "file": {
+          "name": "student.txt (Updated)",
+          "language": "text",
+          "content": "=========================================\n       STUDENT MANAGEMENT SYSTEM         \n=========================================\nRoll No | Name           | Branch | Year\n--------|----------------|--------|-----\n101     | Alice Johnson  | CSE    | 3rd \n102     | Bob Smith      | CSE    | 3rd \n103     | Charlie Brown  | IT     | 3rd \n104     | Diana Prince   | AIML   | 3rd \n105     | Evan Wright    | CSE    | 3rd \n========================================="
+        },
+        "commandTip": "Review diff before staging: git diff student.txt"
+      },
+      {
+        "step": 8,
+        "title": "Commit Changes in the feature-update Branch",
+        "type": "command",
+        "description": "Stage the modified student.txt and commit changes in the feature-update branch.",
+        "commands": "git add student.txt\ngit commit -m \"Add student records for roll 104 and 105\"\ngit push -u origin feature-update",
+        "output": "[feature-update 7a9c3d1] Add student records for roll 104 and 105\n 1 file changed, 2 insertions(+)"
+      },
+      {
+        "step": 9,
+        "title": "Merge feature-update Branch into main Branch",
+        "type": "command",
+        "description": "Switch back to the main branch and merge the feature-update branch changes.",
+        "commands": "git checkout main\ngit merge feature-update\ngit push origin main",
+        "output": "Updating 3f2b1a0..7a9c3d1\nFast-forward\n student.txt | 2 +-\n 1 file changed, 2 insertions(+)"
+      },
+      {
+        "step": 10,
+        "title": "Display Commit History Using Git Commands",
+        "type": "command",
+        "description": "View the graphical and formatted one-line commit log.",
+        "commands": "git log --oneline --graph --decorate --all",
+        "output": "* 7a9c3d1 (HEAD -> main, origin/main, feature-update) Add student records for roll 104 and 105\n* 3f2b1a0 (origin/main) Initial commit"
+      }
+    ],
+    "conclusion": "In this experiment, essential version control operations using Git were executed for the Student Management System. We initialized a local Git repository, created and committed tracked student records, established connection with a remote GitHub repository, and pushed the commit history. Furthermore, non-linear branch management was demonstrated by isolating work inside the feature-update branch, followed by a fast-forward merge into the main branch. The graphical commit log confirmed complete traceability of changes.",
+    "fullScript": "# ========================================================\n# EXPERIMENT 1: Version Control Operations Using Git\n# Project: Student Management System\n# ========================================================\n\n# 1. Initialize local repository\nmkdir StudentManagementSystem\ncd StudentManagementSystem\ngit init\n\n# 2. Create student.txt with sample records\ncat << 'EOF' > student.txt\n=========================================\n       STUDENT MANAGEMENT SYSTEM         \n=========================================\nRoll No | Name           | Branch | Year\n--------|----------------|--------|-----\n101     | Alice Johnson  | CSE    | 3rd \n102     | Bob Smith      | CSE    | 3rd \n103     | Charlie Brown  | IT     | 3rd \n=========================================\nEOF\n\n# 3. Stage and commit with message 'Initial commit'\ngit add student.txt\ngit commit -m \"Initial commit\"\n\n# 4. Link remote GitHub repository and push main branch\ngit remote add origin https://github.com/<your-username>/StudentManagementSystem.git\ngit branch -M main\ngit push -u origin main\n\n# 5. Create new branch 'feature-update'\ngit checkout -b feature-update\n\n# 6. Add additional student records to student.txt\ncat << 'EOF' >> student.txt\n104     | Diana Prince   | AIML   | 3rd \n105     | Evan Wright    | CSE    | 3rd \n=========================================\nEOF\n\n# 7. Commit changes in feature-update\ngit add student.txt\ngit commit -m \"Add student records for roll 104 and 105\"\ngit push -u origin feature-update\n\n# 8. Merge feature-update into main\ngit checkout main\ngit merge feature-update\ngit push origin main\n\n# 9. Display commit history\ngit log --oneline --graph --decorate --all\n\n# Conclusion:\n# Version control operations using Git were successfully performed for the Student Management System.\n# We initialized a local repository, tracked and committed files, linked to remote GitHub, managed\n# branches cleanly, and verified commit history with git log.",
+    "note": "Make sure you create an empty repository named 'StudentManagementSystem' on GitHub before executing the push command."
+  },
+  {
+    "id": 2,
+    "name": "Implementation of CI/CD Pipelines Using GitHub Actions and Jenkins",
+    "problemStatement": "Create a simple Node.js project and implement Continuous Integration (CI) using GitHub Actions and a Jenkins Pipeline to automate build and test processes.",
+    "language": "YAML · Groovy (Jenkins) · JavaScript",
+    "tasks": [
+      "Create a Node.js project with a test script using Jest.",
+      "Create a GitHub repository and push the project files.",
+      "Create a workflow file ci.yml inside .github/workflows/.",
+      "Configure GitHub Actions workflow to: Checkout source code, Setup Node.js, Install dependencies, Run test cases.",
+      "Install and configure Jenkins.",
+      "Create a Jenkins Pipeline job.",
+      "Add a Jenkinsfile with the stages: Checkout, Install, Test, Build.",
+      "Execute both pipelines and verify successful execution.",
+      "Capture screenshots of GitHub Actions workflow run & Jenkins Pipeline Console Output.",
+      "Compare GitHub Actions and Jenkins based on setup and execution.",
+      "Write a brief conclusion."
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Create Node.js Project Structure",
+        "type": "command",
+        "description": "Initialize a new Node.js project directory and install Jest as a development testing dependency.",
+        "commands": "mkdir cicd-demo-app\ncd cicd-demo-app\nnpm init -y\nnpm install --save-dev jest",
+        "output": "+ jest@29.7.0\nadded 284 packages in 8s"
+      },
+      {
+        "step": 2,
+        "title": "Configure package.json with Test & Build Scripts",
+        "type": "file",
+        "description": "Update package.json to define test (Jest) and build scripts.",
+        "file": {
+          "name": "package.json",
+          "language": "json",
+          "content": "{\n  \"name\": \"cicd-demo-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample Node.js App for CI/CD demonstration\",\n  \"main\": \"src/app.js\",\n  \"scripts\": {\n    \"start\": \"node src/app.js\",\n    \"test\": \"jest --colors\",\n    \"build\": \"echo 'Application build completed successfully!'\"\n  },\n  \"devDependencies\": {\n    \"jest\": \"^29.7.0\"\n  }\n}"
+        }
+      },
+      {
+        "step": 3,
+        "title": "Create Application Code (src/app.js)",
+        "type": "file",
+        "description": "Create src/app.js with basic mathematical operations to be tested.",
+        "file": {
+          "name": "src/app.js",
+          "language": "javascript",
+          "content": "function add(a, b) {\n  return a + b;\n}\n\nfunction multiply(a, b) {\n  return a * b;\n}\n\nmodule.exports = { add, multiply };"
+        }
+      },
+      {
+        "step": 4,
+        "title": "Create Jest Test Script (tests/app.test.js)",
+        "type": "file",
+        "description": "Create tests/app.test.js with test suites verifying add and multiply functions.",
+        "file": {
+          "name": "tests/app.test.js",
+          "language": "javascript",
+          "content": "const { add, multiply } = require('../src/app');\n\ndescribe('Math Operations Test Suite', () => {\n  test('correctly adds two numbers: 5 + 7 = 12', () => {\n    expect(add(5, 7)).toBe(12);\n  });\n\n  test('correctly multiplies two numbers: 4 * 6 = 24', () => {\n    expect(multiply(4, 6)).toBe(24);\n  });\n});"
+        },
+        "commandTip": "Test locally: npm test"
+      },
+      {
+        "step": 5,
+        "title": "Create GitHub Actions Workflow (.github/workflows/ci.yml)",
+        "type": "file",
+        "description": "Create .github/workflows/ci.yml to trigger automated tests and build on push/pull-request.",
+        "file": {
+          "name": ".github/workflows/ci.yml",
+          "language": "yaml",
+          "content": "name: Node.js CI Pipeline\n\non:\n  push:\n    branches: [ \"main\" ]\n  pull_request:\n    branches: [ \"main\" ]\n\njobs:\n  build-and-test:\n    runs-on: ubuntu-latest\n\n    steps:\n      # 1. Checkout source code\n      - name: Checkout Source Code\n        uses: actions/checkout@v4\n\n      # 2. Setup Node.js\n      - name: Setup Node.js 20\n        uses: actions/setup-node@v4\n        with:\n          node-version: 20\n          cache: 'npm'\n\n      # 3. Install dependencies\n      - name: Install Dependencies\n        run: npm install\n\n      # 4. Run test cases\n      - name: Run Jest Test Cases\n        run: npm test\n\n      # 5. Build project\n      - name: Run Build Step\n        run: npm run build"
+        }
+      },
+      {
+        "step": 6,
+        "title": "Push Project to GitHub",
+        "type": "command",
+        "description": "Commit files and push to GitHub so the GitHub Actions workflow triggers automatically.",
+        "commands": "git init\ngit add .\ngit commit -m \"Add Node.js project and GitHub Actions CI workflow\"\ngit remote add origin https://github.com/<your-username>/cicd-demo-app.git\ngit branch -M main\ngit push -u origin main",
+        "output": "Writing objects: 100% (7/7), 1.4 KiB | done.\nTo https://github.com/<your-username>/cicd-demo-app.git\n * [new branch]      main -> main"
+      },
+      {
+        "step": 7,
+        "title": "Create Jenkinsfile with Checkout, Install, Test, Build Stages",
+        "type": "file",
+        "description": "Create Jenkinsfile in the root of the project to define the Jenkins Declarative Pipeline.",
+        "file": {
+          "name": "Jenkinsfile",
+          "language": "groovy",
+          "content": "pipeline {\n    agent any\n\n    tools {\n        nodejs 'NodeJS-20'\n    }\n\n    stages {\n        stage('Checkout') {\n            steps {\n                echo 'Checking out source code from Git repository...'\n                checkout scm\n            }\n        }\n\n        stage('Install') {\n            steps {\n                echo 'Installing project dependencies using npm...'\n                sh 'npm install' // On Windows Jenkins use: bat 'npm install'\n            }\n        }\n\n        stage('Test') {\n            steps {\n                echo 'Executing Jest automated unit test suite...'\n                sh 'npm test' // On Windows Jenkins use: bat 'npm test'\n            }\n        }\n\n        stage('Build') {\n            steps {\n                echo 'Executing application production build...'\n                sh 'npm run build' // On Windows Jenkins use: bat 'npm run build'\n            }\n        }\n    }\n\n    post {\n        success {\n            echo 'CI/CD Pipeline executed successfully! All tests passed.'\n        }\n        failure {\n            echo 'Pipeline failed. Check test reports and build console.'\n        }\n    }\n}"
+        }
+      },
+      {
+        "step": 8,
+        "title": "Expected Pipeline Console Outputs",
+        "type": "output",
+        "description": "Verify successful execution output in GitHub Actions and Jenkins Console.",
+        "output": "[GitHub Actions Output]:\nPASS tests/app.test.js\n  Math Operations Test Suite\n    ✓ correctly adds two numbers: 5 + 7 = 12 (2 ms)\n    ✓ correctly multiplies two numbers: 4 * 6 = 24 (1 ms)\n\nTest Suites: 1 passed, 1 total\nTests:       2 passed, 2 total\nSnapshots:   0 total\nTime:        0.874 s\nBuild completed successfully!\n\n[Jenkins Console Output]:\n[Pipeline] { (Stage Checkout) } -> SUCCESS\n[Pipeline] { (Stage Install) } -> SUCCESS\n[Pipeline] { (Stage Test) } -> SUCCESS\n[Pipeline] { (Stage Build) } -> SUCCESS\nFinished: SUCCESS"
+      },
+      {
+        "step": 9,
+        "title": "Comparison: GitHub Actions vs Jenkins",
+        "type": "comparison",
+        "description": "Comparative analysis based on setup, maintenance, and execution.",
+        "comparison": [
+          { "feature": "Hosting", "gha": "Cloud-hosted SaaS (Managed by GitHub)", "jenkins": "Self-hosted / On-Premise / Cloud VM" },
+          { "feature": "Setup Complexity", "gha": "Very Low (Pre-configured runners, YAML)", "jenkins": "Moderate-High (Requires JVM, plugins & agents)" },
+          { "feature": "Configuration", "gha": ".github/workflows/*.yml (YAML)", "jenkins": "Jenkinsfile (Groovy Declarative / Scripted)" },
+          { "feature": "Trigger Events", "gha": "Git Push, PR, Issues, Webhooks, Schedules", "jenkins": "Webhook triggers, SCM polling, Cron" },
+          { "feature": "Maintenance", "gha": "Zero maintenance required", "jenkins": "Admin manages server OS, security & plugins" },
+          { "feature": "Cost", "gha": "Generous free tier included with GitHub", "jenkins": "Free Open-Source (Hardware hosting costs apply)" }
+        ]
+      }
+    ],
+    "conclusion": "Continuous Integration (CI) pipelines were successfully implemented using both GitHub Actions and Jenkins for an automated Node.js application. Jest unit test cases and build processes were triggered automatically on each commit. GitHub Actions offered effortless cloud configuration with zero maintenance overhead, while Jenkins demonstrated high flexibility, granular plugin support, and robust control suitable for private enterprise infrastructure.",
+    "fullScript": "# Complete files and configurations for Experiment 2:\n# 1. package.json\n# 2. src/app.js\n# 3. tests/app.test.js\n# 4. .github/workflows/ci.yml\n# 5. Jenkinsfile\n# Refer to the step-by-step breakdown above for file-by-file contents and setup instructions.",
+    "note": "When using Jenkins on Windows, replace 'sh' with 'bat' commands inside the Jenkinsfile."
+  },
+  {
+    "id": 3,
+    "name": "Create and Manage a Scrum-Based Agile Project in Jira",
+    "problemStatement": "A software development team is developing an Online Library Management System. Using Jira, create a new Scrum project, configure workflow columns, create work items, organize the backlog, run a sprint, and demonstrate team collaboration.",
+    "language": "Jira · Agile Scrum Guide",
+    "tasks": [
+      "Create a new Scrum project/space.",
+      "Configure the workflow columns as: To Do, In Progress, In Review, Done.",
+      "Create at least four work items: Two Tasks, One Story, One Bug.",
+      "Assign priorities and descriptions to each work item.",
+      "Organize the work items in the backlog.",
+      "Create a sprint and add all work items to the sprint.",
+      "Move at least one item through all workflow stages up to \"Done\".",
+      "Invite a team member (or demonstrate the invite feature).",
+      "Write a brief conclusion on the benefits of Agile project management using Jira."
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Create a New Scrum Project in Jira",
+        "type": "gui",
+        "description": "Log into Atlassian Jira and initialize a new Scrum project for the Online Library Management System.",
+        "guiSteps": [
+          "Open your Jira instance (https://<your-domain>.atlassian.net).",
+          "Click on Projects in the top navigation bar -> select Create Project.",
+          "Select Project Template: Scrum (Software Development).",
+          "Choose Project Type: Team-managed or Company-managed.",
+          "Enter Project Name: Online Library Management System",
+          "Enter Project Key: OLMS",
+          "Click Create Project."
+        ]
+      },
+      {
+        "step": 2,
+        "title": "Configure the 4 Workflow Board Columns",
+        "type": "gui",
+        "description": "Customize the active Scrum board columns to reflect the required delivery stages.",
+        "guiSteps": [
+          "Go to your project Board view.",
+          "Click the '...' menu at the top right -> select Board settings (or click '+ Add column').",
+          "Configure the 4 workflow columns with their mapped statuses:",
+          "  1. [To Do]        -> Category: To Do",
+          "  2. [In Progress]  -> Category: In Progress",
+          "  3. [In Review]    -> Category: In Progress (Quality Gate)",
+          "  4. [Done]         -> Category: Done",
+          "Save changes to ensure each column correctly transitions issues."
+        ]
+      },
+      {
+        "step": 3,
+        "title": "Create Four Work Items (2 Tasks, 1 Story, 1 Bug)",
+        "type": "items",
+        "description": "Create the 4 required work items with priorities, descriptions, and story points.",
+        "items": [
+          {
+            "type": "Story",
+            "key": "OLMS-1",
+            "summary": "User Search and Browse Book Catalog",
+            "priority": "High",
+            "points": 5,
+            "description": "As a registered student,\nI want to search books by Title, Author, or ISBN,\nSo that I can check real-time shelf availability and location before visiting the library.",
+            "acceptance": "1. Search results return in < 1 second.\n2. Shows status (Available / Borrowed)."
+          },
+          {
+            "type": "Task",
+            "key": "OLMS-2",
+            "summary": "Design PostgreSQL Database Schema for Books and Borrowing Records",
+            "priority": "High",
+            "estimate": "4 Hours",
+            "description": "Design relational schema including tables for books, authors, members, and transactions with foreign key constraints and ISBN indexing."
+          },
+          {
+            "type": "Task",
+            "key": "OLMS-3",
+            "summary": "Configure JWT User Authentication and Role-Based Access Control",
+            "priority": "Medium",
+            "estimate": "6 Hours",
+            "description": "Implement authentication endpoints with password hashing (bcrypt) and role guards for Student and Librarian access."
+          },
+          {
+            "type": "Bug",
+            "key": "OLMS-4",
+            "summary": "Duplicate Borrow Record Created on Rapid Double-Click of 'Confirm Borrow'",
+            "priority": "Highest (Critical)",
+            "severity": "Critical",
+            "description": "When a student double-clicks the confirm button quickly, two identical database rows are inserted with duplicate transaction IDs.\nFix by disabling the submit button on initial click and adding a database uniqueness constraint."
+          }
+        ]
+      },
+      {
+        "step": 4,
+        "title": "Organize Work Items in the Backlog",
+        "type": "gui",
+        "description": "Rank and prioritize work items in the Product Backlog.",
+        "guiSteps": [
+          "Open the Backlog view from the left project sidebar.",
+          "Drag and drop work items to prioritize them in the backlog stack:",
+          "  1. OLMS-4 (Critical Bug: Duplicate borrow error) - Ranked Highest",
+          "  2. OLMS-2 (Task: DB schema design) - Ranked High",
+          "  3. OLMS-1 (Story: Book Search & Catalog) - Ranked High",
+          "  4. OLMS-3 (Task: JWT Authentication & RBAC) - Ranked Medium"
+        ]
+      },
+      {
+        "step": 5,
+        "title": "Create Sprint and Add All Work Items",
+        "type": "gui",
+        "description": "Create Sprint 1, assign all work items into it, and start the sprint.",
+        "guiSteps": [
+          "In the Backlog view, click Create Sprint (creates 'OLMS Sprint 1').",
+          "Drag all 4 work items from the Backlog section into 'OLMS Sprint 1'.",
+          "Click Start Sprint on the sprint header.",
+          "Fill in sprint configuration details:",
+          "  - Sprint Name: OLMS Sprint 1 - Core Catalog & Auth",
+          "  - Duration: 2 weeks",
+          "  - Sprint Goal: Deliver functional book catalog search and resolve transaction race conditions.",
+          "Click Start to launch the active sprint board."
+        ]
+      },
+      {
+        "step": 6,
+        "title": "Move Work Items Through Workflow Stages to 'Done'",
+        "type": "gui",
+        "description": "Simulate real-time task progression across the Kanban/Scrum board.",
+        "guiSteps": [
+          "Go to the active Sprint Board.",
+          "Drag Story OLMS-1 from [To Do] -> [In Progress] (Development begins).",
+          "Drag Story OLMS-1 from [In Progress] -> [In Review] (Code review & PR submitted).",
+          "Drag Story OLMS-1 from [In Review] -> [Done] (PR merged, QA passed, acceptance criteria met).",
+          "Observe Jira automatically updating completion stats and burn-down chart progress."
+        ]
+      },
+      {
+        "step": 7,
+        "title": "Demonstrate Inviting a Team Member",
+        "type": "gui",
+        "description": "Invite developers or collaborators to the Jira project space.",
+        "guiSteps": [
+          "Click Project Settings (gear icon in left sidebar) -> select Access or People.",
+          "Click Add people (top-right).",
+          "Enter teammate email: teammate@university.edu",
+          "Select Role: Developer or Member.",
+          "Click Add (demonstrating team invitation & role-based permissions)."
+        ]
+      }
+    ],
+    "conclusion": "Agile project management was successfully demonstrated using Jira for the Online Library Management System. We configured a Scrum project, set up a customized 4-stage workflow (To Do, In Progress, In Review, Done), created categorized user stories, tasks, and bugs with story points and priorities, and planned a time-boxed sprint. Moving items across the board demonstrated work-in-progress visibility, while Jira's automated sprint tracking and collaboration features demonstrated modern agile team governance.",
+    "fullScript": "# Jira Agile Scrum Setup Guide for Online Library Management System (OLMS)\n# 1. Project Template: Scrum | Name: Online Library Management System | Key: OLMS\n# 2. Workflow Columns: To Do, In Progress, In Review, Done\n# 3. Work Items Created:\n#    - Story (OLMS-1): User Search and Browse Book Catalog (5 pts, High)\n#    - Task (OLMS-2): Design PostgreSQL Database Schema (High)\n#    - Task (OLMS-3): Configure JWT Authentication & RBAC (Medium)\n#    - Bug (OLMS-4): Duplicate borrow record on rapid click (Critical)\n# 4. Sprint: OLMS Sprint 1 (2 weeks)\n# 5. Demonstrated transitions: To Do -> In Progress -> In Review -> Done\n# 6. Team member invite demonstrated via Project Settings -> Access.",
+    "note": "Remember the key Scrum artifacts for viva: Product Backlog, Sprint Backlog, Increment, and the Sprint Burn-down Chart."
+  },
+  {
+    "id": 4,
+    "name": "Containerizing Applications Using Docker",
+    "problemStatement": "Create a Docker container for a simple Java application and demonstrate the process of building a Docker image and running the application inside a container. The experiment should include Docker installation, Dockerfile creation, image building, container execution, and verification of application output.",
+    "language": "Java · Dockerfile · PowerShell",
+    "tasks": [
+      "Install Docker Desktop on the system.",
+      "Create a folder named DockerDemo.",
+      "Write a simple Java program that displays: Hello Docker World.",
+      "Create a Dockerfile without any extension.",
+      "Navigate to the project directory using PowerShell.",
+      "Build the Docker image using: docker build -t dockerdemo .",
+      "Verify that the image is created successfully: docker images.",
+      "Run the container: docker run dockerdemo.",
+      "Open Docker Desktop and inspect created container for logs & execution details.",
+      "Record the output and container status.",
+      "Write a brief conclusion."
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Install and Verify Docker Desktop",
+        "type": "command",
+        "description": "Download and install Docker Desktop with WSL 2 backend. Verify the Docker CLI is accessible.",
+        "commands": "docker --version",
+        "output": "Docker version 27.0.3, build 7d4bed8"
+      },
+      {
+        "step": 2,
+        "title": "Create Project Directory DockerDemo",
+        "type": "command",
+        "description": "Create a dedicated folder named DockerDemo and navigate into it using PowerShell.",
+        "commands": "mkdir C:\\Users\\Documents\\DockerDemo\ncd C:\\Users\\Documents\\DockerDemo",
+        "output": "Directory: C:\\Users\\Documents\\DockerDemo"
+      },
+      {
+        "step": 3,
+        "title": "Write Java Application (HelloDocker.java)",
+        "type": "file",
+        "description": "Create HelloDocker.java that prints 'Hello Docker World'.",
+        "file": {
+          "name": "HelloDocker.java",
+          "language": "java",
+          "content": "public class HelloDocker {\n    public static void main(String[] args) {\n        System.out.println(\"Hello Docker World\");\n    }\n}"
+        }
+      },
+      {
+        "step": 4,
+        "title": "Create the Dockerfile (No Extension)",
+        "type": "file",
+        "description": "Create a file named 'Dockerfile' without any extension in the DockerDemo directory.",
+        "file": {
+          "name": "Dockerfile",
+          "language": "dockerfile",
+          "content": "# Step 1: Use official lightweight OpenJDK base image\nFROM openjdk:17-jdk-alpine\n\n# Step 2: Set working directory inside container\nWORKDIR /app\n\n# Step 3: Copy Java source code into container\nCOPY HelloDocker.java .\n\n# Step 4: Compile the Java program\nRUN javac HelloDocker.java\n\n# Step 5: Specify entrypoint command to run on startup\nCMD [\"java\", \"HelloDocker\"]"
+        },
+        "commandTip": "Make sure the file name is strictly 'Dockerfile' (not Dockerfile.txt)."
+      },
+      {
+        "step": 5,
+        "title": "Navigate to Project Directory in PowerShell",
+        "type": "command",
+        "description": "Ensure your PowerShell session is positioned inside the DockerDemo directory containing both files.",
+        "commands": "cd C:\\Users\\Documents\\DockerDemo\nGet-ChildItem",
+        "output": "Mode                 LastWriteTime         Length Name\n----                 -------------         ------ ----\n-a----        10/25/2026   3:00 PM            122 HelloDocker.java\n-a----        10/25/2026   3:02 PM            240 Dockerfile"
+      },
+      {
+        "step": 6,
+        "title": "Build the Docker Image (docker build -t dockerdemo .)",
+        "type": "command",
+        "description": "Build the Docker image tagged 'dockerdemo' from the current directory context.",
+        "commands": "docker build -t dockerdemo .",
+        "output": "[+] Building 2.1s (8/8) FINISHED\n => [internal] load build definition from Dockerfile\n => [internal] load .dockerignore\n => [internal] load metadata for docker.io/library/openjdk:17-jdk-alpine\n => [1/4] WORKDIR /app\n => [2/4] COPY HelloDocker.java .\n => [3/4] RUN javac HelloDocker.java\n => exporting to image\n => => naming to docker.io/library/dockerdemo:latest"
+      },
+      {
+        "step": 7,
+        "title": "Verify Image Creation (docker images)",
+        "type": "command",
+        "description": "List local Docker images to confirm dockerdemo is registered.",
+        "commands": "docker images",
+        "output": "REPOSITORY   TAG       IMAGE ID       CREATED          SIZE\ndockerdemo   latest    a3f789b12c4e   25 seconds ago   325MB"
+      },
+      {
+        "step": 8,
+        "title": "Run the Container (docker run dockerdemo)",
+        "type": "command",
+        "description": "Execute the containerized application and verify output in terminal.",
+        "commands": "docker run dockerdemo",
+        "output": "Hello Docker World"
+      },
+      {
+        "step": 9,
+        "title": "Inspect in Docker Desktop & Record Status",
+        "type": "command",
+        "description": "Inspect container logs in Docker Desktop and verify exit code 0 via CLI.",
+        "commands": "docker ps -a --filter ancestor=dockerdemo",
+        "output": "CONTAINER ID   IMAGE        COMMAND              CREATED          STATUS                      PORTS   NAMES\n9b1c2d3e4f5a   dockerdemo   \"java HelloDocker\"   15 seconds ago   Exited (0) 14 seconds ago           peaceful_raman"
+      }
+    ],
+    "conclusion": "In this experiment, a Java application was successfully containerized using Docker. We authored a multi-instruction Dockerfile, compiled the HelloDocker.java source code inside an isolated Alpine Linux environment, and packaged it into a self-contained image tagged 'dockerdemo'. Running the container produced the exact expected output 'Hello Docker World' with an exit code of 0. This demonstrates container immutability, zero-dependency hosting, and elimination of environment inconsistency.",
+    "fullScript": "# Complete commands and files for Experiment 4:\n\n# 1. Directory creation\nmkdir C:\\Users\\Documents\\DockerDemo\ncd C:\\Users\\Documents\\DockerDemo\n\n# 2. HelloDocker.java\n# public class HelloDocker {\n#     public static void main(String[] args) {\n#         System.out.println(\"Hello Docker World\");\n#     }\n# }\n\n# 3. Dockerfile\n# FROM openjdk:17-jdk-alpine\n# WORKDIR /app\n# COPY HelloDocker.java .\n# RUN javac HelloDocker.java\n# CMD [\"java\", \"HelloDocker\"]\n\n# 4. Build, Verify and Run commands\ndocker build -t dockerdemo .\ndocker images\ndocker run dockerdemo\ndocker ps -a --filter ancestor=dockerdemo",
+    "note": "Ensure Docker Desktop is running in the background (whale icon in system tray) before running docker commands."
+  }
+]
