@@ -10,7 +10,7 @@ const EXPERIMENTS_MAP = {
 };
 
 function App() {
-  const [activeSubjectId, setActiveSubjectId] = useState("asdd"); // Focus on ASDD
+  const [activeSubjectId, setActiveSubjectId] = useState("ai"); // Default to first tab (AI & SC)
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const [copiedKey, setCopiedKey] = useState(null);
@@ -103,7 +103,7 @@ function App() {
         <button
           className="brand"
           onClick={() => {
-            setActiveSubjectId("asdd");
+            setActiveSubjectId("ai");
             setSelectedId(null);
           }}
           aria-label="OmniLab Hub Home"
