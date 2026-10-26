@@ -13,6 +13,7 @@ function App() {
   const [activeSubjectId, setActiveSubjectId] = useState("ai"); // Default to first tab (AI & SC)
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
+  const [cardFilter, setCardFilter] = useState("all");
   const [copiedKey, setCopiedKey] = useState(null);
   const [notifyModalOpen, setNotifyModalOpen] = useState(false);
   const [notifiedEmail, setNotifiedEmail] = useState("");
@@ -33,15 +34,24 @@ function App() {
     [currentSubjectExperiments, selectedId]
   );
 
+  const displayedVariants = useMemo(() => {
+    if (!selected?.variants || selected.variants.length === 0) return [];
+    if (cardFilter === "all") return selected.variants;
+    return selected.variants.filter((v) => v.id === cardFilter);
+  }, [selected, cardFilter]);
+
   // Filtered experiments for active subject
   const filteredExperiments = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return currentSubjectExperiments;
-    return currentSubjectExperiments.filter((item) =>
-      `${item.id} ${item.name} ${item.language} ${item.problemStatement || ""}`
+    return currentSubjectExperiments.filter((item) => {
+      const variantsText = item.variants
+        ? item.variants.map((v) => `${v.label} ${v.badge} ${v.filename}`).join(" ")
+        : "";
+      return `${item.id} ${item.name} ${item.language} ${item.problemStatement || ""} ${variantsText}`
         .toLowerCase()
-        .includes(q)
-    );
+        .includes(q);
+    });
   }, [currentSubjectExperiments, query]);
 
   // Filtered planned experiments for upcoming subjects (SMLDS, MDM)
@@ -57,6 +67,7 @@ function App() {
   function handleTabChange(subjectId) {
     setActiveSubjectId(subjectId);
     setSelectedId(null);
+    setCardFilter("all");
     setQuery("");
     setCopiedKey(null);
   }
@@ -221,6 +232,7 @@ function App() {
                       key={item.id}
                       onClick={() => {
                         setSelectedId(item.id);
+                        setCardFilter("all");
                         setCopiedKey(null);
                       }}
                     >
@@ -233,6 +245,16 @@ function App() {
                           <span className="exp-problem-snippet">
                             {item.problemStatement}
                           </span>
+                        )}
+                        {item.variants && item.variants.length > 0 && (
+                          <div className="exp-variants-pills">
+                            <span className="v-pill-label">Code Options:</span>
+                            {item.variants.map((v) => (
+                              <span key={v.id} className="v-pill">
+                                {v.icon} {v.label}
+                              </span>
+                            ))}
+                          </div>
                         )}
                         <div className="exp-meta">
                           <span className="lang-tag">{item.language}</span>
@@ -262,6 +284,7 @@ function App() {
                 className="back"
                 onClick={() => {
                   setSelectedId(null);
+                  setCardFilter("all");
                   setCopiedKey(null);
                 }}
               >
@@ -313,7 +336,7 @@ function App() {
                   </div>
                 )}
 
-                {/* Quick Master Copy Bar */}
+                {/* Quick Master Copy Bar for ASDD */}
                 {selected.fullScript && (
                   <div className="master-copy-bar">
                     <div className="master-copy-info">
@@ -329,6 +352,43 @@ function App() {
                     >
                       {copiedKey === "full" ? "✓ All Copied!" : "Copy Full Answer"}
                     </button>
+                  </div>
+                )}
+
+                {/* Quick 1-Click Copy Bar for Code Variants (BFS, DFS, Both) */}
+                {selected.variants && selected.variants.length > 0 && (
+                  <div className="variants-master-bar">
+                    <div className="variants-bar-header">
+                      <span className="variants-spark-icon">⚡</span>
+                      <div className="variants-bar-title-text">
+                        <strong>1-Click Quick Copy &amp; Jump</strong>
+                        <p>Instantly copy the required Prolog code directly to your clipboard or jump to its card below:</p>
+                      </div>
+                    </div>
+                    <div className="variants-quick-buttons">
+                      {selected.variants.map((v) => {
+                        const isCopied = copiedKey === `quick-${v.id}`;
+                        return (
+                          <button
+                            key={v.id}
+                            className={`variant-quick-btn ${isCopied ? "copied" : ""}`}
+                            onClick={() => {
+                              copyText(v.code, `quick-${v.id}`);
+                              const el = document.getElementById(`card-${v.id}`);
+                              if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+                            }}
+                            title={`Copy ${v.label} code`}
+                            type="button"
+                          >
+                            <span className="v-btn-icon">{v.icon}</span>
+                            <span className="v-btn-text">
+                              {isCopied ? `✓ Copied ${v.label}!` : `Copy ${v.label}`}
+                            </span>
+                            <span className="v-btn-badge">{v.badge}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
               </div>
@@ -503,8 +563,100 @@ function App() {
                     </div>
                   )}
                 </div>
+              ) : selected.variants && selected.variants.length > 0 ? (
+                /* Multi-code cards section (BFS, DFS, Both in Exp 3) */
+                <div className="separate-code-cards-section">
+                  <div className="cards-filter-toolbar">
+                    <div className="filter-toolbar-left">
+                      <span className="cards-count-label">
+                        Showing {displayedVariants.length} of {selected.variants.length} Code Cards
+                      </span>
+                    </div>
+                    <div className="cards-filter-tabs">
+                      <button
+                        className={`cards-filter-tab ${cardFilter === "all" ? "active" : ""}`}
+                        onClick={() => setCardFilter("all")}
+                        type="button"
+                      >
+                        All Cards ({selected.variants.length})
+                      </button>
+                      {selected.variants.map((v) => (
+                        <button
+                          key={v.id}
+                          className={`cards-filter-tab ${cardFilter === v.id ? "active" : ""}`}
+                          onClick={() => setCardFilter(v.id)}
+                          type="button"
+                        >
+                          <span>{v.icon}</span> {v.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="code-cards-stack">
+                    {displayedVariants.map((v) => {
+                      const cardIndex = selected.variants.findIndex((item) => item.id === v.id) + 1;
+                      const isCopied = copiedKey === `card-${v.id}`;
+                      return (
+                        <div className="code-card-item" id={`card-${v.id}`} key={v.id}>
+                          <div className="code-card-header">
+                            <div className="code-card-title-group">
+                              <span className="card-badge-num">Card 0{cardIndex}</span>
+                              <span className="card-icon-big">{v.icon}</span>
+                              <div className="card-title-meta">
+                                <h3 className="code-card-title">{v.title}</h3>
+                                <div className="code-card-tags">
+                                  <span className="card-lang-tag">{selected.language}</span>
+                                  <span className="card-filename-tag">{v.filename}</span>
+                                  <span className="card-algo-tag">{v.badge}</span>
+                                  {v.query && (
+                                    <span className="card-query-tag">
+                                      Query: <code>{v.query}</code>
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                            <button
+                              className={`copy-button card-copy-btn ${isCopied ? "copied" : ""}`}
+                              onClick={() => copyText(v.code, `card-${v.id}`)}
+                              type="button"
+                            >
+                              {isCopied ? `✓ Copied ${v.label}!` : `Copy ${v.label} Code`}
+                            </button>
+                          </div>
+
+                          {v.description && (
+                            <p className="code-card-description">{v.description}</p>
+                          )}
+
+                          <div className="code-card-body">
+                            <div className="code-card-topbar">
+                              <div className="terminal-dots">
+                                <span></span><span></span><span></span>
+                              </div>
+                              <span className="code-filename-disp">{v.filename}</span>
+                              <span className="code-lines-count">{v.code.split("\n").length} lines</span>
+                            </div>
+                            <pre><code>{v.code}</code></pre>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {selected.note && (
+                    <div className="note-card">
+                      <span className="note-icon">💡</span>
+                      <div className="note-content">
+                        <strong>Exam &amp; Execution Note:</strong>
+                        <p>{selected.note}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
               ) : (
-                /* Fallback for AI experiments code panel */
+                /* Fallback for single-code AI experiments */
                 selected.code && (
                   <div className="code-panel">
                     <div className="code-toolbar">

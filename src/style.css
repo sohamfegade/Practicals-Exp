@@ -1331,6 +1331,371 @@ code {
   margin: 0;
 }
 
+/* ================================================= */
+/* EXPERIMENT CODE VARIANTS (COMBINED, BFS, DFS)    */
+/* ================================================= */
+
+/* Experiment Card Variants Mini Pills in List */
+.exp-variants-pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.v-pill-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.v-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e40af;
+  background: #dbeafe;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Variants 1-Click Master Bar */
+.variants-master-bar {
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+  border: 1.5px solid #bfdbfe;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: grid;
+  gap: 12px;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.06);
+}
+
+.variants-bar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.variants-spark-icon {
+  font-size: 24px;
+  flex: 0 0 24px;
+}
+
+.variants-bar-title-text strong {
+  font-size: 14px;
+  color: #1e3a8a;
+  display: block;
+  font-family: var(--font-heading);
+}
+
+.variants-bar-title-text p {
+  font-size: 12px;
+  color: #475569;
+  margin: 2px 0 0;
+}
+
+.variants-quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.variant-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #1e293b;
+  border: 1.5px solid #cbd5e1;
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  font-weight: 700;
+  transition: all 0.18s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.variant-quick-btn:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.variant-quick-btn.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #1d4ed8;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.variant-quick-btn.copied {
+  background: #059669 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3) !important;
+}
+
+.v-btn-icon {
+  font-size: 15px;
+}
+
+.v-btn-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.variant-quick-btn.active .v-btn-badge {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.variant-quick-btn.copied .v-btn-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* ================================================= */
+/* SEPARATE CODE CARDS SECTION (EXP 3 BFS, DFS, BOTH)*/
+/* ================================================= */
+
+.separate-code-cards-section {
+  display: grid;
+  gap: 24px;
+}
+
+.cards-filter-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cards-count-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  font-family: var(--font-heading);
+}
+
+.cards-filter-tabs {
+  display: inline-flex;
+  gap: 6px;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  flex-wrap: wrap;
+}
+
+.cards-filter-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  background: transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.cards-filter-tab:hover {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.cards-filter-tab.active {
+  background: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+.code-cards-stack {
+  display: grid;
+  gap: 28px;
+}
+
+/* Individual Separate Code Card */
+.code-card-item {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.code-card-item:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.09);
+}
+
+.code-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.code-card-title-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+}
+
+.card-badge-num {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #2563eb;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 3px 8px;
+  border-radius: 6px;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.card-icon-big {
+  font-size: 22px;
+  flex: 0 0 24px;
+  margin-top: 1px;
+}
+
+.card-title-meta {
+  display: grid;
+  gap: 5px;
+}
+
+.code-card-title {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.code-card-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.card-lang-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #831843;
+  background: #fce7f3;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.card-filename-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #334155;
+  background: #e2e8f0;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.card-algo-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.card-query-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: #15803d;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.card-query-tag code {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.card-copy-btn {
+  background: #1e293b;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.2);
+  white-space: nowrap;
+}
+
+.card-copy-btn:hover {
+  background: #0f172a;
+}
+
+.card-copy-btn.copied {
+  background: #059669;
+}
+
+.code-card-description {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+  padding: 10px 22px 14px;
+  background: #fafafa;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.code-card-body {
+  background: #0f172a;
+}
+
+.code-card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 18px;
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+
+.code-filename-disp {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.code-lines-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #64748b;
+}
+
 /* ========================================= */
 /* UPCOMING SUBJECTS STYLING (SMLDS, MDM) */
 /* ========================================= */
