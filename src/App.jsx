@@ -309,20 +309,45 @@ function App() {
               </button>
 
               <div className="detail-header-card">
-                <div className="detail-title">
-                  <span className="number large">
-                    {String(selected.id).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <p className="eyebrow">
-                      EXPERIMENT {selected.id} · {currentSubject.shortName}
-                    </p>
-                    <h1>{selected.name}</h1>
-                    <div className="detail-badges">
-                      <span className="language">{selected.language}</span>
-                      <span className="subject-tag">{currentSubject.fullName}</span>
+                <div className="detail-header-top">
+                  <div className="detail-title">
+                    <span className="number large">
+                      {String(selected.id).padStart(2, "0")}
+                    </span>
+                    <div className="detail-title-text">
+                      <p className="eyebrow">
+                        EXPERIMENT {selected.id} · {currentSubject.shortName}
+                      </p>
+                      <h1>{selected.name}</h1>
+                      <div className="detail-badges">
+                        <span className="language">{selected.language}</span>
+                        <span className="subject-tag">{currentSubject.fullName}</span>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Header Fast 1-Click Copy Buttons */}
+                  {selected.variants && selected.variants.length > 0 && (
+                    <div className="header-quick-copy-group">
+                      {selected.variants.map((v) => {
+                        const isCopied = copiedKey === `hdr-${v.id}`;
+                        return (
+                          <button
+                            key={v.id}
+                            className={`header-copy-pill ${isCopied ? "copied" : ""}`}
+                            onClick={() => copyText(v.code, `hdr-${v.id}`)}
+                            title={`Instantly copy ${v.label} to clipboard`}
+                            type="button"
+                          >
+                            <span className="hdr-pill-icon">{v.icon}</span>
+                            <span className="hdr-pill-text">
+                              {isCopied ? `✓ Copied ${v.label.replace(" Code", "")}!` : `Copy ${v.label.replace(" Code", "")}`}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
 
                 {/* Problem Statement Card */}
@@ -479,11 +504,21 @@ function App() {
 
                           <div className="code-card-body">
                             <div className="code-card-topbar">
-                              <div className="terminal-dots">
-                                <span></span><span></span><span></span>
+                              <div className="code-topbar-left">
+                                <div className="terminal-dots">
+                                  <span></span><span></span><span></span>
+                                </div>
+                                <span className="code-filename-disp">{v.filename}</span>
+                                <span className="code-lines-count">{v.code.split("\n").length} lines</span>
                               </div>
-                              <span className="code-filename-disp">{v.filename}</span>
-                              <span className="code-lines-count">{v.code.split("\n").length} lines</span>
+                              <button
+                                className={`copy-btn-inline code-topbar-quick-copy ${isCopied ? "copied" : ""}`}
+                                onClick={() => copyText(v.code, `card-${v.id}`)}
+                                title={`Copy ${v.label} code`}
+                                type="button"
+                              >
+                                {isCopied ? "✓ Copied!" : "📋 Quick Copy"}
+                              </button>
                             </div>
                             <pre><code>{v.code}</code></pre>
                           </div>

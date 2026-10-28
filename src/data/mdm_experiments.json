@@ -14,34 +14,150 @@
       {
         "title": "Observation Table A: Major Regions of the Electromagnetic Spectrum",
         "subtitle": "Complete classification of electromagnetic radiation from low frequency to high frequency",
-        "headers": ["Region", "Frequency Range", "Example Applications", "Propagation / Spectrum Notes"],
+        "headers": [
+          "Region",
+          "Frequency Range",
+          "Example Applications",
+          "Propagation / Spectrum Notes"
+        ],
         "rows": [
-          ["Radio waves", "Up to ~300 MHz", "AM/Shortwave broadcasting, maritime communication", "Long-wavelength ground and sky-wave services"],
-          ["VHF (Very High Freq)", "30 – 300 MHz", "FM radio broadcasting, television, aviation communication", "Line-of-sight & tropospheric propagation; part of radio spectrum"],
-          ["UHF (Ultra High Freq)", "300 MHz – 3 GHz", "Television, 2G/3G/4G cellular, Wi-Fi, Bluetooth", "Widely used for mobile & personal wireless communications"],
-          ["Microwave", "~1 – 300 GHz", "Radar, satellite links, Wi-Fi (5 GHz / 6 GHz), 5G mmWave", "High-capacity point-to-point wireless and spatial multiplexing links"],
-          ["Infrared", "~300 GHz – 400 THz", "Remote controls, thermal sensors, short optical links", "Short-range line-of-sight only; easily blocked by opaque objects"],
-          ["Visible light", "~400 – 750 THz", "Optical communication (Li-Fi), photography, human vision", "Visible spectrum to human eye; 400 nm to 700 nm wavelengths"],
-          ["Ultraviolet", "~750 THz – 30 PHz", "Medical sterilization, UV curing, industrial inspection", "Higher-energy non-ionizing/ionizing transition boundary"],
-          ["X-rays", "~30 PHz – 30 EHz", "Medical diagnostic imaging, airport baggage inspection", "Ionizing high-energy radiation; penetrates soft tissue"],
-          ["Gamma rays", "Above ~30 EHz", "Nuclear medicine, radiotherapy, astronomical observations", "Highest-energy photon region of the electromagnetic spectrum"]
+          [
+            "Radio waves",
+            "Up to ~300 MHz",
+            "AM/Shortwave broadcasting, maritime communication",
+            "Long-wavelength ground and sky-wave services"
+          ],
+          [
+            "VHF (Very High Freq)",
+            "30 – 300 MHz",
+            "FM radio broadcasting, television, aviation communication",
+            "Line-of-sight & tropospheric propagation; part of radio spectrum"
+          ],
+          [
+            "UHF (Ultra High Freq)",
+            "300 MHz – 3 GHz",
+            "Television, 2G/3G/4G cellular, Wi-Fi, Bluetooth",
+            "Widely used for mobile & personal wireless communications"
+          ],
+          [
+            "Microwave",
+            "~1 – 300 GHz",
+            "Radar, satellite links, Wi-Fi (5 GHz / 6 GHz), 5G mmWave",
+            "High-capacity point-to-point wireless and spatial multiplexing links"
+          ],
+          [
+            "Infrared",
+            "~300 GHz – 400 THz",
+            "Remote controls, thermal sensors, short optical links",
+            "Short-range line-of-sight only; easily blocked by opaque objects"
+          ],
+          [
+            "Visible light",
+            "~400 – 750 THz",
+            "Optical communication (Li-Fi), photography, human vision",
+            "Visible spectrum to human eye; 400 nm to 700 nm wavelengths"
+          ],
+          [
+            "Ultraviolet",
+            "~750 THz – 30 PHz",
+            "Medical sterilization, UV curing, industrial inspection",
+            "Higher-energy non-ionizing/ionizing transition boundary"
+          ],
+          [
+            "X-rays",
+            "~30 PHz – 30 EHz",
+            "Medical diagnostic imaging, airport baggage inspection",
+            "Ionizing high-energy radiation; penetrates soft tissue"
+          ],
+          [
+            "Gamma rays",
+            "Above ~30 EHz",
+            "Nuclear medicine, radiotherapy, astronomical observations",
+            "Highest-energy photon region of the electromagnetic spectrum"
+          ]
         ]
       },
       {
         "title": "Observation Table B: Wireless Technologies & Frequency Band Allocation",
         "subtitle": "Common consumer and industrial wireless standards, operational frequencies, and spectrum types",
-        "headers": ["Sr. No.", "Technology", "Typical Frequency Band", "Primary Application", "Spectrum Type"],
+        "headers": [
+          "Sr. No.",
+          "Technology",
+          "Typical Frequency Band",
+          "Primary Application",
+          "Spectrum Type"
+        ],
         "rows": [
-          ["1", "NFC (Near Field Comm)", "13.56 MHz", "Contactless mobile payments, access cards, smart tags", "Unlicensed (ISM band) / Short-range inductive"],
-          ["2", "FM Radio", "88 – 108 MHz (India)", "Terrestrial audio broadcasting", "Licensed commercial broadcast"],
-          ["3", "Cellular (2G/4G/5G)", "700 MHz, 850 MHz, 1800 MHz, 2.1 GHz, 3.5 GHz", "Mobile voice telephony, broadband cellular data", "Licensed spectrum (Auctioned to telecom operators)"],
-          ["4", "GPS (Global Positioning)", "L1: 1575.42 MHz, L2: 1227.60 MHz", "Global satellite navigation and precise timing synchronization", "Licensed / Dedicated satellite radionavigation service"],
-          ["5", "Bluetooth (Classic / BLE)", "2.400 – 2.4835 GHz", "Wireless audio, peripherals, short-range PAN", "Unlicensed (2.4 GHz ISM band)"],
-          ["6", "Zigbee (IEEE 802.15.4)", "2.4 GHz (also 868/915 MHz)", "Low-power smart home IoT, mesh sensor networks", "Unlicensed (2.4 GHz ISM band)"],
-          ["7", "Wi-Fi (IEEE 802.11b/g/n/ax)", "2.4 GHz (Channels 1–13/14)", "Wireless local area network (WLAN) internet access", "Unlicensed / Regulated ISM band"],
-          ["8", "Wi-Fi (IEEE 802.11a/n/ac/ax)", "5 GHz (5.15 – 5.85 GHz)", "High-speed WLAN with reduced interference", "Unlicensed / Regulated U-NII bands"],
-          ["9", "Wi-Fi 6E / Wi-Fi 7", "6 GHz (5.925 – 7.125 GHz where permitted)", "Ultra-high throughput, ultra-low latency enterprise WLAN", "Regulatory dependent (Unlicensed / Shared)"],
-          ["10", "Satellite / Radar Systems", "C-band (4-8 GHz), Ku-band (12-18 GHz), Ka-band (26-40 GHz)", "Direct-to-Home (DTH) TV, weather radar, defense telemetry", "Licensed / Internationally allocated ITU microwave bands"]
+          [
+            "1",
+            "NFC (Near Field Comm)",
+            "13.56 MHz",
+            "Contactless mobile payments, access cards, smart tags",
+            "Unlicensed (ISM band) / Short-range inductive"
+          ],
+          [
+            "2",
+            "FM Radio",
+            "88 – 108 MHz (India)",
+            "Terrestrial audio broadcasting",
+            "Licensed commercial broadcast"
+          ],
+          [
+            "3",
+            "Cellular (2G/4G/5G)",
+            "700 MHz, 850 MHz, 1800 MHz, 2.1 GHz, 3.5 GHz",
+            "Mobile voice telephony, broadband cellular data",
+            "Licensed spectrum (Auctioned to telecom operators)"
+          ],
+          [
+            "4",
+            "GPS (Global Positioning)",
+            "L1: 1575.42 MHz, L2: 1227.60 MHz",
+            "Global satellite navigation and precise timing synchronization",
+            "Licensed / Dedicated satellite radionavigation service"
+          ],
+          [
+            "5",
+            "Bluetooth (Classic / BLE)",
+            "2.400 – 2.4835 GHz",
+            "Wireless audio, peripherals, short-range PAN",
+            "Unlicensed (2.4 GHz ISM band)"
+          ],
+          [
+            "6",
+            "Zigbee (IEEE 802.15.4)",
+            "2.4 GHz (also 868/915 MHz)",
+            "Low-power smart home IoT, mesh sensor networks",
+            "Unlicensed (2.4 GHz ISM band)"
+          ],
+          [
+            "7",
+            "Wi-Fi (IEEE 802.11b/g/n/ax)",
+            "2.4 GHz (Channels 1–13/14)",
+            "Wireless local area network (WLAN) internet access",
+            "Unlicensed / Regulated ISM band"
+          ],
+          [
+            "8",
+            "Wi-Fi (IEEE 802.11a/n/ac/ax)",
+            "5 GHz (5.15 – 5.85 GHz)",
+            "High-speed WLAN with reduced interference",
+            "Unlicensed / Regulated U-NII bands"
+          ],
+          [
+            "9",
+            "Wi-Fi 6E / Wi-Fi 7",
+            "6 GHz (5.925 – 7.125 GHz where permitted)",
+            "Ultra-high throughput, ultra-low latency enterprise WLAN",
+            "Regulatory dependent (Unlicensed / Shared)"
+          ],
+          [
+            "10",
+            "Satellite / Radar Systems",
+            "C-band (4-8 GHz), Ku-band (12-18 GHz), Ka-band (26-40 GHz)",
+            "Direct-to-Home (DTH) TV, weather radar, defense telemetry",
+            "Licensed / Internationally allocated ITU microwave bands"
+          ]
         ]
       }
     ],
@@ -137,24 +253,68 @@
       {
         "title": "Observation Table A: Noise Level vs. Observed Signal Quality",
         "subtitle": "Analysis of received waveform distortion across noise standard deviations",
-        "headers": ["Noise Level (σ)", "Signal Quality Classification", "Description of Observed Waveform"],
+        "headers": [
+          "Noise Level (σ)",
+          "Signal Quality Classification",
+          "Description of Observed Waveform"
+        ],
         "rows": [
-          ["0.0", "Clean", "Continuous, smooth sinusoidal waveform identical to transmitter output"],
-          ["0.1", "Slightly Noisy", "Preserves sine wave envelope with tiny high-frequency ripples along the curve"],
-          ["0.5", "Slightly Noisy / Distorted", "Visible waveform distortion; peaks and zero-crossings fluctuate but shape is recognizable"],
-          ["2.0", "Very Noisy", "Signal peaks heavily masked by noise spikes; difficult to measure period directly"],
-          ["5.0", "Almost Lost", "Complete domination by Gaussian noise; original sine wave pattern is entirely lost"]
+          [
+            "0.0",
+            "Clean",
+            "Continuous, smooth sinusoidal waveform identical to transmitter output"
+          ],
+          [
+            "0.1",
+            "Slightly Noisy",
+            "Preserves sine wave envelope with tiny high-frequency ripples along the curve"
+          ],
+          [
+            "0.5",
+            "Slightly Noisy / Distorted",
+            "Visible waveform distortion; peaks and zero-crossings fluctuate but shape is recognizable"
+          ],
+          [
+            "2.0",
+            "Very Noisy",
+            "Signal peaks heavily masked by noise spikes; difficult to measure period directly"
+          ],
+          [
+            "5.0",
+            "Almost Lost",
+            "Complete domination by Gaussian noise; original sine wave pattern is entirely lost"
+          ]
         ]
       },
       {
         "title": "Observation Table B: Comparison of Transmitted and Received Signal",
         "subtitle": "Direct parameter comparison between Tx input and Rx output in presence of noise",
-        "headers": ["Parameter", "Transmitted Signal (Sine Tx)", "Received Signal (Sine + AWGN Channel Rx)"],
+        "headers": [
+          "Parameter",
+          "Transmitted Signal (Sine Tx)",
+          "Received Signal (Sine + AWGN Channel Rx)"
+        ],
         "rows": [
-          ["Waveform Shape", "Smooth, periodic sine wave", "Distorted / irregular sine wave with random spikes"],
-          ["Amplitude", "Constant peak amplitude (1.0 V)", "Fluctuating amplitude due to noise superposition"],
-          ["Noise Presence", "Zero noise (Ideal)", "High random noise dependent on channel variance σ²"],
-          ["Signal Quality", "Perfect integrity", "Degraded integrity; fidelity drops inversely with noise power"]
+          [
+            "Waveform Shape",
+            "Smooth, periodic sine wave",
+            "Distorted / irregular sine wave with random spikes"
+          ],
+          [
+            "Amplitude",
+            "Constant peak amplitude (1.0 V)",
+            "Fluctuating amplitude due to noise superposition"
+          ],
+          [
+            "Noise Presence",
+            "Zero noise (Ideal)",
+            "High random noise dependent on channel variance σ²"
+          ],
+          [
+            "Signal Quality",
+            "Perfect integrity",
+            "Degraded integrity; fidelity drops inversely with noise power"
+          ]
         ]
       }
     ],
@@ -245,12 +405,47 @@
       {
         "title": "Observation Table: Cellular Cluster Size (N) vs. Reuse Ratio (Q)",
         "subtitle": "Comparison of frequency reuse metrics across common hexagonal cluster sizes",
-        "headers": ["Sr. No.", "Cluster Size (N)", "Cell Radius (R)", "Reuse Ratio Q = √(3N)", "Frequency Groups", "Experimental Observation"],
+        "headers": [
+          "Sr. No.",
+          "Cluster Size (N)",
+          "Cell Radius (R)",
+          "Reuse Ratio Q = √(3N)",
+          "Frequency Groups",
+          "Experimental Observation"
+        ],
         "rows": [
-          ["1", "3", "1.00", "3.0000", "3 (F1 – F3)", "A smaller cluster size yields high frequency reuse and capacity, but co-channel cells are closer, resulting in greater co-channel interference."],
-          ["2", "4", "1.00", "3.4641", "4 (F1 – F4)", "Reuse distance increases compared with N=3, moderately reducing co-channel interference while maintaining reasonable capacity."],
-          ["3", "7", "1.00", "4.5826", "7 (F1 – F7)", "Provides an optimal balance between network spectral capacity and co-channel interference suppression; standard in cellular network planning."],
-          ["4", "9", "1.00", "5.1962", "9 (F1 – F9)", "Substantially larger reuse distance minimizes co-channel interference, but reduces channel allocation per cell and spectral efficiency."]
+          [
+            "1",
+            "3",
+            "1.00",
+            "3.0000",
+            "3 (F1 – F3)",
+            "A smaller cluster size yields high frequency reuse and capacity, but co-channel cells are closer, resulting in greater co-channel interference."
+          ],
+          [
+            "2",
+            "4",
+            "1.00",
+            "3.4641",
+            "4 (F1 – F4)",
+            "Reuse distance increases compared with N=3, moderately reducing co-channel interference while maintaining reasonable capacity."
+          ],
+          [
+            "3",
+            "7",
+            "1.00",
+            "4.5826",
+            "7 (F1 – F7)",
+            "Provides an optimal balance between network spectral capacity and co-channel interference suppression; standard in cellular network planning."
+          ],
+          [
+            "4",
+            "9",
+            "1.00",
+            "5.1962",
+            "9 (F1 – F9)",
+            "Substantially larger reuse distance minimizes co-channel interference, but reduces channel allocation per cell and spectral efficiency."
+          ]
         ]
       }
     ],
@@ -295,24 +490,107 @@
       {
         "title": "Observation Table: Detected Wi-Fi Networks & Signal Parameters",
         "subtitle": "Empirical wireless network scanner data collected via mobile Wi-Fi analyzer",
-        "headers": ["Sr. No.", "SSID (Network Name)", "Frequency Band", "Channel No.", "Channel Width (MHz)", "RSSI (dBm)", "Signal Quality"],
+        "headers": [
+          "Sr. No.",
+          "SSID (Network Name)",
+          "Frequency Band",
+          "Channel No.",
+          "Channel Width (MHz)",
+          "RSSI (dBm)",
+          "Signal Quality"
+        ],
         "rows": [
-          ["1", "Airtel_22", "2.4 GHz", "6", "20 MHz", "-73 dBm", "Moderate"],
-          ["2", "Airtel_Shardul07", "2.4 GHz", "1", "20 MHz", "-82 dBm", "Weak"],
-          ["3", "Ruhaani_4G", "2.4 GHz", "6", "20 MHz", "-86 dBm", "Weak"],
-          ["4", "TP-Link_9A22", "2.4 GHz", "11", "40 MHz", "-70 dBm", "Moderate"],
-          ["5", "Atharvaj_5G", "5 GHz", "157", "80 MHz", "-64 dBm", "Good"]
+          [
+            "1",
+            "Airtel_22",
+            "2.4 GHz",
+            "6",
+            "20 MHz",
+            "-73 dBm",
+            "Moderate"
+          ],
+          [
+            "2",
+            "Airtel_Shardul07",
+            "2.4 GHz",
+            "1",
+            "20 MHz",
+            "-82 dBm",
+            "Weak"
+          ],
+          [
+            "3",
+            "Ruhaani_4G",
+            "2.4 GHz",
+            "6",
+            "20 MHz",
+            "-86 dBm",
+            "Weak"
+          ],
+          [
+            "4",
+            "TP-Link_9A22",
+            "2.4 GHz",
+            "11",
+            "40 MHz",
+            "-70 dBm",
+            "Moderate"
+          ],
+          [
+            "5",
+            "Atharvaj_5G",
+            "5 GHz",
+            "157",
+            "80 MHz",
+            "-64 dBm",
+            "Good"
+          ]
         ]
       },
       {
         "title": "Channel Mapping Table: Channel Occupancy & Interference Analysis",
         "subtitle": "Distribution of active SSIDs across wireless channels and peak received power",
-        "headers": ["Channel No.", "Frequency Band", "Networks Detected", "Detected SSID(s)", "Highest RSSI (dBm)", "Interference Level"],
+        "headers": [
+          "Channel No.",
+          "Frequency Band",
+          "Networks Detected",
+          "Detected SSID(s)",
+          "Highest RSSI (dBm)",
+          "Interference Level"
+        ],
         "rows": [
-          ["1", "2.4 GHz", "1", "Airtel_Shardul07", "-82 dBm", "Low congestion"],
-          ["6", "2.4 GHz", "4", "Sakhadeos, Airtel_22, Ruhaani_4G, Airtel_Swam_2337", "-77 dBm", "High congestion (Co-channel interference)"],
-          ["11", "2.4 GHz", "2", "TP-Link_9A22, Airtel_R k bharate", "-65 dBm", "Moderate congestion"],
-          ["157", "5 GHz", "2", "Atharvaj_4G, Atharvaj_5G", "-61 dBm", "Low interference (Wide 80 MHz channel)"]
+          [
+            "1",
+            "2.4 GHz",
+            "1",
+            "Airtel_Shardul07",
+            "-82 dBm",
+            "Low congestion"
+          ],
+          [
+            "6",
+            "2.4 GHz",
+            "4",
+            "Sakhadeos, Airtel_22, Ruhaani_4G, Airtel_Swam_2337",
+            "-77 dBm",
+            "High congestion (Co-channel interference)"
+          ],
+          [
+            "11",
+            "2.4 GHz",
+            "2",
+            "TP-Link_9A22, Airtel_R k bharate",
+            "-65 dBm",
+            "Moderate congestion"
+          ],
+          [
+            "157",
+            "5 GHz",
+            "2",
+            "Atharvaj_4G, Atharvaj_5G",
+            "-61 dBm",
+            "Low interference (Wide 80 MHz channel)"
+          ]
         ]
       }
     ],
@@ -385,13 +663,61 @@
       {
         "title": "Observation Table: Wi-Fi Signal Strength (RSSI) vs. Distance",
         "subtitle": "Experimental measurements of received wireless power across measured distances",
-        "headers": ["Sr. No.", "SSID", "Distance from Router (m)", "Wi-Fi Band", "Channel No.", "RSSI (dBm)", "Signal Quality Rating"],
+        "headers": [
+          "Sr. No.",
+          "SSID",
+          "Distance from Router (m)",
+          "Wi-Fi Band",
+          "Channel No.",
+          "RSSI (dBm)",
+          "Signal Quality Rating"
+        ],
         "rows": [
-          ["1", "Atharvaj_4G", "~7 m", "2.4 GHz", "1", "-57 dBm", "Good (Strong reception)"],
-          ["2", "Airtel_R k bharate", "~24 m", "2.4 GHz", "11", "-61 dBm", "Good"],
-          ["3", "TP_Link_9A2211", "~61 m", "2.4 GHz", "11", "-72 dBm", "Moderate"],
-          ["4", "Airtel_22", "~87 m", "2.4 GHz", "6", "-79 dBm", "Weak"],
-          ["5", "Ruhaani_4G", "~174 m", "2.4 GHz", "6", "-85 dBm", "Very Weak (Near disconnection threshold)"]
+          [
+            "1",
+            "Atharvaj_4G",
+            "~7 m",
+            "2.4 GHz",
+            "1",
+            "-57 dBm",
+            "Good (Strong reception)"
+          ],
+          [
+            "2",
+            "Airtel_R k bharate",
+            "~24 m",
+            "2.4 GHz",
+            "11",
+            "-61 dBm",
+            "Good"
+          ],
+          [
+            "3",
+            "TP_Link_9A2211",
+            "~61 m",
+            "2.4 GHz",
+            "11",
+            "-72 dBm",
+            "Moderate"
+          ],
+          [
+            "4",
+            "Airtel_22",
+            "~87 m",
+            "2.4 GHz",
+            "6",
+            "-79 dBm",
+            "Weak"
+          ],
+          [
+            "5",
+            "Ruhaani_4G",
+            "~174 m",
+            "2.4 GHz",
+            "6",
+            "-85 dBm",
+            "Very Weak (Near disconnection threshold)"
+          ]
         ]
       }
     ],
@@ -454,28 +780,106 @@
       {
         "title": "Observation Table A: Bluetooth Discovery & Pairing Parameters",
         "subtitle": "Device specifications and pairing verification protocol",
-        "headers": ["Parameter", "Observation / Value", "Status / Notes"],
+        "headers": [
+          "Parameter",
+          "Observation / Value",
+          "Status / Notes"
+        ],
         "rows": [
-          ["Device A (Sender)", "OPPO A74 5G", "Android OS, Bluetooth 5.1 supported"],
-          ["Device B (Receiver)", "Realme 8i", "Android OS, Bluetooth 5.1 supported"],
-          ["Bluetooth Status ON", "Yes, enabled on both devices", "Discoverability set to 'Visible to all nearby devices'"],
-          ["Device Discovery", "Successful", "Device B appeared in Device A scan list within 3 seconds"],
-          ["Pairing Status", "Paired & Bonded", "Trusted relationship established"],
-          ["Pairing Code / Passkey", "Yes, 6-digit confirmation code verified", "Mutual numeric comparison matched on both screens"],
-          ["Test File Name / Type", "sample.txt (Text file, 24 KB)", "Sent via Android Bluetooth Share"],
-          ["Data Transfer Status", "Successful", "File transferred and verified with 100% data integrity"]
+          [
+            "Device A (Sender)",
+            "OPPO A74 5G",
+            "Android OS, Bluetooth 5.1 supported"
+          ],
+          [
+            "Device B (Receiver)",
+            "Realme 8i",
+            "Android OS, Bluetooth 5.1 supported"
+          ],
+          [
+            "Bluetooth Status ON",
+            "Yes, enabled on both devices",
+            "Discoverability set to 'Visible to all nearby devices'"
+          ],
+          [
+            "Device Discovery",
+            "Successful",
+            "Device B appeared in Device A scan list within 3 seconds"
+          ],
+          [
+            "Pairing Status",
+            "Paired & Bonded",
+            "Trusted relationship established"
+          ],
+          [
+            "Pairing Code / Passkey",
+            "Yes, 6-digit confirmation code verified",
+            "Mutual numeric comparison matched on both screens"
+          ],
+          [
+            "Test File Name / Type",
+            "sample.txt (Text file, 24 KB)",
+            "Sent via Android Bluetooth Share"
+          ],
+          [
+            "Data Transfer Status",
+            "Successful",
+            "File transferred and verified with 100% data integrity"
+          ]
         ]
       },
       {
         "title": "Observation Table B: Bluetooth Range Testing (RSSI vs. Distance)",
         "subtitle": "Received signal strength and connection quality across measured distances",
-        "headers": ["Sr. No.", "Device Name", "Measured Distance (m)", "RSSI (dBm)", "Signal Strength Rating", "Connection State"],
+        "headers": [
+          "Sr. No.",
+          "Device Name",
+          "Measured Distance (m)",
+          "RSSI (dBm)",
+          "Signal Strength Rating",
+          "Connection State"
+        ],
         "rows": [
-          ["1", "OPPO A74 5G", "~0.5 m", "-57 dBm", "Excellent", "Immediate connection, fast transfer"],
-          ["2", "Realme 8i", "~0.71 m", "-56 dBm", "Excellent", "Stable connection"],
-          ["3", "Realme 12x 5G", "~0.89 m", "-58 dBm", "Good", "Stable connection"],
-          ["4", "Generic BLE Beacon", "~3.16 m", "-69 dBm", "Good", "Normal connection"],
-          ["5", "Xiaomi Device", "~11.22 m", "-80 dBm", "Fair / Weak", "Near range limit; transfer throughput drops"]
+          [
+            "1",
+            "OPPO A74 5G",
+            "~0.5 m",
+            "-57 dBm",
+            "Excellent",
+            "Immediate connection, fast transfer"
+          ],
+          [
+            "2",
+            "Realme 8i",
+            "~0.71 m",
+            "-56 dBm",
+            "Excellent",
+            "Stable connection"
+          ],
+          [
+            "3",
+            "Realme 12x 5G",
+            "~0.89 m",
+            "-58 dBm",
+            "Good",
+            "Stable connection"
+          ],
+          [
+            "4",
+            "Generic BLE Beacon",
+            "~3.16 m",
+            "-69 dBm",
+            "Good",
+            "Normal connection"
+          ],
+          [
+            "5",
+            "Xiaomi Device",
+            "~11.22 m",
+            "-80 dBm",
+            "Fair / Weak",
+            "Near range limit; transfer throughput drops"
+          ]
         ]
       }
     ],
@@ -558,13 +962,55 @@
       {
         "title": "Observation Table: Bluetooth File Transfer Speed & Throughput",
         "subtitle": "Experimental measurement across file formats and sizes",
-        "headers": ["Sr. No.", "File Type", "File Size (MB)", "Transfer Time (s)", "Transfer Rate (Mbps)", "Effective Speed (MB/s)"],
+        "headers": [
+          "Sr. No.",
+          "File Type",
+          "File Size (MB)",
+          "Transfer Time (s)",
+          "Transfer Rate (Mbps)",
+          "Effective Speed (MB/s)"
+        ],
         "rows": [
-          ["1", "Text Document", "1 MB", "1.2 s", "6.67 Mbps", "0.83 MB/s"],
-          ["2", "Image (JPEG)", "5 MB", "3.5 s", "11.43 Mbps", "1.43 MB/s"],
-          ["3", "Audio (MP3)", "10 MB", "7.0 s", "11.43 Mbps", "1.43 MB/s"],
-          ["4", "Video (MP4)", "25 MB", "18.0 s", "11.11 Mbps", "1.39 MB/s"],
-          ["5", "Large Video (HD)", "50 MB", "37.0 s", "10.81 Mbps", "1.35 MB/s"]
+          [
+            "1",
+            "Text Document",
+            "1 MB",
+            "1.2 s",
+            "6.67 Mbps",
+            "0.83 MB/s"
+          ],
+          [
+            "2",
+            "Image (JPEG)",
+            "5 MB",
+            "3.5 s",
+            "11.43 Mbps",
+            "1.43 MB/s"
+          ],
+          [
+            "3",
+            "Audio (MP3)",
+            "10 MB",
+            "7.0 s",
+            "11.43 Mbps",
+            "1.43 MB/s"
+          ],
+          [
+            "4",
+            "Video (MP4)",
+            "25 MB",
+            "18.0 s",
+            "11.11 Mbps",
+            "1.39 MB/s"
+          ],
+          [
+            "5",
+            "Large Video (HD)",
+            "50 MB",
+            "37.0 s",
+            "10.81 Mbps",
+            "1.35 MB/s"
+          ]
         ]
       }
     ],
@@ -645,13 +1091,61 @@
       {
         "title": "Observation Table: RSSI and Relative Path Loss vs. Indoor Obstacles",
         "subtitle": "Experimental RSSI measurements at fixed distance (5 m) across typical building obstacles",
-        "headers": ["Sr. No.", "Obstacle Condition", "R1 (dBm)", "R2 (dBm)", "R3 (dBm)", "Average RSSI (dBm)", "Additional Path Loss (dB)"],
+        "headers": [
+          "Sr. No.",
+          "Obstacle Condition",
+          "R1 (dBm)",
+          "R2 (dBm)",
+          "R3 (dBm)",
+          "Average RSSI (dBm)",
+          "Additional Path Loss (dB)"
+        ],
         "rows": [
-          ["1", "Clear Line-of-Sight (LOS)", "-48", "-47", "-49", "-48.0 dBm", "0.0 dB (Reference)"],
-          ["2", "Glass Partition", "-53", "-54", "-53", "-53.2 dBm", "5.2 dB"],
-          ["3", "Wooden Door", "-58", "-59", "-58", "-58.4 dBm", "10.4 dB"],
-          ["4", "Human Body (Shadowing)", "-62", "-63", "-63", "-62.6 dBm", "14.6 dB"],
-          ["5", "Concrete Wall (Reinforced)", "-71", "-72", "-72", "-71.8 dBm", "23.8 dB"]
+          [
+            "1",
+            "Clear Line-of-Sight (LOS)",
+            "-48",
+            "-47",
+            "-49",
+            "-48.0 dBm",
+            "0.0 dB (Reference)"
+          ],
+          [
+            "2",
+            "Glass Partition",
+            "-53",
+            "-54",
+            "-53",
+            "-53.2 dBm",
+            "5.2 dB"
+          ],
+          [
+            "3",
+            "Wooden Door",
+            "-58",
+            "-59",
+            "-58",
+            "-58.4 dBm",
+            "10.4 dB"
+          ],
+          [
+            "4",
+            "Human Body (Shadowing)",
+            "-62",
+            "-63",
+            "-63",
+            "-62.6 dBm",
+            "14.6 dB"
+          ],
+          [
+            "5",
+            "Concrete Wall (Reinforced)",
+            "-71",
+            "-72",
+            "-72",
+            "-71.8 dBm",
+            "23.8 dB"
+          ]
         ]
       }
     ],
@@ -695,40 +1189,403 @@
   },
   {
     "id": 9,
-    "name": "Modern Digital Mobile Practical 9",
-    "language": "Mobile & Digital Wireless Communication",
-    "problemStatement": "Practical 9: Modern Digital Mobile Communication laboratory study and experimental analysis. Complete experimental details and source codes are being finalized.",
+    "name": "Effect of Noise and Interference on Wireless Communication",
+    "language": "MATLAB · Python",
+    "problemStatement": "Simulate and analyze the Bit Error Rate (BER) performance of a Binary Phase Shift Keying (BPSK) digital wireless communication system over an Additive White Gaussian Noise (AWGN) channel and in the presence of continuous sinusoidal co-channel interference across an SNR range of 0 dB to 20 dB.",
     "tasks": [
-      "Consult the course syllabus and lab manual for Experiment 9.",
-      "Provide experimental procedure, codes (MATLAB/Python), and observation data to update this slot."
+      "Generate a random binary information data sequence (N = 100,000 bits).",
+      "Perform Binary Phase Shift Keying (BPSK) modulation mapping {0 -> -1, 1 -> +1}.",
+      "Model Additive White Gaussian Noise (AWGN) with noise standard deviation sigma = sqrt(1 / (2 * SNR_linear)) across SNR from 0 dB to 20 dB in steps of 2 dB.",
+      "Model continuous sinusoidal co-channel interference: i(n) = A_int * sin(2 * pi * f_int * n) with f_int = 0.07 and amplitude 0.55.",
+      "Demodulate received signals using zero-threshold decision logic for both AWGN-only and AWGN + Interference channels.",
+      "Compute Bit Error Rate (BER) for each SNR level and display a formatted comparative results table.",
+      "Plot the BER vs. SNR curves on a semilogarithmic scale (semilogy) to evaluate the interference-induced error floor."
     ],
-    "note": "Details & Code Pending from User: Share your experiment details, procedure, code, or observation table to have this slot populated automatically.",
+    "variants": [
+      {
+        "id": "matlab",
+        "label": "MATLAB Code",
+        "title": "BPSK BER Simulation under Noise & Interference (MATLAB)",
+        "badge": "MATLAB Script · BPSK & AWGN",
+        "icon": "📐",
+        "filename": "noise_interference_simulation.m",
+        "description": "MATLAB script simulating BPSK transmission over an AWGN channel with sinusoidal co-channel interference across 0–20 dB SNR, displaying tabular BER results and a semilogy comparison plot.",
+        "code": "clc;\nclear;\nclose all;\nrng(1);\n\nN = 1e5;\nSNR_dB = 0:2:20;\nA = 1;\n\n% Generate random binary data\ndata = randi([0 1], 1, N);\n\n% BPSK modulation\ntx = A * (2*data - 1);\n\n% Interference parameters\nf_int = 0.07;\nint_amp = 0.55;\nn = 0:N-1;\ninterference = int_amp * sin(2*pi*f_int*n);\n\nber_noise = zeros(size(SNR_dB));\nber_interference = zeros(size(SNR_dB));\n\nfor k = 1:length(SNR_dB)\n\n    snr_linear = 10^(SNR_dB(k)/10);\n    sigma = sqrt(1/(2*snr_linear));\n    noise = sigma * randn(1, N);\n\n    % Noise only\n    rx1 = tx + noise;\n    detected1 = rx1 >= 0;\n    ber_noise(k) = mean(detected1 ~= data);\n\n    % Noise plus interference\n    rx2 = tx + noise + interference;\n    detected2 = rx2 >= 0;\n    ber_interference(k) = mean(detected2 ~= data);\n\nend\n\n% Display results\nT = table(SNR_dB', ber_noise', ber_interference', ...\n    'VariableNames', ...\n    {'SNR_dB', 'BER_Noise_Only', 'BER_Noise_Interference'});\n\ndisp(T);\n\n% Plot BER\nfigure;\nsemilogy(SNR_dB, ber_noise, '-o', 'LineWidth', 1.5);\nhold on;\nsemilogy(SNR_dB, ber_interference, '-s', 'LineWidth', 1.5);\n\ngrid on;\nxlabel('SNR (dB)');\nylabel('Bit Error Rate (BER)');\ntitle('Effect of Noise and Interference on Wireless Communication');\nlegend('AWGN only', 'AWGN + Interference', ...\n    'Location', 'southwest');"
+      },
+      {
+        "id": "python",
+        "label": "Python Code",
+        "title": "BPSK BER Simulation under Noise & Interference (Python)",
+        "badge": "NumPy · Pandas · Matplotlib",
+        "icon": "🐍",
+        "filename": "noise_interference_simulation.py",
+        "description": "Python script using NumPy, Pandas, and Matplotlib to simulate 100,000-bit BPSK wireless transmission over AWGN with co-channel interference, tabulating BER and plotting semilogarithmic curves.",
+        "code": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nnp.random.seed(1)\n\nN = 100000\nSNR_dB = np.arange(0, 22, 2)\nA = 1\n\n# Generate random binary data\ndata = np.random.randint(0, 2, N)\n\n# BPSK modulation\ntx = A * (2 * data - 1)\n\n# Interference parameters\nf_int = 0.07\nint_amp = 0.55\nn = np.arange(N)\ninterference = int_amp * np.sin(2 * np.pi * f_int * n)\n\nber_noise = []\nber_interference = []\n\nfor snr in SNR_dB:\n\n    snr_linear = 10 ** (snr / 10)\n    sigma = np.sqrt(1 / (2 * snr_linear))\n    noise = sigma * np.random.randn(N)\n\n    # Noise only\n    rx1 = tx + noise\n    detected1 = rx1 >= 0\n    ber_noise.append(np.mean(detected1 != data))\n\n    # Noise plus interference\n    rx2 = tx + noise + interference\n    detected2 = rx2 >= 0\n    ber_interference.append(np.mean(detected2 != data))\n\n# Display results\nresults = pd.DataFrame({\n    'SNR_dB': SNR_dB,\n    'BER_Noise_Only': ber_noise,\n    'BER_Noise_Interference': ber_interference\n})\n\nprint(results.to_string(index=False))\n\n# Plot BER\nplt.figure(figsize=(9, 5))\n\nplt.semilogy(SNR_dB, ber_noise, '-o',\n             linewidth=1.5, label='AWGN only')\n\nplt.semilogy(SNR_dB, ber_interference, '-s',\n             linewidth=1.5, label='AWGN + Interference')\n\nplt.grid(True, which='both')\nplt.xlabel('SNR (dB)')\nplt.ylabel('Bit Error Rate (BER)')\nplt.title('Effect of Noise and Interference on Wireless Communication')\nplt.legend(loc='lower left')\nplt.tight_layout()\nplt.show()"
+      }
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table: Bit Error Rate (BER) vs. SNR in AWGN and Interference",
+        "subtitle": "Monte Carlo simulation results for N = 100,000 BPSK bits across 0 dB to 20 dB SNR",
+        "headers": [
+          "SNR (dB)",
+          "Linear SNR",
+          "Noise Sigma (σ)",
+          "BER (AWGN Only)",
+          "BER (AWGN + Interference)",
+          "Degradation / Impact"
+        ],
+        "rows": [
+          [
+            "0 dB",
+            "1.00",
+            "0.7071",
+            "0.0774 (7.74%)",
+            "0.1079 (10.79%)",
+            "+3.05% errors due to co-channel interference"
+          ],
+          [
+            "2 dB",
+            "1.58",
+            "0.5623",
+            "0.0381 (3.81%)",
+            "0.0730 (7.30%)",
+            "+3.49% error penalty"
+          ],
+          [
+            "4 dB",
+            "2.51",
+            "0.4467",
+            "0.0125 (1.25%)",
+            "0.0447 (4.47%)",
+            "+3.22% error penalty"
+          ],
+          [
+            "6 dB",
+            "3.98",
+            "0.3548",
+            "0.0025 (0.25%)",
+            "0.0244 (2.44%)",
+            "Interference dominates over Gaussian thermal noise"
+          ],
+          [
+            "8 dB",
+            "6.31",
+            "0.2818",
+            "0.0002 (0.02%)",
+            "0.0106 (1.06%)",
+            "Distinct interference error floor emerges"
+          ],
+          [
+            "10 dB",
+            "10.00",
+            "0.2236",
+            "0.0000 (< 10⁻⁵)",
+            "0.0032 (0.32%)",
+            "AWGN-only achieves zero errors; interference causes 319 errors"
+          ],
+          [
+            "12 dB",
+            "15.85",
+            "0.1778",
+            "0.0000 (< 10⁻⁵)",
+            "0.0006 (0.06%)",
+            "64 bit errors remain due to interference peak amplitude"
+          ],
+          [
+            "14 dB",
+            "25.12",
+            "0.1414",
+            "0.0000 (< 10⁻⁵)",
+            "0.0001 (0.01%)",
+            "Errors approach zero as noise sigma drops below 0.15"
+          ],
+          [
+            "16 dB",
+            "39.81",
+            "0.1125",
+            "0.0000",
+            "0.0000",
+            "Error-free transmission for 100,000 bits"
+          ],
+          [
+            "18 dB",
+            "63.10",
+            "0.0891",
+            "0.0000",
+            "0.0000",
+            "Error-free transmission for 100,000 bits"
+          ],
+          [
+            "20 dB",
+            "100.00",
+            "0.0707",
+            "0.0000",
+            "0.0000",
+            "Error-free transmission for 100,000 bits"
+          ]
+        ]
+      }
+    ],
     "steps": [
       {
         "step": 1,
-        "title": "Awaiting Experiment 9 Data",
-        "description": "This practical slot is ready and waiting for your specific code and experiment details. Once provided, it will be instantly updated with full procedures and observation tables."
+        "title": "Data Stream Generation & BPSK Modulation",
+        "description": "Generate N = 100,000 uniformly distributed random binary bits {0, 1}. Modulate into antipodal BPSK baseband symbols using tx = A * (2*data - 1), mapping bit 0 to -1V and bit 1 to +1V."
+      },
+      {
+        "step": 2,
+        "title": "Model Sinusoidal Co-Channel Interference",
+        "description": "Create a deterministic sinusoidal interference vector interference = A_int * sin(2 * pi * f_int * n) where f_int = 0.07 and A_int = 0.55 across sample indices n = 0 to N-1."
+      },
+      {
+        "step": 3,
+        "title": "Iterate Over SNR & Inject AWGN",
+        "description": "For each SNR from 0 dB to 20 dB (step of 2 dB), compute linear SNR = 10^(SNR/10) and noise standard deviation sigma = sqrt(1 / (2 * SNR_linear)). Generate Gaussian noise vector noise = sigma * randn(1, N)."
+      },
+      {
+        "step": 4,
+        "title": "Simulate Both Channels & Demodulate",
+        "description": "Construct received signals: rx1 = tx + noise (AWGN only) and rx2 = tx + noise + interference (AWGN + Interference). Apply zero-threshold detector detected = (rx >= 0)."
+      },
+      {
+        "step": 5,
+        "title": "Calculate BER & Tabulate Results",
+        "description": "Calculate Bit Error Rate as the fraction of mismatched bits: ber = mean(detected ~= data). Format and display results in a structured table."
+      },
+      {
+        "step": 6,
+        "title": "Plot Comparative Semilogarithmic BER Curves",
+        "description": "Plot BER versus SNR using semilogy to observe the exponential decline in AWGN and the degradation / error floor created by co-channel interference."
       }
     ],
-    "conclusion": "Slot prepared for Modern Digital Mobile Practical 9. Ready for code and observation updates."
+    "vivaQuestions": [
+      {
+        "q": "What is the key difference between noise and interference in wireless communications?",
+        "a": "Noise (such as AWGN) is an unpredictable, wideband random thermal process generated internally by electronic components and external blackbody radiation, modeled as Gaussian with zero mean. Interference is caused by unwanted man-made RF signals originating from other transmitters operating on the same frequency band (co-channel) or adjacent bands."
+      },
+      {
+        "q": "Why does the BER curve exhibit an error floor in the presence of interference?",
+        "a": "Increasing signal SNR increases signal power relative to thermal noise, reducing thermal errors to zero. However, thermal SNR enhancement does not diminish the power of co-channel interference. When noise variance approaches zero, bit errors are entirely dictated by whether the interference amplitude exceeds the decision boundary, creating a persistent, flat BER floor."
+      },
+      {
+        "q": "What is the theoretical BER formula for BPSK over an AWGN channel?",
+        "a": "For BPSK over an AWGN channel, the theoretical bit error probability is P_b = Q(sqrt(2 * E_b / N_0)) = 0.5 * erfc(sqrt(SNR_linear)). At 0 dB, theoretical BER is ~0.0786, closely matching our simulated result of 0.0774."
+      },
+      {
+        "q": "How can co-channel interference be mitigated in cellular networks?",
+        "a": "Cellular networks mitigate co-channel interference through cellular frequency reuse planning (sufficient cluster size N), directional sector antennas (e.g. 120° or 60° tri-sector cells), dynamic power control, beamforming with Massive MIMO, and orthogonal multiple access schemes (OFDMA)."
+      }
+    ],
+    "conclusion": "The effects of Additive White Gaussian Noise (AWGN) and deterministic sinusoidal co-channel interference on digital wireless communication were successfully simulated using MATLAB and Python. In the AWGN-only channel, the BPSK Bit Error Rate decays rapidly from 0.0774 at 0 dB to 0.0000 at SNR >= 10 dB. In the presence of co-channel interference (amplitude 0.55), significant BER degradation is observed across all SNR values with an interference-dominated error floor persisting up to 14 dB SNR, demonstrating that interference, rather than thermal noise, is often the dominant capacity limiter in wireless cellular networks."
   },
   {
     "id": 10,
-    "name": "Modern Digital Mobile Practical 10",
-    "language": "Mobile & Digital Wireless Communication",
-    "problemStatement": "Practical 10: Modern Digital Mobile Communication laboratory study and experimental analysis. Complete experimental details and source codes are being finalized.",
+    "name": "Cellular Signal Strength at Different Locations",
+    "language": "MATLAB · Python",
+    "problemStatement": "Measure, tabulate, and analyze real-world smartphone cellular signal strength (RSSI in dBm) across diverse indoor and outdoor environments (Classroom, Corridor, Near Window, Open Area, Basement, Lift, Upper Floor, Entrance) across different network generations (2G, 3G, 4G LTE, 5G), calculate mean signal strength, and evaluate spatial signal attenuation through bar and line visualizations.",
     "tasks": [
-      "Consult the course syllabus and lab manual for Experiment 10.",
-      "Provide experimental procedure, codes (MATLAB/Python), and observation data to update this slot."
+      "Survey cellular signal strength (in dBm) and connected Radio Access Technology (RAT: 2G/3G/4G/5G) across 8 distinct campus/indoor locations using smartphone settings or network diagnostic apps.",
+      "Tabulate observed locations, network technologies, and signal strength levels in dBm.",
+      "Calculate the mean cellular signal strength across all 8 measurement points.",
+      "Generate a bar chart visualizing comparative signal strength across measurement locations.",
+      "Generate a line plot showing the spatial variations and fluctuations in received cellular signal strength.",
+      "Analyze the physical causes of signal attenuation (concrete penetration loss, Line-of-Sight, Faraday cage elevator effect, and cellular handover)."
     ],
-    "note": "Details & Code Pending from User: Share your experiment details, procedure, code, or observation table to have this slot populated automatically.",
+    "variants": [
+      {
+        "id": "matlab",
+        "label": "MATLAB Code",
+        "title": "Cellular Signal Strength Analysis & Plotting (MATLAB)",
+        "badge": "MATLAB Script · Bar & Line Charts",
+        "icon": "📐",
+        "filename": "cellular_signal_strength.m",
+        "description": "MATLAB script tabulating smartphone cellular signal strength measurements across 8 locations, computing mean dBm, and plotting bar and line trend figures.",
+        "code": "clc;\nclear;\nclose all;\n\n% Sample measurements obtained from a smartphone\nlocation = {'Classroom','Corridor','Near Window','Open Area', ...\n            'Basement','Lift/Weak Area','Upper Floor','Entrance'};\n\nnetworkType = {'4G/LTE','4G/LTE','5G','5G','3G','2G','4G/LTE','5G'};\n\n% Signal strength in dBm\nsignalStrength = [-82 -76 -69 -61 -96 -101 -73 -66];\n\n% Display data in a table\nT = table(location', networkType', signalStrength', ...\n    'VariableNames', {'Location','Network_Type','Signal_Strength_dBm'});\n\ndisp(T);\n\n% Calculate average signal strength\navgSignal = mean(signalStrength);\nfprintf('Average signal strength = %.2f dBm\n', avgSignal);\n\n% Bar graph\nfigure;\nbar(signalStrength);\ngrid on;\nxticks(1:length(location));\nxticklabels(location);\nxtickangle(35);\nxlabel('Measurement Location');\nylabel('Signal Strength (dBm)');\ntitle('Cellular Signal Strength at Different Locations');\n\n% Line graph\nfigure;\nplot(1:length(signalStrength), signalStrength, '-o', ...\n    'LineWidth', 1.5, 'MarkerSize', 7);\ngrid on;\nxticks(1:length(location));\nxticklabels(location);\nxtickangle(35);\nxlabel('Measurement Location');\nylabel('Signal Strength (dBm)');\ntitle('Variation of Cellular Signal Strength');"
+      },
+      {
+        "id": "python",
+        "label": "Python Code",
+        "title": "Cellular Signal Strength Analysis & Plotting (Python)",
+        "badge": "NumPy · Pandas · Matplotlib",
+        "icon": "🐍",
+        "filename": "cellular_signal_strength.py",
+        "description": "Python script using Pandas, NumPy, and Matplotlib to analyze cellular signal strength measurements across 8 indoor/outdoor locations, compute average power, and render bar and line plots.",
+        "code": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Sample measurements obtained from a smartphone\nlocation = [\n    'Classroom', 'Corridor', 'Near Window', 'Open Area',\n    'Basement', 'Lift/Weak Area', 'Upper Floor', 'Entrance'\n]\n\nnetworkType = [\n    '4G/LTE', '4G/LTE', '5G', '5G',\n    '3G', '2G', '4G/LTE', '5G'\n]\n\n# Signal strength in dBm\nsignalStrength = [-82, -76, -69, -61, -96, -101, -73, -66]\n\n# Display data in a table\ndata = pd.DataFrame({\n    'Location': location,\n    'Network_Type': networkType,\n    'Signal_Strength_dBm': signalStrength\n})\n\nprint(data)\n\n# Calculate average signal strength\navgSignal = np.mean(signalStrength)\nprint(f'Average signal strength = {avgSignal:.2f} dBm')\n\n# Bar graph\nplt.figure()\nplt.bar(location, signalStrength)\nplt.grid(True)\nplt.xticks(rotation=35, ha='right')\nplt.xlabel('Measurement Location')\nplt.ylabel('Signal Strength (dBm)')\nplt.title('Cellular Signal Strength at Different Locations')\nplt.tight_layout()\nplt.show()\n\n# Line graph\nplt.figure()\nplt.plot(location, signalStrength, '-o', linewidth=1.5, markersize=7)\nplt.grid(True)\nplt.xticks(rotation=35, ha='right')\nplt.xlabel('Measurement Location')\nplt.ylabel('Signal Strength (dBm)')\nplt.title('Variation of Cellular Signal Strength')\nplt.tight_layout()\nplt.show()"
+      }
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table: Cellular Signal Strength across Locations",
+        "subtitle": "Real-world mobile phone measurements of signal power (dBm) and connected RAT technology",
+        "headers": [
+          "Sr. No.",
+          "Measurement Location",
+          "Network Type (RAT)",
+          "Signal Strength (dBm)",
+          "Signal Quality Category",
+          "Coverage & Environment Remarks"
+        ],
+        "rows": [
+          [
+            "1",
+            "Classroom",
+            "4G/LTE",
+            "-82 dBm",
+            "Good / Acceptable",
+            "Moderate indoor attenuation through classroom concrete walls"
+          ],
+          [
+            "2",
+            "Corridor",
+            "4G/LTE",
+            "-76 dBm",
+            "Good",
+            "Hallway waveguide effect; fewer direct wall obstructions"
+          ],
+          [
+            "3",
+            "Near Window",
+            "5G",
+            "-69 dBm",
+            "Excellent",
+            "Strong outdoor line of sight through glass; high-speed 5G active"
+          ],
+          [
+            "4",
+            "Open Area",
+            "5G",
+            "-61 dBm",
+            "Excellent (Peak)",
+            "Direct line of sight to base station; maximum signal power recorded"
+          ],
+          [
+            "5",
+            "Basement",
+            "3G",
+            "-96 dBm",
+            "Poor / Marginal",
+            "Heavy ground/slab attenuation; 4G/5G lost, modem falls back to 3G"
+          ],
+          [
+            "6",
+            "Lift / Weak Area",
+            "2G",
+            "-101 dBm",
+            "Very Poor (Critical)",
+            "Metallic elevator shaft creates Faraday cage shielding; 2G failsafe"
+          ],
+          [
+            "7",
+            "Upper Floor",
+            "4G/LTE",
+            "-73 dBm",
+            "Good",
+            "Elevated position with clear Fresnel clearance and minimal terrain clutter"
+          ],
+          [
+            "8",
+            "Entrance",
+            "5G",
+            "-66 dBm",
+            "Excellent",
+            "Semi-open transition zone with direct cellular tower coverage"
+          ]
+        ]
+      },
+      {
+        "title": "Summary Metrics & Signal Benchmark Reference",
+        "subtitle": "Computed average signal strength and standard cellular RSSI performance benchmarks",
+        "headers": [
+          "Metric / Benchmark Range",
+          "Value / Threshold",
+          "User Experience Level",
+          "Common Technology"
+        ],
+        "rows": [
+          [
+            "Calculated Average Signal Strength",
+            "-78.00 dBm",
+            "Reliable Overall Campus Coverage",
+            "4G/LTE & 5G Dominant"
+          ],
+          [
+            "Excellent Signal Range",
+            "-50 dBm to -79 dBm",
+            "Maximum data throughput, instant HD streaming, 5 bars",
+            "5G / 4G LTE"
+          ],
+          [
+            "Good Signal Range",
+            "-80 dBm to -89 dBm",
+            "Stable voice and high-speed data, 3 to 4 bars",
+            "4G LTE"
+          ],
+          [
+            "Fair / Marginal Signal Range",
+            "-90 dBm to -99 dBm",
+            "Voice connects, web browsing slow, potential handover, 1 to 2 bars",
+            "4G LTE / 3G"
+          ],
+          [
+            "Poor / Dead Zone Range",
+            "-100 dBm to -120 dBm",
+            "High packet loss, call drops, modem RAT fallback to 2G/3G",
+            "3G / 2G (GSM)"
+          ]
+        ]
+      }
+    ],
     "steps": [
       {
         "step": 1,
-        "title": "Awaiting Experiment 10 Data",
-        "description": "This practical slot is ready and waiting for your specific code and experiment details. Once provided, it will be instantly updated with full procedures and observation tables."
+        "title": "Select Survey Locations",
+        "description": "Identify 8 representative indoor and outdoor locations with varying propagation environments: Classroom, Corridor, Near Window, Open Area, Basement, Lift/Weak Area, Upper Floor, and Entrance."
+      },
+      {
+        "step": 2,
+        "title": "Measure Signal Parameters via Smartphone",
+        "description": "On the test smartphone, open Settings -> About Phone -> Status Information -> SIM Card Status (or launch NetMonitor / Cellular-Z / Network Cell Info Lite) to view received signal strength in dBm and the active RAT (2G, 3G, 4G, or 5G)."
+      },
+      {
+        "step": 3,
+        "title": "Record Stable Measurements",
+        "description": "Remain stationary at each measurement point for 30–60 seconds, observing temporal signal fluctuations and recording the steady-state signal strength in dBm."
+      },
+      {
+        "step": 4,
+        "title": "Compute Average Signal Strength",
+        "description": "Calculate the arithmetic mean of the measured signal strengths across all 8 locations: Avg = sum(signalStrength) / 8."
+      },
+      {
+        "step": 5,
+        "title": "Execute Simulation and Data Analysis Script",
+        "description": "Run the MATLAB or Python code to format the measurement dataset into a structured table, print the calculated average (-78.00 dBm), and generate visualization figures."
+      },
+      {
+        "step": 6,
+        "title": "Analyze Bar Graph & Line Trend Plot",
+        "description": "Interpret the generated bar chart and line plot, observing how signal strength degrades from -61 dBm in open space down to -101 dBm inside an elevator, triggering 5G -> 4G -> 3G -> 2G fallback."
       }
     ],
-    "conclusion": "Slot prepared for Modern Digital Mobile Practical 10. Ready for code and observation updates."
+    "vivaQuestions": [
+      {
+        "q": "What is dBm and why is cellular signal strength expressed in negative numbers?",
+        "a": "dBm is a logarithmic power unit referenced to 1 milliwatt (0 dBm = 1 mW = 0.001 W). Cellular received signal powers are very small, typically ranging between microwatts (10⁻⁶ W = -30 dBm) and picowatts (10⁻¹² W = -90 dBm). Because received power is fractions of a milliwatt, the log10 ratio is negative."
+      },
+      {
+        "q": "Why does a smartphone switch from 5G/4G to 3G or 2G in basements and elevators?",
+        "a": "Higher carrier frequencies (such as 3.5 GHz for 5G or 1.8–2.3 GHz for 4G) suffer higher free-space path loss and severe penetration loss through thick concrete walls and metal enclosures. When signal power falls below the receiver sensitivity threshold for 4G/5G, the modem performs an Inter-Radio Access Technology (inter-RAT) handover to lower-frequency 2G/3G bands (e.g., 850/900 MHz) to maintain basic voice and SMS connectivity."
+      },
+      {
+        "q": "What is the physical cause of the extreme signal drop inside an elevator (-101 dBm)?",
+        "a": "An elevator car acts as a metallic enclosure (Faraday cage), while the reinforced concrete elevator shaft creates intense shielding. The conducting metallic walls reflect and absorb electromagnetic waves, resulting in severe attenuation of up to 25–35 dB compared to open hallways."
+      },
+      {
+        "q": "What is the difference between RSSI, RSRP, and RSRQ in LTE/5G cellular systems?",
+        "a": "RSSI (Received Signal Strength Indicator) measures total wideband received power including signal, interference, and thermal noise. RSRP (Reference Signal Received Power) measures the average received power of individual cell-specific reference resource elements (clean measure of signal strength). RSRQ (Reference Signal Received Quality) is the ratio of RSRP to RSSI (scaled by bandwidth), indicating channel interference and connection quality."
+      }
+    ],
+    "conclusion": "Cellular signal strength was experimentally measured across 8 distinct indoor and outdoor campus environments using smartphone diagnostics. Received signal strength ranged from a peak of -61 dBm (5G, Open Area) down to -101 dBm (2G, Lift/Weak Area) with an overall average of -78.00 dBm. The experimental data confirms that Line-of-Sight conditions yield excellent 5G reception, whereas structural concrete walls, subterranean basements, and metallic elevator shafts induce significant attenuation (up to 40 dB loss), triggering automatic Inter-RAT cellular fallback to legacy 3G and 2G networks to avoid total connection drops."
   }
 ]
