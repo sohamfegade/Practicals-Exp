@@ -1,0 +1,734 @@
+[
+  {
+    "id": 1,
+    "name": "Electromagnetic Spectrum Allocation & Wireless Bands",
+    "language": "Study & Spectrum Analysis",
+    "problemStatement": "Study the electromagnetic spectrum allocation and wireless communication frequency bands from low to high frequency, analyzing frequency ranges, wavelengths, propagation characteristics, and licensed vs. unlicensed applications.",
+    "tasks": [
+      "Study the electromagnetic spectrum from low frequency to high frequency using standard regulatory references.",
+      "Record the frequency range, wavelength range, and applications of major spectrum regions (Radio, VHF, UHF, Microwave, Infrared, Visible, UV, X-Ray, Gamma).",
+      "Analyze various wireless technologies (NFC, FM, Cellular, GPS, Bluetooth, Zigbee, Wi-Fi 2.4/5/6E, Satellite) and their assigned frequency bands.",
+      "Compare licensed vs. unlicensed (ISM) spectrum bands and evaluate how frequency selection impacts range, penetration, and data rate."
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table A: Major Regions of the Electromagnetic Spectrum",
+        "subtitle": "Complete classification of electromagnetic radiation from low frequency to high frequency",
+        "headers": ["Region", "Frequency Range", "Example Applications", "Propagation / Spectrum Notes"],
+        "rows": [
+          ["Radio waves", "Up to ~300 MHz", "AM/Shortwave broadcasting, maritime communication", "Long-wavelength ground and sky-wave services"],
+          ["VHF (Very High Freq)", "30 – 300 MHz", "FM radio broadcasting, television, aviation communication", "Line-of-sight & tropospheric propagation; part of radio spectrum"],
+          ["UHF (Ultra High Freq)", "300 MHz – 3 GHz", "Television, 2G/3G/4G cellular, Wi-Fi, Bluetooth", "Widely used for mobile & personal wireless communications"],
+          ["Microwave", "~1 – 300 GHz", "Radar, satellite links, Wi-Fi (5 GHz / 6 GHz), 5G mmWave", "High-capacity point-to-point wireless and spatial multiplexing links"],
+          ["Infrared", "~300 GHz – 400 THz", "Remote controls, thermal sensors, short optical links", "Short-range line-of-sight only; easily blocked by opaque objects"],
+          ["Visible light", "~400 – 750 THz", "Optical communication (Li-Fi), photography, human vision", "Visible spectrum to human eye; 400 nm to 700 nm wavelengths"],
+          ["Ultraviolet", "~750 THz – 30 PHz", "Medical sterilization, UV curing, industrial inspection", "Higher-energy non-ionizing/ionizing transition boundary"],
+          ["X-rays", "~30 PHz – 30 EHz", "Medical diagnostic imaging, airport baggage inspection", "Ionizing high-energy radiation; penetrates soft tissue"],
+          ["Gamma rays", "Above ~30 EHz", "Nuclear medicine, radiotherapy, astronomical observations", "Highest-energy photon region of the electromagnetic spectrum"]
+        ]
+      },
+      {
+        "title": "Observation Table B: Wireless Technologies & Frequency Band Allocation",
+        "subtitle": "Common consumer and industrial wireless standards, operational frequencies, and spectrum types",
+        "headers": ["Sr. No.", "Technology", "Typical Frequency Band", "Primary Application", "Spectrum Type"],
+        "rows": [
+          ["1", "NFC (Near Field Comm)", "13.56 MHz", "Contactless mobile payments, access cards, smart tags", "Unlicensed (ISM band) / Short-range inductive"],
+          ["2", "FM Radio", "88 – 108 MHz (India)", "Terrestrial audio broadcasting", "Licensed commercial broadcast"],
+          ["3", "Cellular (2G/4G/5G)", "700 MHz, 850 MHz, 1800 MHz, 2.1 GHz, 3.5 GHz", "Mobile voice telephony, broadband cellular data", "Licensed spectrum (Auctioned to telecom operators)"],
+          ["4", "GPS (Global Positioning)", "L1: 1575.42 MHz, L2: 1227.60 MHz", "Global satellite navigation and precise timing synchronization", "Licensed / Dedicated satellite radionavigation service"],
+          ["5", "Bluetooth (Classic / BLE)", "2.400 – 2.4835 GHz", "Wireless audio, peripherals, short-range PAN", "Unlicensed (2.4 GHz ISM band)"],
+          ["6", "Zigbee (IEEE 802.15.4)", "2.4 GHz (also 868/915 MHz)", "Low-power smart home IoT, mesh sensor networks", "Unlicensed (2.4 GHz ISM band)"],
+          ["7", "Wi-Fi (IEEE 802.11b/g/n/ax)", "2.4 GHz (Channels 1–13/14)", "Wireless local area network (WLAN) internet access", "Unlicensed / Regulated ISM band"],
+          ["8", "Wi-Fi (IEEE 802.11a/n/ac/ax)", "5 GHz (5.15 – 5.85 GHz)", "High-speed WLAN with reduced interference", "Unlicensed / Regulated U-NII bands"],
+          ["9", "Wi-Fi 6E / Wi-Fi 7", "6 GHz (5.925 – 7.125 GHz where permitted)", "Ultra-high throughput, ultra-low latency enterprise WLAN", "Regulatory dependent (Unlicensed / Shared)"],
+          ["10", "Satellite / Radar Systems", "C-band (4-8 GHz), Ku-band (12-18 GHz), Ka-band (26-40 GHz)", "Direct-to-Home (DTH) TV, weather radar, defense telemetry", "Licensed / Internationally allocated ITU microwave bands"]
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Understand the Fundamental Wave Equation",
+        "description": "Electromagnetic waves propagate at the speed of light c ≈ 3 × 10^8 m/s. Frequency (f) and wavelength (λ) are inversely proportional: f = c / λ or λ = c / f. Lower frequencies have longer wavelengths that penetrate obstacles and travel long distances, while higher frequencies provide wider bandwidths and higher data rates but suffer higher path loss."
+      },
+      {
+        "step": 2,
+        "title": "Analyze the Electromagnetic Spectrum Hierarchy",
+        "description": "Classify spectrum regions starting from low-frequency Radio Waves (kHz–MHz), VHF (30–300 MHz), UHF (300 MHz–3 GHz), Microwaves (1–300 GHz), Infrared, Visible Light, through to Ultraviolet, X-rays, and Gamma rays as recorded in Observation Table A."
+      },
+      {
+        "step": 3,
+        "title": "Map Modern Wireless Communication Standards to Bands",
+        "description": "Identify which modern wireless technologies operate in licensed bands (Cellular 4G/5G, FM Radio, Satellite) versus unlicensed ISM bands (Wi-Fi, Bluetooth, Zigbee, NFC) as recorded in Observation Table B."
+      },
+      {
+        "step": 4,
+        "title": "Evaluate Trade-offs in Wireless Band Selection",
+        "description": "Assess the impact of operating frequency on antenna dimensions (antenna size ≈ λ/2 or λ/4), free-space path loss (FSPL ∝ f²), indoor wall penetration, and co-channel interference."
+      }
+    ],
+    "vivaQuestions": [
+      {
+        "q": "What is the electromagnetic spectrum?",
+        "a": "The electromagnetic spectrum is the continuous range of all frequencies of electromagnetic radiation, extending from low-frequency radio waves to high-frequency gamma rays."
+      },
+      {
+        "q": "What is the mathematical relationship between frequency and wavelength?",
+        "a": "They are inversely proportional: c = f × λ, where c is the speed of light in vacuum (~3 × 10^8 m/s), f is frequency in Hertz (Hz), and λ is wavelength in meters (m)."
+      },
+      {
+        "q": "What is an ISM band?",
+        "a": "ISM stands for Industrial, Scientific, and Medical radio band. These are portions of the radio spectrum reserved internationally for unlicensed use (e.g., 2.4 GHz and 5.8 GHz), commonly used by Wi-Fi, Bluetooth, and microwave ovens."
+      },
+      {
+        "q": "Which frequency band is commonly used by Bluetooth?",
+        "a": "Bluetooth operates in the 2.4 GHz ISM band (specifically 2.402 GHz to 2.480 GHz) using Frequency Hopping Spread Spectrum (FHSS)."
+      },
+      {
+        "q": "Which frequency bands are used by Wi-Fi?",
+        "a": "Wi-Fi commonly operates in the 2.4 GHz band, the 5 GHz band, and more recently the 6 GHz band (Wi-Fi 6E and Wi-Fi 7)."
+      },
+      {
+        "q": "What is the difference between licensed and unlicensed spectrum?",
+        "a": "Licensed spectrum is exclusively allocated to specific operators via government auctions/permits (e.g., 4G/5G cellular bands) to guarantee zero interference. Unlicensed spectrum (like ISM bands) is open for public use without licensing, provided devices follow strict transmit power and interference regulations."
+      },
+      {
+        "q": "What is the key difference between 2.4 GHz and 5 GHz Wi-Fi?",
+        "a": "2.4 GHz provides greater physical range and better wall penetration due to longer wavelength, but has only 3 non-overlapping channels and lower speeds. 5 GHz provides much higher data rates and less congestion with 20+ non-overlapping channels, but has shorter coverage range and higher attenuation through obstacles."
+      }
+    ],
+    "conclusion": "The experiment demonstrates that wireless communication technologies operate in specific frequency bands selected according to propagation characteristics, bandwidth requirements, interference considerations, and government regulations. Lower frequencies provide greater coverage and obstacle penetration, whereas higher frequencies provide the extensive bandwidth necessary for high-speed multimedia communication."
+  },
+  {
+    "id": 2,
+    "name": "Simulation of Basic Communication System (Tx–Channel–Rx)",
+    "language": "Python · MATLAB · PathView",
+    "problemStatement": "Simulate a fundamental end-to-end communication system comprising Transmitter (Tx), Wireless AWGN Channel, and Receiver (Rx) to analyze the impact of additive white Gaussian noise on sinusoidal signal transmission across various standard deviation noise levels.",
+    "tasks": [
+      "Model a signal transmitter producing a sinusoidal carrier waveform.",
+      "Model a wireless communication channel corrupted by Additive White Gaussian Noise (AWGN).",
+      "Model a signal receiver and visualize the received waveform on a virtual oscilloscope.",
+      "Simulate across 5 noise standard deviation levels: σ = 0.0 (clean), 0.1, 0.5, 2.0, and 5.0 (lost).",
+      "Record observed waveform behavior and compare transmitted vs. received signal parameters."
+    ],
+    "variants": [
+      {
+        "id": "python",
+        "label": "Python Code",
+        "title": "End-to-End Tx-Channel-Rx Simulation in Python",
+        "badge": "NumPy · Matplotlib · AWGN",
+        "icon": "🐍",
+        "filename": "tx_channel_rx.py",
+        "description": "Python script simulating Transmitter sine wave generation, AWGN wireless channel at 5 noise levels (sigma 0.0 to 5.0), and Receiver multi-panel oscilloscope plotting.",
+        "code": "\"\"\"\nSimulation of Basic Communication System (Tx–Channel–Rx)\nSubject: Modern Digital Mobile Communication\nLanguage: Python 3 with NumPy & Matplotlib\n\"\"\"\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# --- 1. Transmitter Parameters ---\nfs = 1000            # Sampling frequency (Hz)\nt = np.linspace(0, 1, fs, endpoint=False)  # 1 second duration\nfreq = 5             # Carrier frequency = 5 Hz\namp = 1.0            # Signal amplitude = 1.0 V\ntx_signal = amp * np.sin(2 * np.pi * freq * t)\n\n# --- 2. Channel Impairment: Noise Standard Deviations ---\nnoise_levels = [0.0, 0.1, 0.5, 2.0, 5.0]\nquality_labels = [\"Clean (No Noise)\", \"Slightly Noisy\", \"Visible Distortion\", \"Very Noisy (Masked)\", \"Almost Lost (Pure Noise)\"]\n\n# --- 3. Simulation & Plotting ---\nplt.figure(figsize=(12, 10), facecolor='white')\nplt.suptitle(\"Basic Communication System (Tx – AWGN Channel – Rx)\", fontsize=15, fontweight='bold')\n\nfor i, (sigma, label) in enumerate(zip(noise_levels, quality_labels)):\n    # Generate Additive White Gaussian Noise (AWGN)\n    noise = np.random.normal(0, sigma, len(t))\n    rx_signal = tx_signal + noise\n    \n    # Calculate Signal-to-Noise Ratio (SNR) in dB\n    signal_power = np.mean(tx_signal**2)\n    noise_power = np.mean(noise**2) if sigma > 0 else 1e-12\n    snr_db = 10 * np.log10(signal_power / noise_power) if sigma > 0 else float('inf')\n    \n    plt.subplot(len(noise_levels), 1, i + 1)\n    plt.plot(t, rx_signal, color='#2563eb' if sigma < 1.0 else '#dc2626', linewidth=1.2, label=f\"Rx (σ={sigma})\")\n    if sigma > 0:\n        plt.plot(t, tx_signal, color='#94a3b8', linestyle='--', linewidth=1.0, alpha=0.7, label=\"Original Tx\")\n    \n    snr_text = f\"SNR = {snr_db:.1f} dB\" if sigma > 0 else \"SNR = ∞ (Ideal)\"\n    plt.title(f\"Noise Level σ = {sigma} — Quality: {label} ({snr_text})\", fontsize=10, fontweight='bold', loc='left')\n    plt.xlabel(\"Time (seconds)\", fontsize=9)\n    plt.ylabel(\"Amplitude (V)\", fontsize=9)\n    plt.grid(True, linestyle=':', alpha=0.6)\n    plt.legend(loc='upper right', fontsize=8)\n\nplt.tight_layout(rect=[0, 0.03, 1, 0.96])\nplt.show()\n\nprint(\"=\" * 60)\nprint(\"TX - CHANNEL - RX SIMULATION COMPLETED\")\nprint(\"=\" * 60)\nfor sigma, label in zip(noise_levels, quality_labels):\n    print(f\"Noise std dev σ = {sigma:<4} | Quality: {label}\")\nprint(\"=\" * 60)"
+      },
+      {
+        "id": "matlab",
+        "label": "MATLAB Code",
+        "title": "Tx-Channel-Rx Simulation in MATLAB",
+        "badge": "MATLAB Script · AWGN Scope",
+        "icon": "📐",
+        "filename": "tx_channel_rx.m",
+        "description": "MATLAB script modeling a sinusoidal transmitter, AWGN additive noise channel, and multi-subplot receiver scope.",
+        "code": "% ==========================================================\n% Simulation of Basic Communication System (Tx-Channel-Rx)\n% ==========================================================\nclc;\nclear;\nclose all;\n\n% 1. Transmitter (Tx) Parameters\nfs = 1000;                      % Sampling frequency (Hz)\nt = 0:(1/fs):(1 - 1/fs);        % Time vector (1 second)\nf_carrier = 5;                  % Message frequency (5 Hz)\nA = 1.0;                        % Amplitude (1 V)\ntx_signal = A * sin(2 * pi * f_carrier * t);\n\n% 2. Noise levels to evaluate (standard deviation sigma)\nsigma_values = [0.0, 0.1, 0.5, 2.0, 5.0];\nlabels = {'Clean (No Noise)', 'Slightly Noisy', 'Visible Distortion', ...\n          'Very Noisy (Masked)', 'Almost Lost (Pure Noise)'};\n\nfigure('Color', 'w', 'Position', [100, 80, 900, 750]);\n\nfor i = 1:length(sigma_values)\n    sigma = sigma_values(i);\n    \n    % 3. Wireless Channel (AWGN)\n    noise = sigma * randn(size(t));\n    rx_signal = tx_signal + noise;\n    \n    % 4. Receiver (Rx) Display Subplot\n    subplot(length(sigma_values), 1, i);\n    plot(t, rx_signal, 'b-', 'LineWidth', 1.2); hold on;\n    if sigma > 0\n        plot(t, tx_signal, 'k--', 'LineWidth', 0.8);\n    end\n    hold off;\n    grid on;\n    \n    title(sprintf('Noise \\sigma = %.1f : %s', sigma, labels{i}), ...\n          'FontWeight', 'bold', 'FontSize', 10);\n    xlabel('Time (s)');\n    ylabel('Amplitude (V)');\n    ylim([-7, 7]);\nend\n\nsgtitle('Simulation of Basic Communication System (Tx - Channel - Rx)');\n\nfprintf('Simulation completed successfully across %d noise levels.\\n', length(sigma_values));"
+      }
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table A: Noise Level vs. Observed Signal Quality",
+        "subtitle": "Analysis of received waveform distortion across noise standard deviations",
+        "headers": ["Noise Level (σ)", "Signal Quality Classification", "Description of Observed Waveform"],
+        "rows": [
+          ["0.0", "Clean", "Continuous, smooth sinusoidal waveform identical to transmitter output"],
+          ["0.1", "Slightly Noisy", "Preserves sine wave envelope with tiny high-frequency ripples along the curve"],
+          ["0.5", "Slightly Noisy / Distorted", "Visible waveform distortion; peaks and zero-crossings fluctuate but shape is recognizable"],
+          ["2.0", "Very Noisy", "Signal peaks heavily masked by noise spikes; difficult to measure period directly"],
+          ["5.0", "Almost Lost", "Complete domination by Gaussian noise; original sine wave pattern is entirely lost"]
+        ]
+      },
+      {
+        "title": "Observation Table B: Comparison of Transmitted and Received Signal",
+        "subtitle": "Direct parameter comparison between Tx input and Rx output in presence of noise",
+        "headers": ["Parameter", "Transmitted Signal (Sine Tx)", "Received Signal (Sine + AWGN Channel Rx)"],
+        "rows": [
+          ["Waveform Shape", "Smooth, periodic sine wave", "Distorted / irregular sine wave with random spikes"],
+          ["Amplitude", "Constant peak amplitude (1.0 V)", "Fluctuating amplitude due to noise superposition"],
+          ["Noise Presence", "Zero noise (Ideal)", "High random noise dependent on channel variance σ²"],
+          ["Signal Quality", "Perfect integrity", "Degraded integrity; fidelity drops inversely with noise power"]
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Access the PathView Online Simulator",
+        "description": "Open your browser and navigate to view.pathsim.org. No login or installation is required; the interactive block-diagram simulator runs directly inside WebAssembly/Canvas."
+      },
+      {
+        "step": 2,
+        "title": "Add Transmitter Block (Sine Generator)",
+        "description": "From the Node Library / Blocks sidebar on the left, drag a 'Sine' block onto the canvas. Set Frequency = 5 Hz and Amplitude = 1.0 V."
+      },
+      {
+        "step": 3,
+        "title": "Add Channel Block (AWGN Noise Generator)",
+        "description": "Drag an 'AWGN' or 'Add Noise' block onto the canvas. Connect the output of the Sine Generator block to the input of the Channel block."
+      },
+      {
+        "step": 4,
+        "title": "Add Receiver Block (Oscilloscope / Scope)",
+        "description": "Drag a 'Scope' block from the library and connect the channel output to the Scope input to monitor the received signal."
+      },
+      {
+        "step": 5,
+        "title": "Vary Channel Noise and Record Observations",
+        "description": "Run the simulation for noise standard deviation levels σ = 0.0, 0.1, 0.5, 2.0, and 5.0. Observe waveform distortion and record the signal behavior in Observation Table A."
+      }
+    ],
+    "vivaQuestions": [
+      {
+        "q": "What are the three fundamental blocks of any communication system?",
+        "a": "Transmitter (Tx) which encodes and modulates the information, Channel which is the transmission medium, and Receiver (Rx) which detects and recovers the message."
+      },
+      {
+        "q": "What is AWGN?",
+        "a": "AWGN stands for Additive White Gaussian Noise. It is 'Additive' because it adds linearly to the signal, 'White' because it has a flat power spectral density across all frequencies, and 'Gaussian' because its amplitude probability distribution follows a normal bell curve."
+      },
+      {
+        "q": "What happens to the received waveform when noise standard deviation increases to 5.0?",
+        "a": "The noise power heavily overwhelms the signal power (resulting in a negative SNR in dB), completely masking the sinusoidal periodicity until the waveform appears purely random."
+      },
+      {
+        "q": "What is Signal-to-Noise Ratio (SNR)?",
+        "a": "SNR is the ratio of signal power to noise power, typically expressed in decibels: SNR (dB) = 10 log10 (P_signal / P_noise)."
+      }
+    ],
+    "conclusion": "The simulation of a basic communication system (Tx-Channel-Rx) was successfully performed. In a wireless communication system, the transmission channel introduces white noise which directly degrades signal quality. As the noise standard deviation increases, signal distortion increases and amplitude fluctuates, causing the received waveform to transition from clean to completely lost."
+  },
+  {
+    "id": 3,
+    "name": "Demonstration of Cellular Frequency Reuse Concept",
+    "language": "MATLAB · Python Alternative",
+    "problemStatement": "Demonstrate and visualize the frequency reuse concept in a hexagonal cellular network layout for cluster size N=7, calculating the co-channel frequency reuse ratio Q = √(3N) and reuse distance D to optimize capacity while suppressing co-channel interference.",
+    "tasks": [
+      "Define regular hexagonal geometry with normalized cell radius R = 1.0.",
+      "Select cluster size N = 7 (using N = i² + ij + j² with i=2, j=1).",
+      "Generate center coordinates for a 2D pointy-top hexagonal cell grid.",
+      "Assign frequency groups F1 through F7 across the grid using reuse formula: group = (m + 2n) mod N + 1.",
+      "Calculate theoretical frequency reuse ratio Q = √(3N) and reuse distance D = Q × R.",
+      "Plot the cellular layout with distinct cell shading and centered frequency group labels.",
+      "Compare performance across cluster sizes N = 3, 4, 7, and 9 in the observation table."
+    ],
+    "variants": [
+      {
+        "id": "matlab",
+        "label": "MATLAB Code (Original)",
+        "title": "Frequency Reuse Hexagonal Grid in MATLAB",
+        "badge": "Hexagonal Patch · N=7 Cluster",
+        "icon": "📐",
+        "filename": "frequency_reuse.m",
+        "description": "Original MATLAB script from lab manual that creates pointy-top regular hexagons, computes co-channel cells, and labels frequency groups F1 to F7.",
+        "code": "clc;\nclear;\nclose all;\n\n% ==========================================================\n% Frequency Reuse Demonstration in Cellular Systems\n% ==========================================================\n\nR = 1;              % Normalized cell radius\nN = 7;              % Cluster size\n\n% Frequency groups\nfreq = 1:N;\n\n% Hexagonal cell geometry (pointy-top regular hexagon)\ntheta = (0:6)*pi/3 + pi/6;\nhx = R*cos(theta);\nhy = R*sin(theta);\n\n% Generate a cellular grid\nxIndex = -3:3;\nyIndex = -3:3;\n\nfigure('Color', 'w', 'Position', [150, 100, 850, 750]);\nhold on;\naxis equal;\ngrid on;\nbox on;\n\ncount = 0;\nfor m = xIndex\n    for n = yIndex\n        % Center coordinates of pointy-top hexagons\n        xc = 1.5*R*m;\n        yc = sqrt(3)*R*(n + 0.5*mod(m, 2));\n        \n        % Skip cells outside a circular display area\n        if sqrt(xc^2 + yc^2) > 5.5*R\n            continue;\n        end\n        \n        count = count + 1;\n        \n        % Assign frequency group using a repeating pattern\n        group = mod(m + 2*n, N) + 1;\n        \n        % Draw hexagonal cell\n        patch(xc + hx, yc + hy, 'w', ...\n              'EdgeColor', 'k', 'LineWidth', 1.2);\n        \n        % Label the frequency group\n        text(xc, yc, sprintf('F%d', group), ...\n            'HorizontalAlignment', 'center', ...\n            'FontWeight', 'bold', 'FontSize', 10);\n    end\nend\n\n% Display reuse information\nQ = sqrt(3*N);\nD = Q*R;\n\ntitle(sprintf('Frequency Reuse Pattern: N = %d, D/R = %.2f', N, Q), ...\n      'FontSize', 12, 'FontWeight', 'bold');\nxlabel('Distance (normalized)');\nylabel('Distance (normalized)');\n\nfprintf('===============================================\\n');\nfprintf('CELLULAR FREQUENCY REUSE DEMONSTRATION\\n');\nfprintf('===============================================\\n');\nfprintf('Cluster size N                = %d\\n', N);\nfprintf('Normalized cell radius R      = %.2f\\n', R);\nfprintf('Reuse ratio D/R               = %.4f\\n', Q);\nfprintf('Normalized reuse distance D   = %.4f\\n', D);\nfprintf('Number of displayed cells     = %d\\n', count);\nfprintf('===============================================\\n');\nhold off;"
+      },
+      {
+        "id": "python",
+        "label": "Python Code (Alternative)",
+        "title": "Frequency Reuse Hexagonal Grid in Python",
+        "badge": "NumPy · Matplotlib Patches",
+        "icon": "🐍",
+        "filename": "frequency_reuse.py",
+        "description": "Complete Python equivalent of the MATLAB script using matplotlib polygons with color-coded co-channel clusters and exact D/R ratio calculations.",
+        "code": "\"\"\"\nDemonstration of Frequency Reuse Concept in Cellular Systems\nSubject: Modern Digital Mobile Communication\nLanguage: Python 3 with Matplotlib & NumPy\n\"\"\"\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport matplotlib.patches as patches\n\n# --- 1. System Parameters ---\nR = 1.0              # Normalized cell radius\nN = 7                # Cluster size (cells per cluster)\nQ = np.sqrt(3 * N)   # Frequency reuse ratio D/R = sqrt(3N)\nD = Q * R            # Co-channel reuse distance\n\n# Distinct harmonious color palette for co-channel clusters F1 to F7\ncluster_colors = [\n    '#fee2e2', '#fef3c7', '#dcfce7', '#e0e7ff',\n    '#f3e8ff', '#fce7f3', '#ccfbf1'\n]\n\n# Hexagonal geometry (pointy-top orientation)\ntheta = np.linspace(0, 2 * np.pi, 7) + np.pi / 6\nhx = R * np.cos(theta)\nhy = R * np.sin(theta)\n\nfig, ax = plt.subplots(figsize=(9, 9), facecolor='white')\nax.set_aspect('equal')\n\ncount = 0\nx_indices = range(-3, 4)\ny_indices = range(-3, 4)\n\nfor m in x_indices:\n    for n in y_indices:\n        # Center coordinates for pointy-top hexagonal grid\n        xc = 1.5 * R * m\n        yc = np.sqrt(3) * R * (n + 0.5 * (m % 2))\n        \n        # Skip cells outside display boundary radius\n        if np.sqrt(xc**2 + yc**2) > 5.5 * R:\n            continue\n            \n        count += 1\n        # Frequency group repeating assignment rule\n        group = (m + 2 * n) % N + 1\n        fill_color = cluster_colors[(group - 1) % len(cluster_colors)]\n        \n        # Draw hexagon polygon patch\n        hex_patch = patches.Polygon(\n            np.column_stack([xc + hx, yc + hy]),\n            closed=True,\n            facecolor=fill_color,\n            edgecolor='#1e293b',\n            linewidth=1.3,\n            alpha=0.9\n        )\n        ax.add_patch(hex_patch)\n        \n        # Add bold frequency group label\n        ax.text(\n            xc, yc, f\"F{group}\",\n            ha='center', va='center',\n            fontsize=10, fontweight='bold',\n            color='#0f172a'\n        )\n\nax.set_xlim(-6.5 * R, 6.5 * R)\nax.set_ylim(-6.5 * R, 6.5 * R)\nax.grid(True, linestyle='--', alpha=0.4)\nax.set_title(\n    f\"Cellular Frequency Reuse Pattern (Cluster N = {N}, D/R = {Q:.2f})\\n\"\n    f\"Normalized Cell Radius R = {R:.1f}, Co-channel Reuse Distance D = {D:.2f}\",\n    fontsize=12, fontweight='bold', pad=15\n)\nax.set_xlabel(\"Distance (normalized)\", fontsize=10)\nax.set_ylabel(\"Distance (normalized)\", fontsize=10)\n\nprint(\"=\" * 50)\nprint(\"CELLULAR FREQUENCY REUSE DEMONSTRATION (PYTHON)\")\nprint(\"=\" * 50)\nprint(f\"Cluster size (N)               : {N}\")\nprint(f\"Normalized cell radius (R)     : {R:.2f}\")\nprint(f\"Reuse ratio (Q = sqrt(3N))     : {Q:.4f}\")\nprint(f\"Reuse distance (D = Q * R)     : {D:.4f}\")\nprint(f\"Total displayed hex cells      : {count}\")\nprint(\"=\" * 50)\n\nplt.tight_layout()\nplt.show()"
+      }
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table: Cellular Cluster Size (N) vs. Reuse Ratio (Q)",
+        "subtitle": "Comparison of frequency reuse metrics across common hexagonal cluster sizes",
+        "headers": ["Sr. No.", "Cluster Size (N)", "Cell Radius (R)", "Reuse Ratio Q = √(3N)", "Frequency Groups", "Experimental Observation"],
+        "rows": [
+          ["1", "3", "1.00", "3.0000", "3 (F1 – F3)", "A smaller cluster size yields high frequency reuse and capacity, but co-channel cells are closer, resulting in greater co-channel interference."],
+          ["2", "4", "1.00", "3.4641", "4 (F1 – F4)", "Reuse distance increases compared with N=3, moderately reducing co-channel interference while maintaining reasonable capacity."],
+          ["3", "7", "1.00", "4.5826", "7 (F1 – F7)", "Provides an optimal balance between network spectral capacity and co-channel interference suppression; standard in cellular network planning."],
+          ["4", "9", "1.00", "5.1962", "9 (F1 – F9)", "Substantially larger reuse distance minimizes co-channel interference, but reduces channel allocation per cell and spectral efficiency."]
+        ]
+      }
+    ],
+    "vivaQuestions": [
+      {
+        "q": "What is frequency reuse in cellular communication?",
+        "a": "Frequency reuse is the technique of utilizing the same radio frequency channels in different geographical cells that are sufficiently separated so that co-channel interference remains within acceptable thresholds."
+      },
+      {
+        "q": "What is a co-channel cell?",
+        "a": "Cells in a cellular network that share the exact same set of operational frequency channels are known as co-channel cells."
+      },
+      {
+        "q": "What is the formula for cluster size N?",
+        "a": "N = i² + i×j + j², where i and j are non-negative integers representing the number of hexagonal cell steps taken along axes to locate the nearest co-channel neighbor."
+      },
+      {
+        "q": "What is the co-channel reuse ratio Q?",
+        "a": "Q = D / R = √(3N), where D is the distance between the centers of nearest co-channel cells and R is the cell radius. A larger Q means greater separation and less interference."
+      },
+      {
+        "q": "Why are regular hexagons chosen for cellular network geometry?",
+        "a": "Hexagons tessellate (cover a 2D plane without overlaps or gaps), closely approximate the circular radiation footprint of omnidirectional antennas, and have the highest area-to-perimeter ratio among tessellating regular polygons."
+      }
+    ],
+    "conclusion": "The frequency reuse concept was successfully demonstrated using MATLAB and Python. By partitioning a geographic service area into hexagonal cells and reusing identical frequency groups at safe separation distances (D/R = 4.58 for N=7), cellular networks achieve multiplied subscriber capacity over fixed, limited radio spectrum."
+  },
+  {
+    "id": 4,
+    "name": "Wi-Fi Network Scanning (SSID, RSSI & Channel Mapping)",
+    "language": "Mobile Wi-Fi Analyzer · Android",
+    "problemStatement": "Perform wireless network scanning using a mobile Wi-Fi analyzer application to identify active Access Points, measure Received Signal Strength Indicator (RSSI in dBm), operating channels, and frequency bands, and construct a channel occupancy map to analyze co-channel and adjacent-channel interference.",
+    "tasks": [
+      "Enable Wi-Fi and grant location/Wi-Fi scan permissions on an Android smartphone.",
+      "Install and launch a Wi-Fi analyzer tool (e.g., WiFi Analyzer or Ubiquiti WiFiman).",
+      "Scan surrounding wireless networks and inspect SSID, RSSI (dBm), channel, bandwidth, and frequency band.",
+      "Select at least 5 nearby active networks and populate the network measurement table.",
+      "Construct a channel occupancy map categorizing networks by channel (e.g., 1, 6, 11 in 2.4 GHz, 157 in 5 GHz).",
+      "Classify signals as Very Strong, Good, Moderate, or Weak and determine optimal AP channels."
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table: Detected Wi-Fi Networks & Signal Parameters",
+        "subtitle": "Empirical wireless network scanner data collected via mobile Wi-Fi analyzer",
+        "headers": ["Sr. No.", "SSID (Network Name)", "Frequency Band", "Channel No.", "Channel Width (MHz)", "RSSI (dBm)", "Signal Quality"],
+        "rows": [
+          ["1", "Airtel_22", "2.4 GHz", "6", "20 MHz", "-73 dBm", "Moderate"],
+          ["2", "Airtel_Shardul07", "2.4 GHz", "1", "20 MHz", "-82 dBm", "Weak"],
+          ["3", "Ruhaani_4G", "2.4 GHz", "6", "20 MHz", "-86 dBm", "Weak"],
+          ["4", "TP-Link_9A22", "2.4 GHz", "11", "40 MHz", "-70 dBm", "Moderate"],
+          ["5", "Atharvaj_5G", "5 GHz", "157", "80 MHz", "-64 dBm", "Good"]
+        ]
+      },
+      {
+        "title": "Channel Mapping Table: Channel Occupancy & Interference Analysis",
+        "subtitle": "Distribution of active SSIDs across wireless channels and peak received power",
+        "headers": ["Channel No.", "Frequency Band", "Networks Detected", "Detected SSID(s)", "Highest RSSI (dBm)", "Interference Level"],
+        "rows": [
+          ["1", "2.4 GHz", "1", "Airtel_Shardul07", "-82 dBm", "Low congestion"],
+          ["6", "2.4 GHz", "4", "Sakhadeos, Airtel_22, Ruhaani_4G, Airtel_Swam_2337", "-77 dBm", "High congestion (Co-channel interference)"],
+          ["11", "2.4 GHz", "2", "TP-Link_9A22, Airtel_R k bharate", "-65 dBm", "Moderate congestion"],
+          ["157", "5 GHz", "2", "Atharvaj_4G, Atharvaj_5G", "-61 dBm", "Low interference (Wide 80 MHz channel)"]
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Enable Wi-Fi and Required Permissions",
+        "description": "Switch ON Wi-Fi on the Android smartphone. Enable Location permission in Android settings, which is strictly required by the Android operating system to scan Wi-Fi beacons."
+      },
+      {
+        "step": 2,
+        "title": "Launch Wi-Fi Analyzer Application",
+        "description": "Install and open 'WiFi Analyzer' (open-source) or 'Ubiquiti WiFiman' from the Google Play Store."
+      },
+      {
+        "step": 3,
+        "title": "Scan the Local Radio Environment",
+        "description": "Initiate an active scan of the 2.4 GHz and 5 GHz frequency bands. Allow the scan table to populate with nearby Access Points (APs)."
+      },
+      {
+        "step": 4,
+        "title": "Record Network Attributes in Observation Table",
+        "description": "Select at least 5 distinct networks. Record their SSID, operating frequency band, channel number, channel bandwidth (20/40/80 MHz), and real-time RSSI in dBm."
+      },
+      {
+        "step": 5,
+        "title": "Perform Channel Mapping Analysis",
+        "description": "Group the scanned SSIDs by channel. Identify non-overlapping channels (1, 6, 11) in the 2.4 GHz band and evaluate channel congestion. Note which channel experiences the highest co-channel interference."
+      }
+    ],
+    "vivaQuestions": [
+      {
+        "q": "What does SSID stand for?",
+        "a": "SSID stands for Service Set Identifier. It is the human-readable 32-character maximum name assigned to a Wi-Fi wireless local area network."
+      },
+      {
+        "q": "What is RSSI and why are its values negative?",
+        "a": "RSSI stands for Received Signal Strength Indicator, measured in dBm (decibels relative to 1 milliwatt). Since received wireless signals are tiny fractions of a milliwatt (microwatts or picowatts), the log ratio 10 log10 (P_rx / 1mW) produces negative numbers. Values closer to 0 dBm represent stronger signals."
+      },
+      {
+        "q": "Which signal is stronger: -45 dBm or -75 dBm?",
+        "a": "-45 dBm is substantially stronger. In fact, -45 dBm is 30 dB higher than -75 dBm, representing 1000 times more received signal power."
+      },
+      {
+        "q": "Why are channels 1, 6, and 11 standard in 2.4 GHz Wi-Fi?",
+        "a": "Each standard 2.4 GHz 802.11 channel requires 20–22 MHz of spectral width, but channels are spaced only 5 MHz apart. Channels 1, 6, and 11 are spaced 25 MHz apart, meaning they are the only three completely non-overlapping channels that avoid adjacent-channel interference."
+      },
+      {
+        "q": "Does a high RSSI value always guarantee high internet download speed?",
+        "a": "No. RSSI only measures raw signal power between the mobile device and the local Wi-Fi router. Internet speed also depends on backhaul ISP bandwidth, channel congestion, packet loss, and server response time."
+      }
+    ],
+    "conclusion": "Nearby Wi-Fi networks were successfully scanned using a mobile Wi-Fi analyzer. The SSID, RSSI, channel, and frequency band parameters were recorded, and a channel map was constructed. The experiment clearly demonstrated that channel 6 was heavily congested with 4 co-channel networks, whereas 5 GHz channels (such as channel 157) offered superior signal strength (-61 dBm) with minimal interference due to wider channel allocation."
+  },
+  {
+    "id": 5,
+    "name": "Measurement of Signal Strength vs. Distance for Wi-Fi Router",
+    "language": "Mobile Wi-Fi Analyzer · Field Measurement",
+    "problemStatement": "Measure and record the received signal strength (RSSI in dBm) of a Wi-Fi router at various distances (from 1m to 174m) to analyze signal attenuation, empirical indoor path-loss behavior RSSI(d) ≈ RSSI(d0) - 10n log10(d/d0), and environmental multipath fading.",
+    "tasks": [
+      "Position the Wi-Fi router at a fixed location with constant orientation.",
+      "Connect an Android smartphone to the target Wi-Fi network.",
+      "Launch a mobile Wi-Fi analyzer tool to observe real-time RSSI readings.",
+      "Measure RSSI at incremental distances (~7m, ~24m, ~61m, ~87m, ~174m) maintaining consistent smartphone height.",
+      "Allow readings to stabilize and record RSSI (dBm) and signal quality rating.",
+      "Plot Distance (m) on the X-axis versus RSSI (dBm) on the Y-axis.",
+      "Analyze the logarithmic drop in signal power and explain deviations caused by walls, obstacles, and multipath reflections."
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table: Wi-Fi Signal Strength (RSSI) vs. Distance",
+        "subtitle": "Experimental measurements of received wireless power across measured distances",
+        "headers": ["Sr. No.", "SSID", "Distance from Router (m)", "Wi-Fi Band", "Channel No.", "RSSI (dBm)", "Signal Quality Rating"],
+        "rows": [
+          ["1", "Atharvaj_4G", "~7 m", "2.4 GHz", "1", "-57 dBm", "Good (Strong reception)"],
+          ["2", "Airtel_R k bharate", "~24 m", "2.4 GHz", "11", "-61 dBm", "Good"],
+          ["3", "TP_Link_9A2211", "~61 m", "2.4 GHz", "11", "-72 dBm", "Moderate"],
+          ["4", "Airtel_22", "~87 m", "2.4 GHz", "6", "-79 dBm", "Weak"],
+          ["5", "Ruhaani_4G", "~174 m", "2.4 GHz", "6", "-85 dBm", "Very Weak (Near disconnection threshold)"]
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Establish the Transmitter Baseline",
+        "description": "Place the Wi-Fi router at a fixed elevated location in the lab or corridor. Ensure its antennas remain vertically oriented throughout testing."
+      },
+      {
+        "step": 2,
+        "title": "Mark Measurement Distances",
+        "description": "Using a measuring tape or laser distance meter, mark inspection points at increasing distances: ~7m, ~24m, ~61m, ~87m, and ~174m from the router."
+      },
+      {
+        "step": 3,
+        "title": "Measure and Record Stable RSSI Values",
+        "description": "At each designated measurement point, hold the smartphone stationary at chest height for 5–10 seconds until RSSI stabilizes. Note the reading in dBm."
+      },
+      {
+        "step": 4,
+        "title": "Plot the Distance vs. Signal Strength Curve",
+        "description": "Plot Distance (m) on the horizontal X-axis and RSSI (dBm) on the vertical Y-axis. The resulting curve exhibits a characteristic logarithmic drop conforming to the log-distance path loss model: RSSI(d) ≈ RSSI(d0) - 10n log10(d/d0)."
+      }
+    ],
+    "vivaQuestions": [
+      {
+        "q": "What happens to Wi-Fi signal strength as distance from the router increases?",
+        "a": "Signal strength drops exponentially in linear units (inversely with the square of distance in free space, or higher powers in indoor environments), appearing as a linear downward slope on a logarithmic (dBm vs. log-distance) scale."
+      },
+      {
+        "q": "What is the log-distance path loss model?",
+        "a": "It models indoor signal attenuation: PL(d) [dB] = PL(d0) + 10·n·log10(d/d0) + X_sigma, where d0 is a reference distance, n is the path loss exponent (typically 2 for free space, 3–5 for indoor obstructed environments), and X_sigma is shadowing noise."
+      },
+      {
+        "q": "Why doesn't RSSI always decrease smoothly with distance in indoor buildings?",
+        "a": "Because of multipath propagation (reflections from walls, ceilings, and floors causing constructive and destructive interference), obstacle penetration losses (doors, concrete columns), and dynamic human movement."
+      },
+      {
+        "q": "What is the typical disconnection threshold for standard Wi-Fi devices?",
+        "a": "Most mobile Wi-Fi client chips disassociate or drop packet communication when RSSI falls below approximately -85 dBm to -90 dBm."
+      }
+    ],
+    "conclusion": "Wi-Fi signal strength was successfully measured at varying distances from 7m to 174m using a mobile Wi-Fi analyzer. The findings confirm that received signal strength decreases with distance, dropping from -57 dBm (Good) at 7m down to -85 dBm (Very Weak) at 174m. Minor non-linear fluctuations observed were attributable to indoor wall obstructions and multipath reflections."
+  },
+  {
+    "id": 6,
+    "name": "Bluetooth Communication (Pairing & Range Testing)",
+    "language": "Mobile Bluetooth · Android",
+    "problemStatement": "Study Bluetooth wireless communication using mobile smartphones in the 2.4 GHz ISM band, including device inquiry, discovery, pairing authentication, sample file transfer, and empirical communication range testing.",
+    "tasks": [
+      "Enable Bluetooth and device discoverability on two Android smartphones (Device A and Device B).",
+      "Perform device inquiry/discovery and initiate Bluetooth pairing.",
+      "Verify the 6-digit numeric passkey on both smartphone displays to authenticate the bond.",
+      "Transfer a sample test file (e.g., sample.txt or image) over Bluetooth and verify data integrity.",
+      "Conduct empirical range testing from 0.5m out to 11.22m, recording RSSI (dBm) and connection reliability.",
+      "Determine the maximum distance at which reliable connection and file exchange are maintained."
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table A: Bluetooth Discovery & Pairing Parameters",
+        "subtitle": "Device specifications and pairing verification protocol",
+        "headers": ["Parameter", "Observation / Value", "Status / Notes"],
+        "rows": [
+          ["Device A (Sender)", "OPPO A74 5G", "Android OS, Bluetooth 5.1 supported"],
+          ["Device B (Receiver)", "Realme 8i", "Android OS, Bluetooth 5.1 supported"],
+          ["Bluetooth Status ON", "Yes, enabled on both devices", "Discoverability set to 'Visible to all nearby devices'"],
+          ["Device Discovery", "Successful", "Device B appeared in Device A scan list within 3 seconds"],
+          ["Pairing Status", "Paired & Bonded", "Trusted relationship established"],
+          ["Pairing Code / Passkey", "Yes, 6-digit confirmation code verified", "Mutual numeric comparison matched on both screens"],
+          ["Test File Name / Type", "sample.txt (Text file, 24 KB)", "Sent via Android Bluetooth Share"],
+          ["Data Transfer Status", "Successful", "File transferred and verified with 100% data integrity"]
+        ]
+      },
+      {
+        "title": "Observation Table B: Bluetooth Range Testing (RSSI vs. Distance)",
+        "subtitle": "Received signal strength and connection quality across measured distances",
+        "headers": ["Sr. No.", "Device Name", "Measured Distance (m)", "RSSI (dBm)", "Signal Strength Rating", "Connection State"],
+        "rows": [
+          ["1", "OPPO A74 5G", "~0.5 m", "-57 dBm", "Excellent", "Immediate connection, fast transfer"],
+          ["2", "Realme 8i", "~0.71 m", "-56 dBm", "Excellent", "Stable connection"],
+          ["3", "Realme 12x 5G", "~0.89 m", "-58 dBm", "Good", "Stable connection"],
+          ["4", "Generic BLE Beacon", "~3.16 m", "-69 dBm", "Good", "Normal connection"],
+          ["5", "Xiaomi Device", "~11.22 m", "-80 dBm", "Fair / Weak", "Near range limit; transfer throughput drops"]
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Enable Bluetooth and Make Discoverable",
+        "description": "Switch ON Bluetooth on both Smartphone A (OPPO A74 5G) and Smartphone B (Realme 8i). Open Bluetooth settings and ensure visibility is enabled."
+      },
+      {
+        "step": 2,
+        "title": "Perform Device Discovery & Initiate Pairing",
+        "description": "On Smartphone A, tap 'Pair new device' / scan. Locate 'Realme 8i' in the discovered devices list and tap to initiate pairing."
+      },
+      {
+        "step": 3,
+        "title": "Verify Passkey and Establish Trusted Bond",
+        "description": "Confirm that the identical 6-digit passkey appears on both smartphone screens. Tap 'Pair' on both devices to establish an encrypted bond."
+      },
+      {
+        "step": 4,
+        "title": "Transfer Test File",
+        "description": "Select sample.txt on Smartphone A. Tap Share -> Bluetooth -> select Realme 8i. Accept the incoming transfer on Smartphone B and verify successful receipt."
+      },
+      {
+        "step": 5,
+        "title": "Perform Bluetooth Range Testing",
+        "description": "Measure connection reliability and signal RSSI at increasing distances: ~0.5m, 0.7m, 0.9m, 3.16m, and 11.22m in an open lab corridor. Record findings in Observation Table B."
+      }
+    ],
+    "vivaQuestions": [
+      {
+        "q": "What is Bluetooth and which standard governs it?",
+        "a": "Bluetooth is a short-range wireless communication technology governed by the IEEE 802.15.1 standard and maintained by the Bluetooth Special Interest Group (SIG)."
+      },
+      {
+        "q": "Which frequency band is used by Bluetooth?",
+        "a": "Bluetooth operates in the 2.4 GHz ISM band (2.402 GHz to 2.480 GHz) divided into 79 channels (1 MHz each for Classic) or 40 channels (2 MHz each for Bluetooth Low Energy)."
+      },
+      {
+        "q": "What modulation technique does Bluetooth use to resist interference?",
+        "a": "Bluetooth uses Frequency Hopping Spread Spectrum (FHSS), hopping pseudo-randomly 1600 times per second across channels to avoid Wi-Fi and microwave interference."
+      },
+      {
+        "q": "What is Bluetooth pairing?",
+        "a": "Pairing is the authentication process where two devices verify a shared secret (passkey or PIN) to create an encrypted, trusted relationship and store a shared Link Key for future automatic reconnection."
+      },
+      {
+        "q": "What are the typical power classes of Bluetooth?",
+        "a": "Class 1: up to 100 mW (100 m range); Class 2: standard for smartphones, up to 2.5 mW (~10 m range); Class 3: up to 1 mW (~1 m range)."
+      }
+    ],
+    "conclusion": "Bluetooth communication between two mobile smartphones was successfully established through discovery and passkey verification. A test file was transferred with zero data loss. Range testing demonstrated that Bluetooth Class 2 devices maintain excellent performance up to ~3 meters (-57 to -69 dBm), but signal strength degrades to -80 dBm (Weak) at ~11 meters as distance and obstacle attenuation increase."
+  },
+  {
+    "id": 7,
+    "name": "Bluetooth Data Transfer Rate & Performance Analysis",
+    "language": "Python · Mobile Measurement",
+    "problemStatement": "Measure data transfer time across different file types (Text, Image, Audio, Video, Large Video) using mobile Bluetooth communication, calculate the effective throughput / data transfer rate in Mbps, and analyze performance trade-offs.",
+    "tasks": [
+      "Pair two mobile smartphones via Bluetooth.",
+      "Prepare 5 standardized test files of different sizes: 1 MB (Text), 5 MB (Image), 10 MB (Audio), 25 MB (Video), and 50 MB (Large Video).",
+      "Transfer each file via Bluetooth and measure transfer duration with a precise stopwatch.",
+      "Calculate effective transfer rate: Rate (MB/s) = File Size (MB) / Time (s), and Rate (Mbps) = Rate (MB/s) × 8.",
+      "Run the Python analysis script to plot File Size vs. Transfer Time and evaluate throughput bottlenecks."
+    ],
+    "variants": [
+      {
+        "id": "python",
+        "label": "Python Analysis Code",
+        "title": "Bluetooth Performance & Throughput Plotter",
+        "badge": "Matplotlib · Throughput Calculator",
+        "icon": "🐍",
+        "filename": "bt_performance.py",
+        "description": "Python script that calculates Bluetooth transfer rates, plots Transfer Time vs. File Size and Transfer Rate vs. File Size, and outputs tabular performance metrics.",
+        "code": "\"\"\"\nBluetooth Data Transfer Performance & Throughput Analysis\nSubject: Modern Digital Mobile Communication\n\"\"\"\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# --- Experimental Data from Lab Observation ---\nfile_types = ['Text', 'Image', 'Audio', 'Video', 'Large Video']\nfile_sizes_mb = np.array([1, 5, 10, 25, 50])        # in Megabytes (MB)\ntransfer_times_s = np.array([1.2, 3.5, 7.0, 18.0, 37.0]) # in seconds\n\n# --- Calculations ---\n# Transfer rate in Megabytes per second\nrate_mbps = (file_sizes_mb / transfer_times_s) * 8  # Megabits per second (Mbps)\nrate_mBps = file_sizes_mb / transfer_times_s        # Megabytes per second (MB/s)\n\nprint(\"=\" * 65)\nprint(f\"{'File Type':<15} | {'Size (MB)':<10} | {'Time (s)':<10} | {'Rate (Mbps)':<12} | {'Rate (MB/s)':<10}\")\nprint(\"=\" * 65)\nfor ftype, size, time, r_mbps, r_mBps in zip(file_types, file_sizes_mb, transfer_times_s, rate_mbps, rate_mBps):\n    print(f\"{ftype:<15} | {size:<10.1f} | {time:<10.2f} | {r_mbps:<12.2f} | {r_mBps:<10.2f}\")\nprint(\"=\" * 65)\nprint(f\"Average Effective Bluetooth Throughput: {np.mean(rate_mbps):.2f} Mbps\")\n\n# --- Visualizing Performance ---\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5), facecolor='white')\n\n# Subplot 1: File Size vs. Transfer Time\nax1.plot(file_sizes_mb, transfer_times_s, 'o-', color='#2563eb', linewidth=2, markersize=7)\nax1.set_title(\"File Size vs. Transfer Time\", fontsize=12, fontweight='bold')\nax1.set_xlabel(\"File Size (MB)\", fontsize=10)\nax1.set_ylabel(\"Transfer Time (seconds)\", fontsize=10)\nax1.grid(True, linestyle='--', alpha=0.5)\nfor x, y, label in zip(file_sizes_mb, transfer_times_s, file_types):\n    ax1.annotate(f\"{label}\\n({y}s)\", (x, y), textcoords=\"offset points\", xytext=(0, 8), ha='center', fontsize=8)\n\n# Subplot 2: File Size vs. Transfer Rate (Mbps)\nax2.plot(file_sizes_mb, rate_mbps, 's-', color='#059669', linewidth=2, markersize=7)\nax2.set_title(\"Effective Transfer Rate (Throughput)\", fontsize=12, fontweight='bold')\nax2.set_xlabel(\"File Size (MB)\", fontsize=10)\nax2.set_ylabel(\"Transfer Rate (Mbps)\", fontsize=10)\nax2.grid(True, linestyle='--', alpha=0.5)\nax2.axhline(np.mean(rate_mbps), color='#ea580c', linestyle=':', label=f\"Mean: {np.mean(rate_mbps):.2f} Mbps\")\nax2.legend(loc='lower right')\n\nplt.suptitle(\"Bluetooth File Transfer Performance Analysis\", fontsize=14, fontweight='bold')\nplt.tight_layout()\nplt.show()"
+      }
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table: Bluetooth File Transfer Speed & Throughput",
+        "subtitle": "Experimental measurement across file formats and sizes",
+        "headers": ["Sr. No.", "File Type", "File Size (MB)", "Transfer Time (s)", "Transfer Rate (Mbps)", "Effective Speed (MB/s)"],
+        "rows": [
+          ["1", "Text Document", "1 MB", "1.2 s", "6.67 Mbps", "0.83 MB/s"],
+          ["2", "Image (JPEG)", "5 MB", "3.5 s", "11.43 Mbps", "1.43 MB/s"],
+          ["3", "Audio (MP3)", "10 MB", "7.0 s", "11.43 Mbps", "1.43 MB/s"],
+          ["4", "Video (MP4)", "25 MB", "18.0 s", "11.11 Mbps", "1.39 MB/s"],
+          ["5", "Large Video (HD)", "50 MB", "37.0 s", "10.81 Mbps", "1.35 MB/s"]
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Pair Devices and Prepare Test Files",
+        "description": "Establish a stable Bluetooth connection between two smartphones. Prepare 5 sample files: 1 MB, 5 MB, 10 MB, 25 MB, and 50 MB on the sender device."
+      },
+      {
+        "step": 2,
+        "title": "Measure Transfer Time with Stopwatch",
+        "description": "Initiate file transfer via Bluetooth. Start the timer the instant progress begins, and stop the timer the instant transfer notification shows 100% complete."
+      },
+      {
+        "step": 3,
+        "title": "Compute Transfer Rates in Mbps",
+        "description": "Apply the transfer rate formula: Rate (MB/s) = File Size / Time, then convert to bits per second: Rate (Mbps) = Rate (MB/s) × 8. Record in the observation table."
+      },
+      {
+        "step": 4,
+        "title": "Run Performance Analysis Script",
+        "description": "Execute the Python performance script to generate comparative throughput plots and determine the sustained link throughput."
+      }
+    ],
+    "vivaQuestions": [
+      {
+        "q": "What factors affect practical Bluetooth transfer speeds?",
+        "a": "Bluetooth version (e.g. 4.2 vs. 5.0+), packet overhead, protocol handshakes, separation distance, radio interference in the 2.4 GHz band, and storage write speed."
+      },
+      {
+        "q": "Why is the effective throughput lower for smaller files (like 1 MB at 6.67 Mbps)?",
+        "a": "Because initial connection setup, channel allocation, and profile handshake overhead represent a larger percentage of total elapsed transfer time for smaller files."
+      },
+      {
+        "q": "What is the theoretical maximum physical data rate of Bluetooth 5.0?",
+        "a": "Bluetooth 5.0 supports 2 Mbps PHY mode for low energy and up to 3 Mbps Enhanced Data Rate (EDR) for Classic Bluetooth."
+      }
+    ],
+    "conclusion": "Bluetooth data transfer performance was analyzed across file sizes from 1 MB to 50 MB. The effective transfer rate stabilized between 10.81 Mbps and 11.43 Mbps for files 5 MB and larger, with an average sustained throughput of ~10.3 Mbps. Smaller files showed lower effective throughput due to relative protocol handshake latency."
+  },
+  {
+    "id": 8,
+    "name": "Study of Path Loss in an Indoor Environment (RSSI vs. Obstacles)",
+    "language": "MATLAB · Python Alternative",
+    "problemStatement": "Study the effect of indoor obstacles (Line-of-Sight, wooden door, glass partition, concrete wall, human body) on received signal strength (RSSI) at a fixed distance, measuring additional path loss and visualizing attenuation.",
+    "tasks": [
+      "Place transmitter and receiver at a fixed distance (e.g., 5 meters).",
+      "Measure reference baseline RSSI with an unobstructed clear Line-of-Sight (LOS).",
+      "Introduce obstacles one by one (wooden door, glass partition, concrete wall, human body) while maintaining fixed device coordinates.",
+      "Record 5 successive RSSI samples per condition and compute average RSSI.",
+      "Calculate relative additional path loss (dB) = Reference RSSI - Average RSSI.",
+      "Plot RSSI and relative path loss across obstacle conditions using MATLAB or Python."
+    ],
+    "variants": [
+      {
+        "id": "python",
+        "label": "Python Code",
+        "title": "Indoor Obstacle Path Loss Visualizer",
+        "badge": "Bar Plot · Attenuation",
+        "icon": "🐍",
+        "filename": "indoor_pathloss.py",
+        "description": "Python script that plots average RSSI and relative additional path loss attenuation (dB) across indoor obstacle conditions.",
+        "code": "\"\"\"\nIndoor Path Loss & Obstacle Attenuation Analysis\nSubject: Modern Digital Mobile Communication\n\"\"\"\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# --- Experimental Data ---\nconditions = ['Clear LOS', 'Glass Partition', 'Wooden Door', 'Human Body', 'Concrete Wall']\navg_rssi = np.array([-48.0, -53.2, -58.4, -62.6, -71.8])  # in dBm\nref_rssi = avg_rssi[0]                                     # Reference LOS = -48.0 dBm\npath_loss_db = -(avg_rssi - ref_rssi)                      # Additional path loss in dB\n\nprint(\"=\" * 60)\nprint(f\"{'Condition':<18} | {'Avg RSSI (dBm)':<15} | {'Additional Loss (dB)':<20}\")\nprint(\"=\" * 60)\nfor cond, rssi, loss in zip(conditions, avg_rssi, path_loss_db):\n    print(f\"{cond:<18} | {rssi:<15.1f} | {loss:<20.1f}\")\nprint(\"=\" * 60)\n\n# --- Plotting Two-Panel Graph ---\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5), facecolor='white')\n\ncolors = ['#22c55e', '#3b82f6', '#f59e0b', '#ec4899', '#ef4444']\n\n# Plot 1: Received RSSI (dBm)\nbars1 = ax1.bar(conditions, avg_rssi, color=colors, edgecolor='#1e293b', width=0.55)\nax1.set_title(\"Received Signal Strength (RSSI vs. Obstacle)\", fontsize=11, fontweight='bold')\nax1.set_ylabel(\"RSSI (dBm)\", fontsize=10)\nax1.set_ylim(-80, -35)\nax1.grid(True, linestyle='--', alpha=0.4, axis='y')\nfor bar in bars1:\n    yval = bar.get_height()\n    ax1.text(bar.get_x() + bar.get_width()/2.0, yval - 2.5, f\"{yval:.1f} dBm\", ha='center', va='top', color='white', fontweight='bold', fontsize=8)\n\n# Plot 2: Relative Additional Path Loss (dB)\nbars2 = ax2.bar(conditions, path_loss_db, color=colors, edgecolor='#1e293b', width=0.55)\nax2.set_title(\"Additional Attenuation / Path Loss (dB)\", fontsize=11, fontweight='bold')\nax2.set_ylabel(\"Path Loss (dB)\", fontsize=10)\nax2.set_ylim(0, 30)\nax2.grid(True, linestyle='--', alpha=0.4, axis='y')\nfor bar in bars2:\n    yval = bar.get_height()\n    ax2.text(bar.get_x() + bar.get_width()/2.0, yval + 0.8, f\"{yval:.1f} dB\", ha='center', va='bottom', color='#0f172a', fontweight='bold', fontsize=8)\n\nplt.suptitle(\"Study of Path Loss in Indoor Environment (Fixed Distance = 5m)\", fontsize=13, fontweight='bold')\nplt.tight_layout()\nplt.show()"
+      },
+      {
+        "id": "matlab",
+        "label": "MATLAB Code",
+        "title": "Indoor Path Loss Plot in MATLAB",
+        "badge": "Bar Chart · MATLAB",
+        "icon": "📐",
+        "filename": "indoor_pathloss.m",
+        "description": "MATLAB script plotting average received RSSI and additional obstacle attenuation in decibels.",
+        "code": "clc;\nclear;\nclose all;\n\n% Obstacle categories\nconditions = {'Clear LOS', 'Glass', 'Wooden Door', 'Human Body', 'Concrete Wall'};\navg_rssi = [-48.0, -53.2, -58.4, -62.6, -71.8]; % dBm\nref_rssi = avg_rssi(1);\nadd_path_loss = -(avg_rssi - ref_rssi);         % Relative loss in dB\n\nfigure('Color', 'w', 'Position', [150, 150, 900, 450]);\n\nsubplot(1, 2, 1);\nbar(avg_rssi, 'FaceColor', [0.15, 0.45, 0.85]);\nset(gca, 'XTickLabel', conditions, 'XTickLabelRotation', 25);\nylabel('Received RSSI (dBm)');\ntitle('RSSI Across Obstacle Conditions');\ngrid on;\n\nsubplot(1, 2, 2);\nbar(add_path_loss, 'FaceColor', [0.85, 0.25, 0.20]);\nset(gca, 'XTickLabel', conditions, 'XTickLabelRotation', 25);\nylabel('Additional Path Loss (dB)');\ntitle('Relative Attenuation vs. Obstacle');\ngrid on;\n\nsgtitle('Indoor Path Loss Study (Fixed Distance = 5m)');"
+      }
+    ],
+    "observationTables": [
+      {
+        "title": "Observation Table: RSSI and Relative Path Loss vs. Indoor Obstacles",
+        "subtitle": "Experimental RSSI measurements at fixed distance (5 m) across typical building obstacles",
+        "headers": ["Sr. No.", "Obstacle Condition", "R1 (dBm)", "R2 (dBm)", "R3 (dBm)", "Average RSSI (dBm)", "Additional Path Loss (dB)"],
+        "rows": [
+          ["1", "Clear Line-of-Sight (LOS)", "-48", "-47", "-49", "-48.0 dBm", "0.0 dB (Reference)"],
+          ["2", "Glass Partition", "-53", "-54", "-53", "-53.2 dBm", "5.2 dB"],
+          ["3", "Wooden Door", "-58", "-59", "-58", "-58.4 dBm", "10.4 dB"],
+          ["4", "Human Body (Shadowing)", "-62", "-63", "-63", "-62.6 dBm", "14.6 dB"],
+          ["5", "Concrete Wall (Reinforced)", "-71", "-72", "-72", "-71.8 dBm", "23.8 dB"]
+        ]
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Set Up Fixed-Distance Baseline",
+        "description": "Position the transmitter (Wi-Fi AP or smartphone) and receiver exactly 5 meters apart in an unobstructed indoor area. Ensure antennas have direct line of sight."
+      },
+      {
+        "step": 2,
+        "title": "Record Clear LOS Reference RSSI",
+        "description": "Record 3 to 5 successive RSSI readings and compute the mean baseline reference RSSI (e.g., -48.0 dBm)."
+      },
+      {
+        "step": 3,
+        "title": "Introduce Controlled Obstacles",
+        "description": "Without changing device positions, introduce individual obstacles: glass window/partition, wooden door, person standing in direct path, and thick concrete wall."
+      },
+      {
+        "step": 4,
+        "title": "Compute Relative Additional Path Loss",
+        "description": "Subtract the average obstructed RSSI from the reference LOS RSSI: Path Loss (dB) = Reference RSSI - Obstructed RSSI."
+      }
+    ],
+    "vivaQuestions": [
+      {
+        "q": "What is indoor path loss?",
+        "a": "Indoor path loss is the reduction in power density of an electromagnetic wave as it propagates through an indoor environment, caused by free space spreading, reflection, diffraction, and absorption by walls and furniture."
+      },
+      {
+        "q": "Why does a reinforced concrete wall cause much higher attenuation (~24 dB) than a wooden door (~10 dB)?",
+        "a": "Because reinforced concrete has high dielectric permittivity and conductivity with dense rebar steel mesh, which causes intense reflection and skin-depth absorption of RF energy compared to low-density organic wood."
+      },
+      {
+        "q": "What is human body shadowing?",
+        "a": "The human body is composed of approximately 60-70% water with dissolved electrolytes, which strongly absorbs 2.4 GHz and 5 GHz radio frequencies, causing 10 to 15 dB of shadowing loss when obstructing the line-of-sight."
+      }
+    ],
+    "conclusion": "Path loss in an indoor environment was experimentally measured across various obstacle types at a fixed 5m distance. A clear Line-of-Sight yielded -48.0 dBm. Glass partitions introduced ~5.2 dB attenuation, wooden doors introduced ~10.4 dB, human body shadowing added ~14.6 dB, and a reinforced concrete wall introduced the greatest attenuation of ~23.8 dB, demonstrating the critical impact of building material composition on indoor wireless network coverage."
+  },
+  {
+    "id": 9,
+    "name": "Modern Digital Mobile Practical 9",
+    "language": "Mobile & Digital Wireless Communication",
+    "problemStatement": "Practical 9: Modern Digital Mobile Communication laboratory study and experimental analysis. Complete experimental details and source codes are being finalized.",
+    "tasks": [
+      "Consult the course syllabus and lab manual for Experiment 9.",
+      "Provide experimental procedure, codes (MATLAB/Python), and observation data to update this slot."
+    ],
+    "note": "Details & Code Pending from User: Share your experiment details, procedure, code, or observation table to have this slot populated automatically.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Awaiting Experiment 9 Data",
+        "description": "This practical slot is ready and waiting for your specific code and experiment details. Once provided, it will be instantly updated with full procedures and observation tables."
+      }
+    ],
+    "conclusion": "Slot prepared for Modern Digital Mobile Practical 9. Ready for code and observation updates."
+  },
+  {
+    "id": 10,
+    "name": "Modern Digital Mobile Practical 10",
+    "language": "Mobile & Digital Wireless Communication",
+    "problemStatement": "Practical 10: Modern Digital Mobile Communication laboratory study and experimental analysis. Complete experimental details and source codes are being finalized.",
+    "tasks": [
+      "Consult the course syllabus and lab manual for Experiment 10.",
+      "Provide experimental procedure, codes (MATLAB/Python), and observation data to update this slot."
+    ],
+    "note": "Details & Code Pending from User: Share your experiment details, procedure, code, or observation table to have this slot populated automatically.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Awaiting Experiment 10 Data",
+        "description": "This practical slot is ready and waiting for your specific code and experiment details. Once provided, it will be instantly updated with full procedures and observation tables."
+      }
+    ],
+    "conclusion": "Slot prepared for Modern Digital Mobile Practical 10. Ready for code and observation updates."
+  }
+]

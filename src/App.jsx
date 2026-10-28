@@ -1,16 +1,14 @@
 import { useState, useMemo } from "react";
-import aiExperiments from "./data/experiments.json";
-import asddExperiments from "./data/asdd_experiments.json";
+import mdmExperiments from "./data/mdm_experiments.json";
 import { SUBJECTS } from "./data/subjects";
 import "./style.css";
 
 const EXPERIMENTS_MAP = {
-  ai: aiExperiments,
-  asdd: asddExperiments,
+  mdm: mdmExperiments,
 };
 
 function App() {
-  const [activeSubjectId, setActiveSubjectId] = useState("ai"); // Default to first tab (AI & SC)
+  const [activeSubjectId, setActiveSubjectId] = useState("mdm"); // Default to MDM tab
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const [cardFilter, setCardFilter] = useState("all");
@@ -94,6 +92,15 @@ function App() {
     }
   }
 
+  function copyTableAsMarkdown(table, key) {
+    if (!table || !table.headers || !table.rows) return;
+    const headerLine = `| ${table.headers.join(" | ")} |`;
+    const separatorLine = `| ${table.headers.map(() => "---").join(" | ")} |`;
+    const rowLines = table.rows.map((row) => `| ${row.join(" | ")} |`).join("\n");
+    const markdown = `### ${table.title}\n${table.subtitle ? `*${table.subtitle}*\n\n` : "\n"}${headerLine}\n${separatorLine}\n${rowLines}\n`;
+    copyText(markdown, key);
+  }
+
   function handleNotifySubmit(e) {
     e.preventDefault();
     if (!notifiedEmail.trim()) return;
@@ -114,7 +121,7 @@ function App() {
         <button
           className="brand"
           onClick={() => {
-            setActiveSubjectId("ai");
+            setActiveSubjectId("mdm");
             setSelectedId(null);
           }}
           aria-label="OmniLab Hub Home"
@@ -132,7 +139,7 @@ function App() {
           <span className="semester-badge">Semester 6 Practicals</span>
           <div className="subject-counter">
             <span className="live-dot"></span>
-            <span>4 Subjects</span>
+            <span>{SUBJECTS.length} Subjects</span>
           </div>
         </div>
       </header>
@@ -256,9 +263,19 @@ function App() {
                             ))}
                           </div>
                         )}
+                        {item.observationTables && item.observationTables.length > 0 && (!item.variants || item.variants.length === 0) && (
+                          <div className="exp-variants-pills">
+                            <span className="v-pill-label" style={{ color: "#059669" }}>Tables:</span>
+                            <span className="v-pill" style={{ background: "#ecfdf5", color: "#065f46", borderColor: "#a7f3d0" }}>
+                              📊 {item.observationTables.length} Observation {item.observationTables.length === 1 ? "Table" : "Tables"}
+                            </span>
+                          </div>
+                        )}
                         <div className="exp-meta">
                           <span className="lang-tag">{item.language}</span>
-                          <span className="status-indicator ready">● Verified Answer &amp; Code</span>
+                          <span className={`status-indicator ${item.note && item.note.includes("Pending") ? "pending" : "ready"}`}>
+                            {item.note && item.note.includes("Pending") ? "○ Details Pending" : "● Verified Practical"}
+                          </span>
                         </div>
                       </div>
                       <span className="arrow" aria-hidden="true">→</span>
@@ -362,7 +379,7 @@ function App() {
                       <span className="variants-spark-icon">⚡</span>
                       <div className="variants-bar-title-text">
                         <strong>1-Click Quick Copy &amp; Jump</strong>
-                        <p>Instantly copy the required Prolog code directly to your clipboard or jump to its card below:</p>
+                        <p>Instantly copy the required code directly to your clipboard or jump to its card below:</p>
                       </div>
                     </div>
                     <div className="variants-quick-buttons">
@@ -393,178 +410,8 @@ function App() {
                 )}
               </div>
 
-              {/* RENDER STRUCTURED STEPS (Distinguishing Commands vs File Code vs Output vs GUI) */}
-              {selected.steps && selected.steps.length > 0 ? (
-                <div className="structured-steps-container">
-                  <div className="steps-section-title">
-                    <h2>Step-by-Step Practical Execution Guide</h2>
-                    <p>Commands to run in terminal and files to create are clearly separated below</p>
-                  </div>
-
-                  <div className="steps-list">
-                    {selected.steps.map((st) => (
-                      <div className="step-card" key={st.step}>
-                        <div className="step-card-header">
-                          <span className="step-badge">Step {st.step}</span>
-                          <h3 className="step-card-title">{st.title}</h3>
-                        </div>
-
-                        {st.description && (
-                          <p className="step-description">{st.description}</p>
-                        )}
-
-                        {/* 1. TERMINAL COMMANDS BLOCK */}
-                        {st.commands && (
-                          <div className="command-block">
-                            <div className="block-toolbar command-toolbar">
-                              <span className="block-label">
-                                <span className="terminal-prompt">$</span> Command to run in Terminal / PowerShell
-                              </span>
-                              <button
-                                className={`copy-btn-inline ${copiedKey === `cmd-${st.step}` ? "copied" : ""}`}
-                                onClick={() => copyText(st.commands, `cmd-${st.step}`)}
-                              >
-                                {copiedKey === `cmd-${st.step}` ? "✓ Copied" : "Copy Command"}
-                              </button>
-                            </div>
-                            <pre className="command-pre"><code>{st.commands}</code></pre>
-                          </div>
-                        )}
-
-                        {/* 2. SOURCE FILE TO CREATE BLOCK */}
-                        {st.file && (
-                          <div className="file-block">
-                            <div className="block-toolbar file-toolbar">
-                              <span className="block-label">
-                                <span className="file-icon">📄</span> File to create: <strong>{st.file.name}</strong>
-                              </span>
-                              <button
-                                className={`copy-btn-inline file ${copiedKey === `file-${st.step}` ? "copied" : ""}`}
-                                onClick={() => copyText(st.file.content, `file-${st.step}`)}
-                              >
-                                {copiedKey === `file-${st.step}` ? "✓ Copied File Content" : `Copy ${st.file.name}`}
-                              </button>
-                            </div>
-                            <pre className="file-pre"><code>{st.file.content}</code></pre>
-                            {st.commandTip && (
-                              <div className="tip-box">
-                                <span className="tip-icon">💡</span>
-                                <span>{st.commandTip}</span>
-                              </div>
-                            )}
-                          </div>
-                        )}
-
-                        {/* 3. EXPECTED OUTPUT BLOCK */}
-                        {st.output && (
-                          <div className="output-block">
-                            <div className="block-toolbar output-toolbar">
-                              <span className="block-label">
-                                <span className="output-icon">🖥️</span> Expected Terminal / Console Output
-                              </span>
-                              <button
-                                className={`copy-btn-inline output ${copiedKey === `out-${st.step}` ? "copied" : ""}`}
-                                onClick={() => copyText(st.output, `out-${st.step}`)}
-                              >
-                                {copiedKey === `out-${st.step}` ? "✓ Copied Output" : "Copy Output"}
-                              </button>
-                            </div>
-                            <pre className="output-pre"><code>{st.output}</code></pre>
-                          </div>
-                        )}
-
-                        {/* 4. JIRA GUI INSTRUCTIONS */}
-                        {st.guiSteps && (
-                          <div className="gui-steps-card">
-                            <div className="block-toolbar gui-toolbar">
-                              <span className="block-label">
-                                <span className="gui-icon">⚙️</span> Jira Workflow Instructions
-                              </span>
-                            </div>
-                            <ol className="gui-list">
-                              {st.guiSteps.map((gs, i) => (
-                                <li key={i}>{gs}</li>
-                              ))}
-                            </ol>
-                          </div>
-                        )}
-
-                        {/* 5. JIRA WORK ITEMS (Stories, Tasks, Bugs) */}
-                        {st.items && (
-                          <div className="work-items-grid">
-                            {st.items.map((item, idx) => (
-                              <div className={`work-item-card ${item.type.toLowerCase()}`} key={idx}>
-                                <div className="work-item-header">
-                                  <span className={`issue-pill ${item.type.toLowerCase()}`}>
-                                    {item.type}
-                                  </span>
-                                  <span className="item-key">{item.key}</span>
-                                  <span className={`priority-pill ${item.priority.toLowerCase().replace(/[^a-z]/g, "")}`}>
-                                    {item.priority}
-                                  </span>
-                                </div>
-                                <h4 className="work-item-summary">{item.summary}</h4>
-                                <pre className="work-item-desc"><code>{item.description}</code></pre>
-                                {item.acceptance && (
-                                  <div className="item-acceptance">
-                                    <strong>Acceptance Criteria:</strong>
-                                    <pre><code>{item.acceptance}</code></pre>
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* 6. COMPARISON TABLE */}
-                        {st.comparison && (
-                          <div className="comparison-table-wrap">
-                            <table className="comparison-table">
-                              <thead>
-                                <tr>
-                                  <th>Feature</th>
-                                  <th>GitHub Actions</th>
-                                  <th>Jenkins</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {st.comparison.map((row, i) => (
-                                  <tr key={i}>
-                                    <td><strong>{row.feature}</strong></td>
-                                    <td>{row.gha}</td>
-                                    <td>{row.jenkins}</td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* CONCLUSION CARD */}
-                  {selected.conclusion && (
-                    <div className="conclusion-card">
-                      <div className="conclusion-header">
-                        <span className="conclusion-icon">📝</span>
-                        <div className="conclusion-title">
-                          <h3>Experiment Conclusion (Answer for Journal / Viva)</h3>
-                          <p>Summary of operations performed, tools utilized, and outcomes achieved</p>
-                        </div>
-                        <button
-                          className={`copy-btn-inline ${copiedKey === "conclusion" ? "copied" : ""}`}
-                          onClick={() => copyText(selected.conclusion, "conclusion")}
-                        >
-                          {copiedKey === "conclusion" ? "✓ Copied Conclusion" : "Copy Conclusion"}
-                        </button>
-                      </div>
-                      <p className="conclusion-text">{selected.conclusion}</p>
-                    </div>
-                  )}
-                </div>
-              ) : selected.variants && selected.variants.length > 0 ? (
-                /* Multi-code cards section (BFS, DFS, Both in Exp 3) */
+              {/* 1. RENDER CODE VARIANTS (e.g. MATLAB & Python Codes) */}
+              {selected.variants && selected.variants.length > 0 && (
                 <div className="separate-code-cards-section">
                   <div className="cards-filter-toolbar">
                     <div className="filter-toolbar-left">
@@ -644,47 +491,295 @@ function App() {
                       );
                     })}
                   </div>
-
-                  {selected.note && (
-                    <div className="note-card">
-                      <span className="note-icon">💡</span>
-                      <div className="note-content">
-                        <strong>Exam &amp; Execution Note:</strong>
-                        <p>{selected.note}</p>
-                      </div>
-                    </div>
-                  )}
                 </div>
-              ) : (
-                /* Fallback for single-code AI experiments */
-                selected.code && (
-                  <div className="code-panel">
-                    <div className="code-toolbar">
-                      <div className="toolbar-left">
-                        <span className="terminal-dots">
-                          <span></span><span></span><span></span>
-                        </span>
-                        <span className="code-filename">solution.py</span>
-                      </div>
-                      <button
-                        className={`copy-button ${copiedKey === "ai-code" ? "copied" : ""}`}
-                        onClick={() => copyText(selected.code, "ai-code")}
-                      >
-                        {copiedKey === "ai-code" ? "✓ Copied to Clipboard!" : "Copy Full Code"}
-                      </button>
+              )}
+
+              {/* 2. RENDER SINGLE CODE PANEL (Fallback for single-code AI experiments) */}
+              {!selected.variants && selected.code && (
+                <div className="code-panel">
+                  <div className="code-toolbar">
+                    <div className="toolbar-left">
+                      <span className="terminal-dots">
+                        <span></span><span></span><span></span>
+                      </span>
+                      <span className="code-filename">solution.py</span>
                     </div>
-                    <pre><code>{selected.code}</code></pre>
-                    {selected.note && (
-                      <div className="note-card">
-                        <span className="note-icon">💡</span>
-                        <div className="note-content">
-                          <strong>Exam &amp; Execution Note:</strong>
-                          <p>{selected.note}</p>
-                        </div>
-                      </div>
-                    )}
+                    <button
+                      className={`copy-button ${copiedKey === "ai-code" ? "copied" : ""}`}
+                      onClick={() => copyText(selected.code, "ai-code")}
+                    >
+                      {copiedKey === "ai-code" ? "✓ Copied to Clipboard!" : "Copy Full Code"}
+                    </button>
                   </div>
-                )
+                  <pre><code>{selected.code}</code></pre>
+                </div>
+              )}
+
+              {/* 3. RENDER STRUCTURED STEPS / PROCEDURE */}
+              {selected.steps && selected.steps.length > 0 && (
+                <div className="structured-steps-container">
+                  <div className="steps-section-title">
+                    <h2>Step-by-Step Practical Execution Guide</h2>
+                    <p>Procedure, commands to run, and equipment configuration instructions</p>
+                  </div>
+
+                  <div className="steps-list">
+                    {selected.steps.map((st) => (
+                      <div className="step-card" key={st.step}>
+                        <div className="step-card-header">
+                          <span className="step-badge">Step {st.step}</span>
+                          <h3 className="step-card-title">{st.title}</h3>
+                        </div>
+
+                        {st.description && (
+                          <p className="step-description">{st.description}</p>
+                        )}
+
+                        {/* TERMINAL COMMANDS BLOCK */}
+                        {st.commands && (
+                          <div className="command-block">
+                            <div className="block-toolbar command-toolbar">
+                              <span className="block-label">
+                                <span className="terminal-prompt">$</span> Command to run in Terminal / PowerShell
+                              </span>
+                              <button
+                                className={`copy-btn-inline ${copiedKey === `cmd-${st.step}` ? "copied" : ""}`}
+                                onClick={() => copyText(st.commands, `cmd-${st.step}`)}
+                              >
+                                {copiedKey === `cmd-${st.step}` ? "✓ Copied" : "Copy Command"}
+                              </button>
+                            </div>
+                            <pre className="command-pre"><code>{st.commands}</code></pre>
+                          </div>
+                        )}
+
+                        {/* SOURCE FILE TO CREATE BLOCK */}
+                        {st.file && (
+                          <div className="file-block">
+                            <div className="block-toolbar file-toolbar">
+                              <span className="block-label">
+                                <span className="file-icon">📄</span> File to create: <strong>{st.file.name}</strong>
+                              </span>
+                              <button
+                                className={`copy-btn-inline file ${copiedKey === `file-${st.step}` ? "copied" : ""}`}
+                                onClick={() => copyText(st.file.content, `file-${st.step}`)}
+                              >
+                                {copiedKey === `file-${st.step}` ? "✓ Copied File Content" : `Copy ${st.file.name}`}
+                              </button>
+                            </div>
+                            <pre className="file-pre"><code>{st.file.content}</code></pre>
+                            {st.commandTip && (
+                              <div className="tip-box">
+                                <span className="tip-icon">💡</span>
+                                <span>{st.commandTip}</span>
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                        {/* EXPECTED OUTPUT BLOCK */}
+                        {st.output && (
+                          <div className="output-block">
+                            <div className="block-toolbar output-toolbar">
+                              <span className="block-label">
+                                <span className="output-icon">🖥️</span> Expected Terminal / Console Output
+                              </span>
+                              <button
+                                className={`copy-btn-inline output ${copiedKey === `out-${st.step}` ? "copied" : ""}`}
+                                onClick={() => copyText(st.output, `out-${st.step}`)}
+                              >
+                                {copiedKey === `out-${st.step}` ? "✓ Copied Output" : "Copy Output"}
+                              </button>
+                            </div>
+                            <pre className="output-pre"><code>{st.output}</code></pre>
+                          </div>
+                        )}
+
+                        {/* GUI INSTRUCTIONS */}
+                        {st.guiSteps && (
+                          <div className="gui-steps-card">
+                            <div className="block-toolbar gui-toolbar">
+                              <span className="block-label">
+                                <span className="gui-icon">⚙️</span> Workflow Instructions
+                              </span>
+                            </div>
+                            <ol className="gui-list">
+                              {st.guiSteps.map((gs, i) => (
+                                <li key={i}>{gs}</li>
+                              ))}
+                            </ol>
+                          </div>
+                        )}
+
+                        {/* WORK ITEMS */}
+                        {st.items && (
+                          <div className="work-items-grid">
+                            {st.items.map((item, idx) => (
+                              <div className={`work-item-card ${item.type.toLowerCase()}`} key={idx}>
+                                <div className="work-item-header">
+                                  <span className={`issue-pill ${item.type.toLowerCase()}`}>
+                                    {item.type}
+                                  </span>
+                                  <span className="item-key">{item.key}</span>
+                                  <span className={`priority-pill ${item.priority.toLowerCase().replace(/[^a-z]/g, "")}`}>
+                                    {item.priority}
+                                  </span>
+                                </div>
+                                <h4 className="work-item-summary">{item.summary}</h4>
+                                <pre className="work-item-desc"><code>{item.description}</code></pre>
+                                {item.acceptance && (
+                                  <div className="item-acceptance">
+                                    <strong>Acceptance Criteria:</strong>
+                                    <pre><code>{item.acceptance}</code></pre>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* COMPARISON TABLE */}
+                        {st.comparison && (
+                          <div className="comparison-table-wrap">
+                            <table className="comparison-table">
+                              <thead>
+                                <tr>
+                                  <th>Feature</th>
+                                  <th>GitHub Actions</th>
+                                  <th>Jenkins</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {st.comparison.map((row, i) => (
+                                  <tr key={i}>
+                                    <td><strong>{row.feature}</strong></td>
+                                    <td>{row.gha}</td>
+                                    <td>{row.jenkins}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 4. RENDER OBSERVATION TABLES */}
+              {selected.observationTables && selected.observationTables.length > 0 && (
+                <div className="observation-tables-section">
+                  <div className="steps-section-title">
+                    <h2>Observation &amp; Measurement Tables</h2>
+                    <p>Accurate lab measurement records and parameter analysis ready to copy into your journal</p>
+                  </div>
+                  <div className="observation-tables-list">
+                    {selected.observationTables.map((tbl, idx) => {
+                      const isCopied = copiedKey === `tbl-${idx}`;
+                      return (
+                        <div className="observation-table-card" key={idx}>
+                          <div className="table-card-header">
+                            <div className="table-title-group">
+                              <span className="table-icon">📊</span>
+                              <div>
+                                <h3 className="table-title">{tbl.title}</h3>
+                                {tbl.subtitle && <p className="table-subtitle">{tbl.subtitle}</p>}
+                              </div>
+                            </div>
+                            <button
+                              className={`copy-btn-inline ${isCopied ? "copied" : ""}`}
+                              onClick={() => copyTableAsMarkdown(tbl, `tbl-${idx}`)}
+                              title="Copy table formatted in Markdown to paste into Docs or Word"
+                            >
+                              {isCopied ? "✓ Copied Table!" : "Copy Table (Markdown)"}
+                            </button>
+                          </div>
+                          <div className="comparison-table-wrap">
+                            <table className="comparison-table observation-table">
+                              <thead>
+                                <tr>
+                                  {tbl.headers.map((h, hIdx) => (
+                                    <th key={hIdx}>{h}</th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {tbl.rows.map((row, rIdx) => (
+                                  <tr key={rIdx}>
+                                    {row.map((cell, cIdx) => (
+                                      <td key={cIdx}>
+                                        {cIdx === 0 && row.length > 2 && !isNaN(Number(cell)) ? (
+                                          <span className="row-num-badge">{cell}</span>
+                                        ) : cIdx === 0 ? (
+                                          <strong>{cell}</strong>
+                                        ) : (
+                                          cell
+                                        )}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* 5. RENDER VIVA VOCE QUESTIONS */}
+              {selected.vivaQuestions && selected.vivaQuestions.length > 0 && (
+                <div className="viva-questions-section">
+                  <div className="steps-section-title">
+                    <h2>Viva Voce &amp; Lab Exam Questions</h2>
+                    <p>Comprehensive questions and verified answers frequently asked in practical oral exams</p>
+                  </div>
+                  <div className="viva-cards-list">
+                    {selected.vivaQuestions.map((vq, vIdx) => (
+                      <div className="viva-card" key={vIdx}>
+                        <div className="viva-q-header">
+                          <span className="viva-q-badge">Q{vIdx + 1}</span>
+                          <h4 className="viva-question">{vq.q}</h4>
+                        </div>
+                        <p className="viva-answer">{vq.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 6. NOTE CARD */}
+              {selected.note && (
+                <div className="note-card">
+                  <span className="note-icon">💡</span>
+                  <div className="note-content">
+                    <strong>Practical &amp; Exam Note:</strong>
+                    <p>{selected.note}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* 7. CONCLUSION CARD */}
+              {selected.conclusion && (
+                <div className="conclusion-card">
+                  <div className="conclusion-header">
+                    <span className="conclusion-icon">📝</span>
+                    <div className="conclusion-title">
+                      <h3>Experiment Conclusion (Answer for Journal / Viva)</h3>
+                      <p>Summary of operations performed, tools utilized, and outcomes achieved</p>
+                    </div>
+                    <button
+                      className={`copy-btn-inline ${copiedKey === "conclusion" ? "copied" : ""}`}
+                      onClick={() => copyText(selected.conclusion, "conclusion")}
+                    >
+                      {copiedKey === "conclusion" ? "✓ Copied Conclusion" : "Copy Conclusion"}
+                    </button>
+                  </div>
+                  <p className="conclusion-text">{selected.conclusion}</p>
+                </div>
               )}
             </section>
           )
@@ -725,15 +820,9 @@ function App() {
                 </button>
                 <button
                   className="btn-switch-ai"
-                  onClick={() => handleTabChange("asdd")}
+                  onClick={() => handleTabChange("mdm")}
                 >
-                  ⚡ View ASDD Practicals (4 Ready)
-                </button>
-                <button
-                  className="btn-switch-ai"
-                  onClick={() => handleTabChange("ai")}
-                >
-                  🤖 View AI Practicals (14 Ready)
+                  📡 View MDM Practicals (10 Ready)
                 </button>
               </div>
             </div>

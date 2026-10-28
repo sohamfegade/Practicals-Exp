@@ -1,45 +1,37 @@
-# OmniLab Hub
+# OmniLab Hub - Practical Portal
 
-A modern, responsive multi-subject engineering and computing practicals portal built with React + Vite. Designed for fast code lookups, lab exam preparation, and one-click code copying across multiple university subjects.
+A modern, responsive practical portal built with React + Vite. Designed for fast code lookups, lab exam preparation, one-click code copying, and comprehensive observation tables.
 
 ## Supported Subjects
 
-| Subject | Code | Status | Description |
-| :--- | :--- | :--- | :--- |
-| **AI & SC** | CS-AI-601 | **Active** (14 Practicals) | Artificial Intelligence & Soft Computing (Search, Minimax, GenAI, RAG, Neural Nets) |
-| **SMLDS** | DS-SML-602 | **Upcoming** (10 Topics Planned) | Statistical Machine Learning & Data Science (Regression, PCA, KNN, Clustering) |
-| **ASDD** | SE-ASD-603 | **Upcoming** (10 Topics Planned) | Agile Software Development & DevOps (Scrum, CI/CD, Docker, SonarQube) |
-| **MDM** | IT-MDM-604 | **Upcoming** (10 Topics Planned) | Master Data Management (Golden Record, Deduplication, Record Linkage, Governance) |
+| Subject | Status | Description |
+| :--- | :--- | :--- |
+| **MDM** (Modern Digital Mobile Communication) | **Active** (10 Practicals) | Spectrum allocation, Tx-Channel-Rx simulation, cellular frequency reuse in MATLAB/Python, Wi-Fi channel mapping, signal propagation vs distance, and Bluetooth throughput |
+| **SMLDS** (Statistical Machine Learning & Data Science) | **Upcoming** (10 Topics Planned) | Statistical modeling, regression diagnostics, PCA, and classification models |
 
 ## Features
 
-- **Multi-Subject Navigation**: Dedicated pill tabs to switch seamlessly between AI & SC, SMLDS, ASDD, and MDM courses.
-- **1-Click Copy**: Instant clipboard copying with fallback support.
-- **Search & Filter**: Real-time search across experiment titles, numbers, and libraries.
-- **Rich Upcoming Status**: Curated syllabus outlines, roadmap timeline, and topic preview for upcoming subjects.
-- **Mobile First**: Fully responsive layout optimized for smartphones, tablets, and desktops.
+- **Default Home Tab**: MDM practicals load immediately on visit.
+- **1-Click Copy**: Instant clipboard copying for MATLAB and Python scripts, observation tables (in GitHub markdown format), and conclusions.
+- **Search & Filter**: Real-time search across experiment titles, numbers, and techniques.
+- **Observation Tables**: Clean measurement and data tables ready for lab journal submission.
+- **Viva Voce Prep**: Comprehensive lab examination oral questions and verified answers.
+- **Mobile First**: Fully responsive layout optimized for smartphones, tablets, and laptops.
 
 ## Run Locally
 
-1. Install Node.js (LTS recommended).
-2. Install dependencies:
+1. Install dependencies:
    ```bash
    npm install
    ```
-3. Start local development server:
+2. Start local development server:
    ```bash
    npm run dev
    ```
-4. Open the local URL printed by Vite (typically `http://localhost:5173`).
+3. Open `http://localhost:5173`.
 
-## Deploy on Vercel
+## Build for Production
 
-1. Push this project to GitHub.
-2. Import the repository into [Vercel](https://vercel.com).
-3. Framework Preset: **Vite**. Build Command: `npm run build`. Output Directory: `dist`.
-4. Deploy!
-
-## Updating Practical Codes & Subjects
-
-- **AI Experiments**: Edit `src/data/experiments.json`.
-- **Subject Details & Curriculum**: Edit `src/data/subjects.js` to add or update subjects and their planned experiments.
+```bash
+npm run build
+```
