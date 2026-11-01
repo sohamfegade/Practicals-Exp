@@ -1,14 +1,30 @@
 import { useState, useMemo } from "react";
 import mdmExperiments from "./data/mdm_experiments.json";
+import smldsExperiments from "./data/smlds_experiments.json";
 import { SUBJECTS } from "./data/subjects";
 import "./style.css";
 
 const EXPERIMENTS_MAP = {
   mdm: mdmExperiments,
+  smlds: smldsExperiments,
 };
 
+function getItemCode(item) {
+  if (!item) return "";
+  if (item.variants && item.variants.length > 0 && item.variants[0]?.code) {
+    return item.variants[0].code;
+  }
+  if (item.fullScript) return item.fullScript;
+  if (item.code) return item.code;
+  const fileStep = item.steps?.find((s) => s.file?.content);
+  if (fileStep) return fileStep.file.content;
+  const cmdStep = item.steps?.find((s) => s.commands);
+  if (cmdStep) return cmdStep.commands;
+  return "";
+}
+
 function App() {
-  const [activeSubjectId, setActiveSubjectId] = useState("mdm"); // Default to MDM tab
+  const [activeSubjectId, setActiveSubjectId] = useState("smlds"); // Default to SMLDS tab
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const [cardFilter, setCardFilter] = useState("all");
@@ -121,7 +137,7 @@ function App() {
         <button
           className="brand"
           onClick={() => {
-            setActiveSubjectId("mdm");
+            setActiveSubjectId("smlds");
             setSelectedId(null);
           }}
           aria-label="OmniLab Hub Home"
@@ -136,7 +152,7 @@ function App() {
         </button>
 
         <div className="topbar-right">
-          <span className="semester-badge">Semester 6 Practicals</span>
+          <span className="semester-badge">Semester 5 Practicals</span>
           <div className="subject-counter">
             <span className="live-dot"></span>
             <span>{SUBJECTS.length} Subjects</span>
@@ -192,7 +208,7 @@ function App() {
                     <input
                       value={query}
                       onChange={(event) => setQuery(event.target.value)}
-                      placeholder={`Search ${currentSubject.shortName} experiments (e.g., Git, Docker, Jira, CI/CD)...`}
+                      placeholder={activeSubjectId === "smlds" ? "Search SMLDS practicals (e.g., EDA, t-Test, ANOVA, Regression, KNN, PCA)..." : `Search ${currentSubject.shortName} experiments (e.g., Spectrum, Tx-Rx, Wi-Fi, Bluetooth)...`}
                       aria-label="Search experiments"
                     />
                     {query && (
@@ -233,54 +249,84 @@ function App() {
                 </div>
 
                 <div className="experiment-list">
-                  {filteredExperiments.map((item) => (
-                    <button
-                      className="experiment-card"
-                      key={item.id}
-                      onClick={() => {
-                        setSelectedId(item.id);
-                        setCardFilter("all");
-                        setCopiedKey(null);
-                      }}
-                    >
-                      <span className="number">
-                        {String(item.id).padStart(2, "0")}
-                      </span>
-                      <div className="exp-info">
-                        <strong>{item.name}</strong>
-                        {item.problemStatement && (
-                          <span className="exp-problem-snippet">
-                            {item.problemStatement}
-                          </span>
-                        )}
-                        {item.variants && item.variants.length > 0 && (
-                          <div className="exp-variants-pills">
-                            <span className="v-pill-label">Code Options:</span>
-                            {item.variants.map((v) => (
-                              <span key={v.id} className="v-pill">
-                                {v.icon} {v.label}
+                  {filteredExperiments.map((item) => {
+                    const codeSnippet = getItemCode(item);
+                    const isListCopied = copiedKey === `card-list-${item.id}`;
+                    return (
+                      <div
+                        className="experiment-card"
+                        key={item.id}
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => {
+                          setSelectedId(item.id);
+                          setCardFilter("all");
+                          setCopiedKey(null);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            setSelectedId(item.id);
+                            setCardFilter("all");
+                            setCopiedKey(null);
+                          }
+                        }}
+                      >
+                        <span className="number">
+                          {String(item.id).padStart(2, "0")}
+                        </span>
+                        <div className="exp-info">
+                          <strong>{item.name}</strong>
+                          {item.problemStatement && (
+                            <span className="exp-problem-snippet">
+                              {item.problemStatement}
+                            </span>
+                          )}
+                          {item.variants && item.variants.length > 0 && (
+                            <div className="exp-variants-pills">
+                              <span className="v-pill-label">Code:</span>
+                              {item.variants.map((v) => (
+                                <span key={v.id} className="v-pill">
+                                  {v.icon} {v.label}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                          {item.observationTables && item.observationTables.length > 0 && (!item.variants || item.variants.length === 0) && (
+                            <div className="exp-variants-pills">
+                              <span className="v-pill-label" style={{ color: "#059669" }}>Tables:</span>
+                              <span className="v-pill" style={{ background: "#ecfdf5", color: "#065f46", borderColor: "#a7f3d0" }}>
+                                📊 {item.observationTables.length} Observation {item.observationTables.length === 1 ? "Table" : "Tables"}
                               </span>
-                            ))}
-                          </div>
-                        )}
-                        {item.observationTables && item.observationTables.length > 0 && (!item.variants || item.variants.length === 0) && (
-                          <div className="exp-variants-pills">
-                            <span className="v-pill-label" style={{ color: "#059669" }}>Tables:</span>
-                            <span className="v-pill" style={{ background: "#ecfdf5", color: "#065f46", borderColor: "#a7f3d0" }}>
-                              📊 {item.observationTables.length} Observation {item.observationTables.length === 1 ? "Table" : "Tables"}
+                            </div>
+                          )}
+                          <div className="exp-meta">
+                            <span className="lang-tag">{item.language}</span>
+                            <span className={`status-indicator ${item.note && item.note.includes("Pending") ? "pending" : "ready"}`}>
+                              {item.note && item.note.includes("Pending") ? "○ Details Pending" : "● Verified Practical"}
                             </span>
                           </div>
-                        )}
-                        <div className="exp-meta">
-                          <span className="lang-tag">{item.language}</span>
-                          <span className={`status-indicator ${item.note && item.note.includes("Pending") ? "pending" : "ready"}`}>
-                            {item.note && item.note.includes("Pending") ? "○ Details Pending" : "● Verified Practical"}
-                          </span>
+                        </div>
+
+                        <div className="card-right-group">
+                          {codeSnippet && (
+                            <button
+                              className={`card-quick-copy-btn ${isListCopied ? "copied" : ""}`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                copyText(codeSnippet, `card-list-${item.id}`);
+                              }}
+                              title={`Quick copy full code for ${item.name}`}
+                              type="button"
+                            >
+                              <span className="copy-icon">{isListCopied ? "✓" : "📋"}</span>
+                              <span>{isListCopied ? "Copied!" : "Quick Copy"}</span>
+                            </button>
+                          )}
+                          <span className="arrow" aria-hidden="true">→</span>
                         </div>
                       </div>
-                      <span className="arrow" aria-hidden="true">→</span>
-                    </button>
-                  ))}
+                    );
+                  })}
 
                   {filteredExperiments.length === 0 && (
                     <div className="empty">
@@ -339,9 +385,9 @@ function App() {
                             title={`Instantly copy ${v.label} to clipboard`}
                             type="button"
                           >
-                            <span className="hdr-pill-icon">{v.icon}</span>
+                            <span className="hdr-pill-icon">{isCopied ? "✓" : (v.icon || "📋")}</span>
                             <span className="hdr-pill-text">
-                              {isCopied ? `✓ Copied ${v.label.replace(" Code", "")}!` : `Copy ${v.label.replace(" Code", "")}`}
+                              {isCopied ? `✓ Copied ${v.label.replace(" Code", "").replace(" (Jupyter / Colab)", "")}!` : `Quick Copy ${v.label.replace(" Code", "").replace(" (Jupyter / Colab)", "")}`}
                             </span>
                           </button>
                         );
@@ -379,26 +425,26 @@ function App() {
                 )}
 
                 {/* Quick Master Copy Bar for ASDD */}
-                {selected.fullScript && (
+                {selected.fullScript && (!selected.variants || selected.variants.length === 0) && (
                   <div className="master-copy-bar">
                     <div className="master-copy-info">
                       <span className="master-copy-icon">⚡</span>
                       <div>
-                        <strong>Copy Complete Experiment Answer</strong>
-                        <p>Copies all commands, configs, and conclusions into your clipboard at once.</p>
+                        <strong>Quick Copy Complete Experiment Script</strong>
+                        <p>Copies dependencies and complete runnable Python implementation at once.</p>
                       </div>
                     </div>
                     <button
                       className={`copy-button master ${copiedKey === "full" ? "copied" : ""}`}
                       onClick={() => copyText(selected.fullScript, "full")}
                     >
-                      {copiedKey === "full" ? "✓ All Copied!" : "Copy Full Answer"}
+                      {copiedKey === "full" ? "✓ All Copied!" : "Quick Copy Full Script"}
                     </button>
                   </div>
                 )}
 
                 {/* Quick 1-Click Copy Bar for Code Variants (BFS, DFS, Both) */}
-                {selected.variants && selected.variants.length > 0 && (
+                {selected.variants && selected.variants.length > 1 && (
                   <div className="variants-master-bar">
                     <div className="variants-bar-header">
                       <span className="variants-spark-icon">⚡</span>
@@ -438,32 +484,34 @@ function App() {
               {/* 1. RENDER CODE VARIANTS (e.g. MATLAB & Python Codes) */}
               {selected.variants && selected.variants.length > 0 && (
                 <div className="separate-code-cards-section">
-                  <div className="cards-filter-toolbar">
-                    <div className="filter-toolbar-left">
-                      <span className="cards-count-label">
-                        Showing {displayedVariants.length} of {selected.variants.length} Code Cards
-                      </span>
-                    </div>
-                    <div className="cards-filter-tabs">
-                      <button
-                        className={`cards-filter-tab ${cardFilter === "all" ? "active" : ""}`}
-                        onClick={() => setCardFilter("all")}
-                        type="button"
-                      >
-                        All Cards ({selected.variants.length})
-                      </button>
-                      {selected.variants.map((v) => (
+                  {selected.variants.length > 1 && (
+                    <div className="cards-filter-toolbar">
+                      <div className="filter-toolbar-left">
+                        <span className="cards-count-label">
+                          Showing {displayedVariants.length} of {selected.variants.length} Code Cards
+                        </span>
+                      </div>
+                      <div className="cards-filter-tabs">
                         <button
-                          key={v.id}
-                          className={`cards-filter-tab ${cardFilter === v.id ? "active" : ""}`}
-                          onClick={() => setCardFilter(v.id)}
+                          className={`cards-filter-tab ${cardFilter === "all" ? "active" : ""}`}
+                          onClick={() => setCardFilter("all")}
                           type="button"
                         >
-                          <span>{v.icon}</span> {v.label}
+                          All Cards ({selected.variants.length})
                         </button>
-                      ))}
+                        {selected.variants.map((v) => (
+                          <button
+                            key={v.id}
+                            className={`cards-filter-tab ${cardFilter === v.id ? "active" : ""}`}
+                            onClick={() => setCardFilter(v.id)}
+                            type="button"
+                          >
+                            <span>{v.icon}</span> {v.label}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   <div className="code-cards-stack">
                     {displayedVariants.map((v) => {
@@ -1013,7 +1061,7 @@ function App() {
         <div className="footer-content">
           <div className="footer-left">
             <strong>OmniLab Hub</strong> — Engineering Practical &amp; Viva Code Portal
-            <span>Covering AI &amp; Soft Computing, ASDD, SMLDS, and MDM</span>
+            <span>Covering SMLDS (Machine Learning &amp; Data Science) and MDM (Modern Digital Mobile) Practicals</span>
           </div>
           <div className="footer-right">
             <span>Runs 100% in browser</span>
